@@ -261,6 +261,7 @@
                                                                     <label class="col-sm-8 col-lg-2 col-form-label">Nombre:</label>
                                                                     <div class="col-sm-12 col-lg-10" style="padding-left: 0%;">
                                                                         <div class="input-group input-group-inverse">
+                                                                            <input type="hidden" name="nombreActual" id="nombreActual" value="">
                                                                             <input class="form-control input-md valNombreProd" type="text" name="nombreProdEdit" id="nombreProdEdit"  value=""  placeholder="Ingresar nombre del producto" required>
                                                                             <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont-2x icofont-files-stack"></i></span>
                                                                         </div>

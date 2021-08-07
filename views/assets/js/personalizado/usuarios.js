@@ -55,6 +55,8 @@ $(document).on("click", ".btnEditarUser", function(){
 			$("#estadoUserEdit").val(json.estado);
 			$("#passwordUserEditActual").val(json.password);
 			$("#idUserActual").val(json.id_user);
+			$("#usuarioActual").val(json.usuario);
+			
 			usuarioUser =  json.usuario;     
 		},
         error: function(result){

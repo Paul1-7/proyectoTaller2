@@ -69,14 +69,23 @@
                                         "marcasid_marca" => $marca,
                                         "tipo_uni_prod" => $tipoUnidad,
                                         "imagen_prod"=> $ruta);
-                      $respuesta = ModeloProductos::nuevoProducto($datos);
 
-                        if($respuesta == "ok"){
-                            echo '<script>
-                                mensaje = "¡El producto ha sido guardado correctamente!"
-                                modulo = "productos"
-                                guardadoExitoso(mensaje,modulo);  
-                            </script>'; 
+                        $valNombre = ModeloClientes::mostrarClientes("nombre_prod",$nombre);
+                        if($valNombre!=false){
+                            echo'<script>
+                                var mensaje = "¡El nombre del producto ya se encuentra registrado!";
+                                datosNoValidos(mensaje);
+                            </script>';
+                        }else{
+                            $respuesta = ModeloProductos::nuevoProducto($datos);
+
+                            if($respuesta == "ok"){
+                                echo '<script>
+                                    mensaje = "¡El producto ha sido guardado correctamente!"
+                                    modulo = "productos"
+                                    guardadoExitoso(mensaje,modulo);  
+                                </script>'; 
+                            }
                         }
                 }else{
                     echo '<script>
@@ -106,7 +115,8 @@
                 $estado = $_POST["estadoProdEdit"];
                 $categoria = $_POST["catProdEdit"];
                 $marca = $_POST["marcaProdEdit"];
-                
+                $nombreActual = $_POST["nombreActual"];
+
                 if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $nombre) &&
                 preg_match('/^[0-9]+$/', $stock) &&
                 preg_match('/^[0-9.]+$/', $precioCompra) &&
@@ -179,15 +189,27 @@
                                     "marcasid_marca" => $marca,
                                     "tipo_uni_prod" => $tipoUnidad,
                                     "imagen_prod"=> $ruta);
-                                   
-                    $respuesta = ModeloProductos::modificarProducto($datos);
-                   
+                        
+                    $valNombre = ModeloClientes::mostrarClientes("nombre_prod",$nombre);
+                    $respuesta = "error";
+                    if($valNombre!=false){
+                        if($nombreActual == $valNombre["nombre_prod"]){
+                            $respuesta = ModeloProductos::modificarProducto($datos);
+                        }
+                        else{
+                            echo'<script>
+                                var mensaje = "¡El nombre del producto ya se encuentra registrado!";
+                                datosNoValidos(mensaje);
+                            </script>';
+                        }
+                    }else{
+                        $respuesta = ModeloProductos::modificarProducto($datos);
+                    }
+                    
                     if($respuesta == "ok"){
-                        
-                        
                         echo '<script>
-                        mensaje = "¡El producto ha sido guardado correctamente!"
-                        modulo = "productos"    
+                        var mensaje = "¡El producto ha sido guardado correctamente!"
+                        var modulo = "productos"    
                         guardadoExitoso(mensaje,modulo);
                         </script>';
                     }

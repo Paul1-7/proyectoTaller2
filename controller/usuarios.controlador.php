@@ -125,12 +125,21 @@
                                         "rolesid_rol" => $rol,
                                         "ci" => $ci,
                                         "foto"=> $ruta);
-                      $respuesta = ModeloUsuarios::nuevoUsuario($datos);
 
-                        if($respuesta == "ok"){
-                            echo '<script>
-                                guardadoExitoso("¡El usuario ha sido guardado correctamente!","usuarios");  
-                            </script>'; 
+                        $valUsuario = ModeloUsuarios::mostrarUsuarios("usuario",$usuario);
+                        if($valUsuario!=false){
+                            echo'<script>
+                                var mensaje = "¡El usuario asignado ya se encuentra registrado!";
+                                datosNoValidos(mensaje);
+                            </script>';
+                        }else{
+                            $respuesta = ModeloUsuarios::nuevoUsuario($datos);
+
+                            if($respuesta == "ok"){
+                                echo '<script>
+                                    guardadoExitoso("¡El usuario ha sido guardado correctamente!","usuarios");  
+                                </script>'; 
+                            }
                         }
                 }else{
                     echo '<script>
@@ -157,6 +166,7 @@
                 $estado = $_POST["estadoUserEdit"];
                 $rol = $_POST["rolUserEdit"];
                 $id = $_POST["idUserActual"];
+                $usuarioActual = $_POST["usuarioActual"];
                 
                 if( preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $nombres) &&
                     preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',$apellidos ) &&
@@ -233,16 +243,27 @@
                                    "rolesid_rol" => $rol,
                                    "ci" => $ci,
                                    "foto"=> $ruta);
-                                   
-                    $respuesta = ModeloUsuarios::modificarUsuario($datos);
-                   
-                    if($respuesta == "ok"){
-                        
-                        
+                    $valUsuario = ModeloUsuarios::mostrarUsuarios("usuario",$usuario);
+                    $respuesta = "error";
+                    if($valUsuario!=false){
+                        if($usuarioActual == $valUsuario["usuario"]){
+                            $respuesta = ModeloUsuarios::modificarUsuario($datos);
+                        }
+                        else{
+                            echo'<script>
+                                var mensaje = "¡El usuario asignado ya se encuentra registrado!";
+                                datosNoValidos(mensaje);
+                            </script>';
+                            }
+                    }else{               
+                        $respuesta = ModeloUsuarios::modificarUsuario($datos);
+                    }
+
+                    
+                    if($respuesta == "ok"){        
                         echo '<script>
-                            
-                        guardadoExitoso("¡El usuario ha sido guardado correctamente!","usuarios");
-                        </script>';
+                                guardadoExitoso("¡El usuario ha sido guardado correctamente!","usuarios");
+                            </script>';
                     }
                 }else{
     

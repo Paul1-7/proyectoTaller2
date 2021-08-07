@@ -255,6 +255,7 @@
                                                                     <div class="col-sm-1 col-lg-4">
                                                                             <div class="input-group input-group-inverse">
                                                                                 <input class="form-control input-md valUser" type="text" id="usuarioUserEdit" name="usuarioUserEdit" placeholder="Ingresar usuario" require >
+                                                                                <input type="hidden" name="usuarioActual" id="usuarioActual" value="">
                                                                                 <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
                                                                                 
                                                                             </div>

@@ -21,6 +21,8 @@ $(document).on("click", ".btnEditarCat", function(){
             $("#estadoCatEdit").val(json.estado_cat);
 			nombreCat=json.nombre_cat;
 			$("#idCatActual").val(json.id_cat);
+			$("#nombreCatActual").val(json.nombre_cat);
+			
              
 		},
         error: function(result){
@@ -67,7 +69,7 @@ $(".tablas").on("click", ".btnEliminarCat", function(){
     var idCat = $(this).attr("idCat");
 	var mensaje = '¿Está seguro de borrar la categoría?';
 	var ruta = "index.php?ruta=categorias&idCat="+idCat;
-	var modulo = "categoria"
+	var modulo = "categorias"
     confirmacionBorrado(mensaje,ruta,modulo);
 
 })

@@ -21,12 +21,20 @@
                                         "desc_cat"=> $desc,
                                         "estado_cat" => $estado,
                                         );
-                      $respuesta = ModeloCategorias::nuevaCategoria($datos);
 
-                        if($respuesta == "ok"){
-                            echo '<script>
-                                guardadoExitoso("¡La categoria ha sido guardada correctamente!","categorias");  
-                            </script>'; 
+                        $valNombre = ModeloCategorias::mostrarCategorias("nombre_cat",$nombre);
+                        if($valNombre!=false){
+                            echo'<script>
+                                var mensaje = "¡El nombre de la categoria ya se encuentra registrado!";
+                                datosNoValidos(mensaje);
+                            </script>';
+                        }else{                  
+                            $respuesta = ModeloCategorias::nuevaCategoria($datos);
+                            if($respuesta == "ok"){
+                                echo '<script>
+                                    guardadoExitoso("¡La categoria ha sido guardada correctamente!","categorias");  
+                                </script>'; 
+                            }
                         }
                 }else{
                     echo '<script>
@@ -49,6 +57,7 @@
                 $nombre =$_POST["nombreCatEdit"];
                 $desc = $_POST["descCatEdit"];
                 $id = $_POST["idCatActual"];
+                $nombreActual = $_POST["nombreCatActual"];
 
                 if(isset($_POST["estadoCatEdit"]) && $_POST["estadoCatEdit"]==1)
                     $estado = $_POST["estadoCatEdit"];
@@ -65,15 +74,32 @@
                                         "estado_cat" => $estado,
                                         ); 
 
-                    $respuesta = ModeloCategorias::modificarCategoria($datos);
-                   
-                    if($respuesta == "ok"){
+                    
 
+                    $valNombre = ModeloCategorias::mostrarCategorias("nombre_cat",$nombre);
+                    $respuesta = "error";
+                    if($valNombre!=false){
+                        if($nombreActual == $valNombre["nombre_cat"]){
+                            $respuesta = ModeloCategorias::modificarCategoria($datos);
+                        }
+                        echo'<script>
+                            var mensaje = "¡El nombre de la categoria ya se encuentra registrado!";
+                            datosNoValidos(mensaje);
+                        </script>';
+                    }else{
+                        $respuesta = ModeloCategorias::modificarCategoria($datos);
+                    }
+
+                    if($respuesta == "ok"){
+    
                         echo '<script>
-                            guardadoExitoso("¡La categoria ha sido guardada correctamente!","categorias");
+                            var mensaje = "¡La categoria ha sido guardada correctamente!"
+                            var modulo = "categorias"
+                            guardadoExitoso(mensaje,modulo);
                             
                         </script>';
                     }
+
                 }else{
     
                     echo'<script>

@@ -56,7 +56,9 @@ $(document).on("click", ".btnEditarProd", function(){
 			$("#estadoProdEdit").val(json.estado_prod);
 			$("#fotoProdActual").val(json.imagen_prod);
 			$("#idProdActual").val(json.id_prod);
+			$("#nombreActual").val(json.nombre_prod);
 			nombreProd=json.nombre_prod;
+			
 		},
         error: function(result){
             console.log("FALLO",result);

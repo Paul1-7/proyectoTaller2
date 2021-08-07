@@ -1,6 +1,6 @@
 <?php
-require_once "..\controller\administrar-producto.controlador.php";
-require_once "..\models\administrar-producto.modelo.php";
+require_once "..\controller\productos.controlador.php";
+require_once "..\models\productos.modelo.php";
 
 
 

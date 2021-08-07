@@ -148,6 +148,7 @@
                                                                     <label class="col-sm-8 col-lg-2 col-form-label">Nombre:</label>
                                                                     <div class="col-sm-12 col-lg-10">
                                                                         <div class="input-group input-group-inverse">
+                                                                            <input type="hidden" name="nombreCatActual" id="nombreCatActual" value="">
                                                                             <input class="form-control input-md valNombreCat" type="text" name="nombreCatEdit" id="nombreCatEdit" value="" placeholder="Ingresar nombre de la categoria" required>
                                                                             <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont-2x icofont-archive"></i></span>
                                                                         </div>

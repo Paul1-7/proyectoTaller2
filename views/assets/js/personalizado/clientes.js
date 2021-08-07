@@ -16,7 +16,7 @@ $(document).on("click", ".btnModificarCl", function(){
 		success: function(respuesta){
             console.log(respuesta);
             json = JSON.parse(respuesta);
-			$("#nombreCl").val(json.nombres_cl);
+			$("#nombreEditCl").val(json.nombres_cl);
 			$("#apellidoCl").val(json.apellidos_cl);
             $("#ciCl").val(json.ci_cl);
             $("#telCl").val(json.tel_cl);
@@ -24,7 +24,8 @@ $(document).on("click", ".btnModificarCl", function(){
             $("#estadoCl").val(json.estado_cl);
 			ciCliente=json.ci_cl;
 			$("#idClActual").val(json.id_cliente);
-             
+			$("#ClActual").val(json.ci_cl);
+			
 		},
         error: function(result){
             console.log("FALLO",result);

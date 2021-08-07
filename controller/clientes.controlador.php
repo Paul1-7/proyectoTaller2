@@ -29,7 +29,16 @@
                                         "tel_cl"=> $tel,
                                         "direccion_cl"=> $direccion,
                                         "estado_cl" => $estado);
-                      $respuesta = ModeloClientes::nuevoCliente($datos);
+
+                        $valCi = ModeloClientes::mostrarClientes("nombre_cl",$ci);
+                        if($valCi!=false){
+                            echo'<script>
+                                var mensaje = "¡El carnet de identidad del cliente ya se encuentra registrado!";
+                                datosNoValidos(mensaje);
+                            </script>';
+                        }else{                 
+                            $respuesta = ModeloClientes::nuevoCliente($datos);    
+                        }
 
                         if($respuesta == "ok"){
                             echo '<script>
@@ -55,14 +64,15 @@
         
         
         static public function modificarCliente(){
-            if(isset($_POST["nombreCl"])){
+            if(isset($_POST["nombreEditCl"])){
 
-                $nombre =$_POST["nombreCl"];
+                $nombre =$_POST["nombreEditCl"];
                 $apellido =$_POST["apellidoCl"];
                 $ci =$_POST["ciCl"];
                 $tel =$_POST["telCl"];
                 $direccion =$_POST["direccionCl"];
                 $id = $_POST["idClActual"];
+                $ciActual = $_POST["ClActual"];
 
                 if(isset($_POST["estadoCl"]))
                     $estado = $_POST["estadoCl"];
@@ -84,17 +94,29 @@
                                         "direccion_cl"=> $direccion,
                                         "estado_cl" => $estado);
 
-                    $respuesta = ModeloClientes::modificarCliente($datos);
-                   
-                    if($respuesta == "ok"){
+                        $valCi = ModeloClientes::mostrarClientes("nombre_cl",$ci);
+                        $respuesta = "error";
+                        if($valCi!=false){
+                            if($ciActual == $valCi["ci_cl"]){
+                                $respuesta = ModeloClientes::modificarCliente($datos);
+                            }else{
+                                echo'<script>
+                                        var mensaje = "¡El carnet de identidad del cliente ya se encuentra registrado!";
+                                        datosNoValidos(mensaje);
+                                     </script>';
+                            }
+                        }else{
+                            $respuesta = ModeloClientes::modificarCliente($datos);
+                        }
 
-                        echo '<script>
-                            var mensaje = "¡El cliente ha sido guardado correctamente!";
-                            var modulo = "clientes";
-                            guardadoExitoso(mensaje,modulo);
-                            
-                        </script>';
-                    }
+                        if($respuesta == "ok"){
+                            echo '<script>
+                                var mensaje = "¡El cliente ha sido guardado correctamente!";
+                                var modulo = "clientes";
+                                guardadoExitoso(mensaje,modulo);
+                                
+                            </script>';
+                        }
                 }else{
                     echo'<script>
                         var mensaje = "No se logró modificar el cliente"

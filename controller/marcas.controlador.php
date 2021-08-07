@@ -18,6 +18,14 @@
                         $datos = array("nombre_marca" => $nombre,
                                         "estado_marca" => $estado,
                                         );
+
+                    $valNombre = ModeloMarcas::mostrarMarcas("nombre_marca",$nombre);
+                    if($valNombre!=false){
+                        echo'<script>
+                            var mensaje = "¡El nombre de la marca ya se encuentra registrado!";
+                            datosNoValidos(mensaje);
+                        </script>';
+                    }else{
                       $respuesta = ModeloMarcas::nuevaMarca($datos);
 
                         if($respuesta == "ok"){
@@ -25,6 +33,7 @@
                                 guardadoExitoso("¡La marca ha sido guardada correctamente!","marcas");  
                             </script>'; 
                         }
+                    }
                 }else{
                     echo '<script>
                         datosNoValidos("No se logró registrar la marca");
@@ -45,6 +54,7 @@
 
                 $nombre =$_POST["nombreMarcaEdit"];
                 $id = $_POST["idMarcaActual"];
+                $nombreActual  = $_POST["nombreActual"];
 
                 if(isset($_POST["estadoMarcaEdit"]) && $_POST["estadoMarcaEdit"]==1)
                     $estado = $_POST["estadoMarcaEdit"];
@@ -59,14 +69,29 @@
                                         "estado_marca" => $estado,
                                         ); 
 
-                    $respuesta = ModeloMarcas::modificarMarca($datos);
-                   
-                    if($respuesta == "ok"){
-                        echo '<script>
-                            guardadoExitoso("¡La marca ha sido guardada correctamente!","marcas");
-                            
-                        </script>';
-                    }
+                        $valNombre = ModeloMarcas::mostrarMarcas("nombre_marca",$nombre);
+                        $respuesta = "error";
+                        if($valNombre!=false){
+                            if($nombreActual == $valNombre["nombre_marca"]){
+                                $respuesta = ModeloMarcas::modificarMarca($datos);
+                            }
+                            else{
+                                echo'<script>
+                                    var mensaje = "¡El nombre de la marca ya se encuentra registrado!";
+                                    datosNoValidos(mensaje);
+                                </script>';
+                            }
+                        }else{
+                            $respuesta = ModeloMarcas::modificarMarca($datos);   
+                        }
+
+                        if($respuesta == "ok"){
+                            echo '<script>
+                                var mensaje ="¡La marca ha sido guardada correctamente!"
+                                var modulos = "marcas"
+                                guardadoExitoso(mensaje,modulos);    
+                            </script>';
+                        }
                 }else{
     
                     echo'<script>

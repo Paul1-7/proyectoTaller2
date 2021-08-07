@@ -1,7 +1,7 @@
 <nav class="pcoded-navbar">
 <div class="pcoded-inner-navbar main-menu">
     <div class="" >
-        <img src="<?php echo $_SESSION["foto"];?>" class="imag-thumbnail rounded-circle " style="background-color:white; margin:1em auto 1em auto; display:block; " width="100px" alt="User-Profile-Image">
+        <img src="<?php echo $_SESSION["foto"];?>" class="imag-thumbnail rounded-circle " style="background-color:white; margin:1em auto 1em auto; display:block; border: 2px solid #FE8A7D; " width="100px" alt="User-Profile-Image">
     </div>
     <div >
         <div class="pcoded-mtext" style="color:rgb(220,220,220); margin:1em auto 0px auto;  text-align:center;  font-weight:600; font-size:16px"><?php echo  $_SESSION["nombre"].' '. $_SESSION["apellido"]; ?></div>
@@ -14,9 +14,7 @@
             $rol = ControladorRoles::listarRoles($item, $valor);
 
             printf($rol["nombre_rol"]) ;
-            /*foreach ($rol as $key => $value){
-                echo $value["nombre_rol"];
-            }*/
+            
         ?></div>
     </div>
     <div class="pcoded-navigatio-lavel">Menu</div>

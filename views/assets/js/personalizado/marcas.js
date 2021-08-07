@@ -20,7 +20,8 @@ $(document).on("click", ".btnEditarMarca", function(){
             $("#estadoMarcaEdit").val(json.estado_marca);
 			nombreMarca=json.nombre_marca;
 			$("#idMarcaActual").val(json.id_marca);
-             
+			$("#nombreActual").val(json.nombre_marca);
+			
 		},
         error: function(result){
             console.log("FALLO",result);

@@ -182,7 +182,7 @@
                                                                     <label class="col-sm-8 col-lg-2 col-form-label">Nombre:</label>
                                                                     <div class="col-sm-12 col-lg-10">
                                                                         <div class="input-group input-group-inverse">
-                                                                            <input class="form-control input-md " type="text" name="nombreCl" id="nombreCl"  placeholder="Ingresar nombre del cliente" required>
+                                                                            <input class="form-control input-md " type="text" name="nombreEditCl" id="nombreEditCl"  placeholder="Ingresar nombre del cliente" required>
                                                                             <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont-2x icofont-user-alt-3"></i></span>
                                                                         </div>
                                                                     </div>      
@@ -200,6 +200,7 @@
                                                                     <label class="col-sm-8 col-lg-2 col-form-label">Carnet de identidad:</label>
                                                                     <div class="col-sm-12 col-lg-10">
                                                                         <div class="input-group input-group-inverse">
+                                                                            <input type="hidden" name="ClActual" id="ClActual" value="">
                                                                             <input class="form-control input-md valCiCl" type="text" name="ciCl" id="ciCl" placeholder="Ingresar  C.I. del cliente" required>
                                                                             <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont-2x icofont-id-card"></i></span>
                                                                         </div>
