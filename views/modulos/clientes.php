@@ -123,12 +123,12 @@
                                             <tr>
                                                 <th></th>
                                                 <th>Nombre</th>
-                                                <th>apellido</th>
+                                                <th>Apellido</th>
                                                 <th>C.I.</th>
-                                                <th>telefono</th>
-                                                <th>direccion</th>
-                                                <th>estado</th>
-                                                <th>fecha</th>
+                                                <th>Telefono</th>
+                                                <th>Direccion</th>
+                                                <th>Fecha</th>
+                                                <th>Estado</th>
                                                 <th>acciones</th>
                                             </tr>
                                         </thead>
