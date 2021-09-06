@@ -1,5 +1,5 @@
 <?php
-require_once "controller/plantilla.controlador.php";
+require_once "controller/contenedor.controlador.php";
 
-$plantilla =  new ControladorPlantilla();
-$plantilla -> ctrPlantilla();
+$plantilla =  new ControladorContenedor();
+$plantilla -> ctrContenedor();

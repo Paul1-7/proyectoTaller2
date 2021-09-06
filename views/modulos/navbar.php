@@ -8,7 +8,7 @@
                             </a>
                         </div>
                         <div>
-                        <a href="index-1.htm">
+                        <a href="dashboard">
                             <img class="img-fluid" src="views\assets\images\logo.png" alt="Theme-Logo">
                         </a>
                         </div>
