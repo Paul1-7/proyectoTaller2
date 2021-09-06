@@ -68,105 +68,57 @@
         </div>
     </div>
     <!-- Pre-loader end -->
-    <div id="pcoded" class="pcoded">
-        <div class="pcoded-overlay-box"></div>
-        <div class="pcoded-container navbar-wrapper">
+    <?php
+        //barra lateral izquierda
+        
 
-
-            <!-- barra superior -->
-            <?php
-                        include "modulos/navbar.php";
-                        
-            ?>
-
+            // contenido de pagina
+        if(isset($_GET["ruta"])){
+            if($_GET["ruta"]== "dashboard" ||
+            $_GET["ruta"]== "datos-negocio" ||
+            $_GET["ruta"]== "dosificacion-facturas" ||
+            $_GET["ruta"]== "categorias" ||
+            $_GET["ruta"]== "clientes" ||
+            $_GET["ruta"]== "compras" ||
+            $_GET["ruta"]== "marcas" ||
+            $_GET["ruta"]== "pedidos" ||
+            $_GET["ruta"]== "administrar-productos" ||
+            $_GET["ruta"]== "stock-minimo" ||
+            $_GET["ruta"]== "proveedores" ||
+            $_GET["ruta"]== "reportes-venta" ||
+            $_GET["ruta"]== "reportes-compra" ||
+            $_GET["ruta"]== "reportes-inventario" ||
+            $_GET["ruta"]== "reservas" ||
+            $_GET["ruta"]== "roles" ||
+            $_GET["ruta"]== "usuarios" ||
+            $_GET["ruta"]== "ventas" 
+            ){
+                echo '<div id="pcoded" class="pcoded">
+                <div class="pcoded-overlay-box"></div>
+                <div class="pcoded-container navbar-wrapper">';
+                      include "modulos/navbar.php";
+    
+                echo '<div class="pcoded-main-container">
+                        <div class="pcoded-wrapper">';
+                            //menu
+                            include "modulos/menu.php";
+                           // <!-- contenido -->
+                            include "modulos/".$_GET["ruta"].".php";
+                echo    '</div>
+                        </div>
+                    </div>
+                </div>';
+            
+            }   
+            else
+                include "modulos/404/404.php";
+        }else
+        include "modulos/dashboard.php";
            
-            <div class="pcoded-main-container">
-                <div class="pcoded-wrapper">
-                    
-                    <?php
-                        //barra lateral izquierda
-                        include "modulos/menu.php";
+    ?>
+    
 
-                         // contenido de pagina
-                        if(isset($_GET["ruta"])){
-                            if($_GET["ruta"]== "dashboard" ||
-                            $_GET["ruta"]== "datos-negocio" ||
-                            $_GET["ruta"]== "dosificacion-facturas" ||
-                            $_GET["ruta"]== "categorias" ||
-                            $_GET["ruta"]== "clientes" ||
-                            $_GET["ruta"]== "compras" ||
-                            $_GET["ruta"]== "marcas" ||
-                            $_GET["ruta"]== "pedidos" ||
-                            $_GET["ruta"]== "administrar-productos" ||
-                            $_GET["ruta"]== "stock-minimo" ||
-                            $_GET["ruta"]== "proveedores" ||
-                            $_GET["ruta"]== "reportes-venta" ||
-                            $_GET["ruta"]== "reportes-compra" ||
-                            $_GET["ruta"]== "reportes-inventario" ||
-                            $_GET["ruta"]== "reservas" ||
-                            $_GET["ruta"]== "roles" ||
-                            $_GET["ruta"]== "usuarios" ||
-                            $_GET["ruta"]== "ventas" 
-                            )
-                                include "modulos/".$_GET["ruta"].".php";
-                        }
-                       
-                        
-                    ?>
-                    
-
-                   
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Warning Section Starts -->
-    <!-- Older IE warning message -->
-    <!--[if lt IE 10]>
-<div class="ie-warning">
-    <h1>Warning!!</h1>
-    <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
-    <div class="iew-container">
-        <ul class="iew-download">
-            <li>
-                <a href="http://www.google.com/chrome/">
-                    <img src="../files/assets/images/browser/chrome.png" alt="Chrome">
-                    <div>Chrome</div>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.mozilla.org/en-US/firefox/new/">
-                    <img src="../files/assets/images/browser/firefox.png" alt="Firefox">
-                    <div>Firefox</div>
-                </a>
-            </li>
-            <li>
-                <a href="http://www.opera.com">
-                    <img src="../files/assets/images/browser/opera.png" alt="Opera">
-                    <div>Opera</div>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.apple.com/safari/">
-                    <img src="../files/assets/images/browser/safari.png" alt="Safari">
-                    <div>Safari</div>
-                </a>
-            </li>
-            <li>
-                <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                    <img src="../files/assets/images/browser/ie.png" alt="">
-                    <div>IE (9 & above)</div>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <p>Sorry for the inconvenience!</p>
-</div>
-<![endif]-->
-    <!-- Warning Section Ends -->
-    <!-- Required Jquery -->
+    
     <script data-cfasync="false" src="..\..\..\cdn-cgi\scripts\5c5dd728\cloudflare-static\email-decode.min.js"></script><script type="text/javascript" src="views\bower_components\jquery\js\jquery.min.js"></script>
     <script type="text/javascript" src="views\bower_components\jquery-ui\js\jquery-ui.min.js"></script>
     <script type="text/javascript" src="views\bower_components\popper.js\js\popper.min.js"></script>
