@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -69,52 +73,53 @@
     </div>
     <!-- Pre-loader end -->
     <?php
-        //barra lateral izquierda
         
-
-            // contenido de pagina
-        if(isset($_GET["ruta"])){
-            if($_GET["ruta"]== "dashboard" ||
-            $_GET["ruta"]== "datos-negocio" ||
-            $_GET["ruta"]== "dosificacion-facturas" ||
-            $_GET["ruta"]== "categorias" ||
-            $_GET["ruta"]== "clientes" ||
-            $_GET["ruta"]== "compras" ||
-            $_GET["ruta"]== "marcas" ||
-            $_GET["ruta"]== "pedidos" ||
-            $_GET["ruta"]== "administrar-productos" ||
-            $_GET["ruta"]== "stock-minimo" ||
-            $_GET["ruta"]== "proveedores" ||
-            $_GET["ruta"]== "reportes-venta" ||
-            $_GET["ruta"]== "reportes-compra" ||
-            $_GET["ruta"]== "reportes-inventario" ||
-            $_GET["ruta"]== "reservas" ||
-            $_GET["ruta"]== "roles" ||
-            $_GET["ruta"]== "usuarios" ||
-            $_GET["ruta"]== "ventas" 
-            ){
-                echo '<div id="pcoded" class="pcoded">
-                <div class="pcoded-overlay-box"></div>
-                <div class="pcoded-container navbar-wrapper">';
-                      include "modulos/navbar.php";
-    
-                echo '<div class="pcoded-main-container">
-                        <div class="pcoded-wrapper">';
-                            //menu
-                            include "modulos/menu.php";
-                           // <!-- contenido -->
-                            include "modulos/".$_GET["ruta"].".php";
-                echo    '</div>
+        if(isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"]=="ok"){
+            if(isset($_GET["ruta"])){
+                if($_GET["ruta"]== "dashboard" ||
+                $_GET["ruta"]== "datos-negocio" ||
+                $_GET["ruta"]== "dosificacion-facturas" ||
+                $_GET["ruta"]== "categorias" ||
+                $_GET["ruta"]== "clientes" ||
+                $_GET["ruta"]== "compras" ||
+                $_GET["ruta"]== "marcas" ||
+                $_GET["ruta"]== "pedidos" ||
+                $_GET["ruta"]== "administrar-productos" ||
+                $_GET["ruta"]== "stock-minimo" ||
+                $_GET["ruta"]== "proveedores" ||
+                $_GET["ruta"]== "reportes-venta" ||
+                $_GET["ruta"]== "reportes-compra" ||
+                $_GET["ruta"]== "reportes-inventario" ||
+                $_GET["ruta"]== "reservas" ||
+                $_GET["ruta"]== "roles" ||
+                $_GET["ruta"]== "usuarios" ||
+                $_GET["ruta"]== "ventas" 
+                ){
+                    echo '<div id="pcoded" class="pcoded">
+                    <div class="pcoded-overlay-box"></div>
+                    <div class="pcoded-container navbar-wrapper">';
+                          include "modulos/navbar.php";
+        
+                    echo '<div class="pcoded-main-container">
+                            <div class="pcoded-wrapper">';
+                                //menu
+                                include "modulos/menu.php";
+                               // <!-- contenido -->
+                                include "modulos/".$_GET["ruta"].".php";
+                    echo    '</div>
+                            </div>
                         </div>
-                    </div>
-                </div>';
-            
-            }   
-            else
-                include "modulos/404/404.php";
-        }else
-        include "modulos/dashboard.php";
-           
+                    </div>';
+                
+                }   
+                else
+                    include "modulos/404/404.php";
+            }else
+                include "modulos/login.php";
+
+        }
+        else
+            include "modulos/login.php";      
     ?>
     
 
