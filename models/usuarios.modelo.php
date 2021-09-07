@@ -2,24 +2,14 @@
     //require_once "conexion.php";
 
     class ModeloUsuarios extends Conectar{
-        /*static public function mostrarUsuarios($table,$item,$valor){
-            $stmt = Conexion::conectar() -> prepare("SELECT * FROM $table WHERE $item = :$item");
-
-            $stmt -> bindParam(":".$item,$valor,PDO::PARAM_STR);
-            $stmt -> execute();
-
-            //retorna en una sola linea
-            return $stmt -> fetch();
-        }*/
-
-
-        public function mostrarUsuarios(){
+        public function mostrarUsuarios($usuario){
             $conectar= parent::conexion();
             parent::set_names();
-            $sql="SELECT * FROM usuarios";
+            $sql="SELECT * FROM usuarios WHERE usuario = ?";
             $sql=$conectar->prepare($sql);
+            $sql->bindValue(1,$usuario);
             $sql->execute();
-            return $resultado=$sql->fetchAll();
+            return $resultado=$sql->fetch();
         }
     }
 ?>
