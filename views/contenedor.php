@@ -6,14 +6,8 @@
 <html lang="es">
 
 <head>
-    <title>Adminty - Premium Admin Template by Colorlib </title>
-    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 10]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
-    <!-- Meta -->
+    <title>Llanta sur </title>
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,6 +25,17 @@
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="views\assets\css\style.css">
     <link rel="stylesheet" type="text/css" href="views\assets\css\jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" type="text/css" href="views\assets\icon\icofont\css\icofont.css">
+    <!-- animation nifty modal window effects css -->
+    <link rel="stylesheet" type="text/css" href="views\assets\css\component.css">
+    <!-- sweet alert framework -->
+    <link rel="stylesheet" type="text/css" href="views\bower_components\sweetalert\css\sweetalert.css">
+    <!-- themify-icons line icon -->
+    <link rel="stylesheet" type="text/css" href="views\assets\icon\themify-icons\themify-icons.css">
+    <!-- jquery file upload Frame work -->
+    <link href="views/assets/pages/jquery.filer/css/jquery.filer.css" type="text/css" rel="stylesheet">
+    <link href="views/assets/pages/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css" type="text/css" rel="stylesheet">
+    
 </head>
 
 <body >
@@ -125,29 +130,52 @@
     
 
     
-    <script data-cfasync="false" src="..\..\..\cdn-cgi\scripts\5c5dd728\cloudflare-static\email-decode.min.js"></script><script type="text/javascript" src="views\bower_components\jquery\js\jquery.min.js"></script>
+    <!-- <script data-cfasync="false" src="..\..\..\cdn-cgi\scripts\5c5dd728\cloudflare-static\email-decode.min.js"></script><script type="text/javascript" src="views\bower_components\jquery\js\jquery.min.js"></script> -->
+    <!-- Required Jquery -->
+    <script type="text/javascript" src="views\bower_components\jquery\js\jquery.min.js"></script>
     <script type="text/javascript" src="views\bower_components\jquery-ui\js\jquery-ui.min.js"></script>
     <script type="text/javascript" src="views\bower_components\popper.js\js\popper.min.js"></script>
     <script type="text/javascript" src="views\bower_components\bootstrap\js\bootstrap.min.js"></script>
     <!-- jquery slimscroll js -->
     <script type="text/javascript" src="views\bower_components\jquery-slimscroll\js\jquery.slimscroll.js"></script>
     <!-- modernizr js -->
+    <script type="text/javascript" src="views\bower_components\modernizr\js\css-scrollbars.js"></script>
     <script type="text/javascript" src="views\bower_components\modernizr\js\modernizr.js"></script>
+
     <!-- Chart js -->
     <script type="text/javascript" src="views\bower_components\chart.js\js\Chart.js"></script>
     <!-- amchart js -->
-    <script src="views\assets\pages\widget\amchart\amcharts.js"></script>
-    <script src="views\assets\pages\widget\amchart\serial.js"></script>
-    <script src="views\assets\pages\widget\amchart\light.js"></script>
+    <script src="views/assets/pages/widget/amchart/amcharts.js"></script>
+    <script src="views/assets/pages/widget/amchart/serial.js"></script>
+    <script src="views/assets/pages/widget/amchart/light.js"></script>
     <script src="views\assets\js\jquery.mCustomScrollbar.concat.min.js"></script>
-    <script type="text/javascript" src="views\assets\js\SmoothScroll.js"></script>
-    <script src="views\assets\js\pcoded.min.js"></script>
+    <script type="text/javascript" src="views/assets/js/SmoothScroll.js"></script>
+    <script src="views/assets/js/pcoded.min.js"></script>
     <!-- custom js -->
-    <script src="views\assets\js\vartical-layout.min.js"></script>
+    <script type="text/javascript" src="views\assets\js\vartical-layout.min.js"></script>
     <script type="text/javascript" src="views\assets\pages\dashboard\custom-dashboard.js"></script>
     <script type="text/javascript" src="views\assets\js\script.min.js"></script>
+    <!-- modalEffects js nifty modal window effects -->
+    <script type="text/javascript" src="views\assets\js\modalEffects.js"></script>
+    <script type="text/javascript" src="views\assets\js\classie.js"></script>
+    <!-- sweet alert js -->
+    <script type="text/javascript" src="views\bower_components\sweetalert\js\sweetalert.min.js"></script>
+    <script type="text/javascript" src="views\assets\js\modal.js"></script>
+ <!-- i18next.min.js -->
+    <script type="text/javascript" src="views\bower_components\i18next\js\i18next.min.js"></script>
+    <script type="text/javascript" src="views\bower_components\i18next-xhr-backend\js\i18nextXHRBackend.min.js"></script>
+    <script type="text/javascript" src="views\bower_components\i18next-browser-languagedetector\js\i18nextBrowserLanguageDetector.min.js"></script>
+    <script type="text/javascript" src="views\bower_components\jquery-i18next\js\jquery-i18next.min.js"></script>
+    <!-- Custom js -->
+    <script type="text/javascript" src="views\assets\js\script.js"></script>
+    
+    <!-- jquery file upload js -->
+    <script src="views\assets\pages\jquery.filer\js\jquery.filer.min.js"></script>
+    <script src="views\assets\pages\filer\custom-filer.js" type="text/javascript"></script>
+    <script src="views\assets\pages\filer\jquery.fileuploads.init.js" type="text/javascript"></script>
+    
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<!-- <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script> -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
