@@ -42,110 +42,117 @@
                                     </button>
                                     <!-- modal -->
                                     <div class="md-modal md-effect-1" id="modalRegistrarUsuario">
-                                        <div class="md-content" >
-                                            <h3 style="background-color:#404e67 !important;">Agregar usuario</h3>
-                                            <div >
-                                                <div class="row">
-                                                    <label class="col-sm-8 col-lg-2 col-form-label">Nombres:</label>
-                                                    <div class="col-sm-12 col-lg-10">
-                                                        <div class="input-group input-group-inverse">
-                                                            <input class="form-control input-md" type="text" name="nombreUser" placeholder="Ingresar nombres" require>
-                                                            <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
-                                                            
-                                                        </div>
-                                                    </div>      
-                                                </div>
-                                                <div class="row">
-                                                    <label class="col-sm-8 col-lg-2 col-form-label">Apellidos:</label>
-                                                    <div class="col-sm-12 col-lg-10">
-                                                        <div class="input-group input-group-inverse">
-                                                            <input class="form-control input-md" type="text" name="apellidoUser" placeholder="Ingresar apellidos" require>
-                                                            <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
-                                                            
-                                                        </div>
-                                                    </div>      
-                                                </div>
-                                                <div class="row">
-                                                    <label class="col-sm-8 col-lg-2 col-form-label">Usuario:</label>
-                                                    <div class="col-sm-1 col-lg-4">
-                                                            <div class="input-group input-group-inverse">
-                                                                <input class="form-control input-md" type="text" name="usuariouser" placeholder="Ingresar usuario" require>
-                                                                <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
-                                                                
-                                                            </div>
-                                                    </div>
+                                        <form role="form" method="POST" enctype="multipart/form-data">
+                                            <div class="md-content" >
 
-                                                    <label class="col-sm-8 col-lg-2 col-form-label" style="padding-left:0%; padding-right:0px">Contraseña:</label>
-                                                    <div class="col-sm-1 col-lg-4" style="padding-left:0%;">
+                                                <h3 style="background-color:#404e67 !important;">Agregar usuario</h3>
+                                                <div >
+                                                    <div class="row">
+                                                        <label class="col-sm-8 col-lg-2 col-form-label">Nombres:</label>
+                                                        <div class="col-sm-12 col-lg-10">
                                                             <div class="input-group input-group-inverse">
-                                                                <input class="form-control input-md" type="text" name="passwordUser" placeholder="Ingresar contraseña" require>
+                                                                <input class="form-control input-md" type="text" name="nombresUser" placeholder="Ingresar nombres" require>
                                                                 <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
                                                                 
                                                             </div>
+                                                        </div>      
                                                     </div>
-                                                          
-                                                </div> 
-                                                <div class="row">
-                                                    <label class="col-sm-8 col-lg-2 col-form-label">Carnet de identidad:</label>
-                                                    <div class="col-sm-1 col-lg-4">
+                                                    <div class="row">
+                                                        <label class="col-sm-8 col-lg-2 col-form-label">Apellidos:</label>
+                                                        <div class="col-sm-12 col-lg-10">
                                                             <div class="input-group input-group-inverse">
-                                                                <input class="form-control input-md" type="text" name="ciUser" placeholder="Ingresar C.I." require>
+                                                                <input class="form-control input-md" type="text" name="apellidosUser" placeholder="Ingresar apellidos" require>
                                                                 <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
                                                                 
                                                             </div>
-                                                    </div>       
-                                                </div>
-                                                <div class="row">
-                                                    <label class="col-sm-8 col-lg-2 col-form-label">Rol:</label>
-                                                    <div class="col-sm-1 col-lg-4">
-                                                            <div class="input-group input-group-inverse">
-                                                                <select name="select" class="form-control form-control-inverse">
-                                                                    <option value="opt1">Seleciona un rol </option>
-                                                                    <option value="opt2">Type 2</option>
-                                                                    <option value="opt3">Type 3</option>
-                                                                    <option value="opt4">Type 4</option>
-                                                                    <option value="opt5">Type 5</option>
-                                                                    <option value="opt6">Type 6</option>
-                                                                    <option value="opt7">Type 7</option>
-                                                                    <option value="opt8">Type 8</option>
-                                                                </select>
-                                                            </div>
+                                                        </div>      
                                                     </div>
+                                                    <div class="row">
+                                                        <label class="col-sm-8 col-lg-2 col-form-label">Usuario:</label>
+                                                        <div class="col-sm-1 col-lg-4">
+                                                                <div class="input-group input-group-inverse">
+                                                                    <input class="form-control input-md" type="text" name="usuarioUser" placeholder="Ingresar usuario" require>
+                                                                    <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
+                                                                    
+                                                                </div>
+                                                        </div>
 
-                                                    <label class="col-sm-8 col-lg-2 col-form-label" style="padding-left:0%; padding-right:0px">Estado:</label>
-                                                    <div class="col-sm-1 col-lg-4" style="padding-left:0%;">
-                                                            <div class="input-group input-group-inverse">
-                                                                <select name="estadoUser" class="form-control form-control-inverse">
-                                                                    <option value="-1">Selecciona un estado</option>
-                                                                    <option value="1">Habilitado</option>
-                                                                    <option value="0">Deshabilitado</option>
-                                                                </select>
-                                                            </div>
+                                                        <label class="col-sm-8 col-lg-2 col-form-label" style="padding-left:0%; padding-right:0px">Contraseña:</label>
+                                                        <div class="col-sm-1 col-lg-4" style="padding-left:0%;">
+                                                                <div class="input-group input-group-inverse">
+                                                                    <input class="form-control input-md" type="text" name="passwordUser" placeholder="Ingresar contraseña" require>
+                                                                    <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
+                                                                    
+                                                                </div>
+                                                        </div>
+                                                            
+                                                    </div> 
+                                                    <div class="row">
+                                                        <label class="col-sm-8 col-lg-2 col-form-label">Carnet de identidad:</label>
+                                                        <div class="col-sm-1 col-lg-4">
+                                                                <div class="input-group input-group-inverse">
+                                                                    <input class="form-control input-md" type="text" name="ciUser" placeholder="Ingresar C.I." require>
+                                                                    <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
+                                                                    
+                                                                </div>
+                                                        </div>       
                                                     </div>
-                                                          
-                                                </div> 
-                                                <label class="col-sm-8 col-lg-2 col-form-label" style="margin-left: 0px; padding-left: 0px;">Subir foto:</label>
-                                                <div class="row">
-                                                    
+                                                    <div class="row">
+                                                        <label class="col-sm-8 col-lg-2 col-form-label">Rol:</label>
+                                                        <div class="col-sm-1 col-lg-4">
+                                                                <div class="input-group input-group-inverse">
+                                                                    <select name="rolUser" class="form-control form-control-inverse">
+                                                                        <option value="opt1">Seleciona un rol </option>
+                                                                        <option value="opt2">Type 2</option>
+                                                                        <option value="opt3">Type 3</option>
+                                                                        <option value="opt4">Type 4</option>
+                                                                        <option value="opt5">Type 5</option>
+                                                                        <option value="opt6">Type 6</option>
+                                                                        <option value="opt7">Type 7</option>
+                                                                        <option value="opt8">Type 8</option>
+                                                                    </select>
+                                                                </div>
+                                                        </div>
+
+                                                        <label class="col-sm-8 col-lg-2 col-form-label" style="padding-left:0%; padding-right:0px">Estado:</label>
+                                                        <div class="col-sm-1 col-lg-4" style="padding-left:0%;">
+                                                                <div class="input-group input-group-inverse">
+                                                                    <select name="estadoUser" class="form-control form-control-inverse">
+                                                                        <option value="-1">Selecciona un estado</option>
+                                                                        <option value="1">Habilitado</option>
+                                                                        <option value="0">Deshabilitado</option>
+                                                                    </select>
+                                                                </div>
+                                                        </div>
+                                                            
+                                                    </div> 
+                                                    <label class="col-sm-8 col-lg-2 col-form-label" style="margin-left: 0px; padding-left: 0px;">Subir foto:</label>
+                                                    <div class="row">
+                                                        
+                                                        <div class="col-sm-1 col-lg-6">
+                                                                <div class="input-group input-group-inverse">
+                                                                    <input type="file" class="form-control" >
+                                                                </div>
+                                                        </div>  
+                                                            
+                                                    </div>
                                                     <div class="col-sm-1 col-lg-6">
-                                                            <div class="input-group input-group-inverse">
-                                                                <input type="file" class="form-control" >
-                                                            </div>
-                                                    </div>  
-                                                         
-                                                </div>
-                                                <div class="col-sm-1 col-lg-6">
-                                                            <div class="input-group input-group-inverse ">
-                                                                <img class="imag-thumbnail rounded-circle " style="border: 2px solid #404e67;" width="100px" src="views\assets\images\user-profile\user.png" alt="foto de perfil">
-                                                            </div>
+                                                                <div class="input-group input-group-inverse ">
+                                                                    <img class="imag-thumbnail rounded-circle " style="border: 2px solid #404e67;" width="100px" src="views\assets\images\user-profile\user.png" alt="foto de perfil">
+                                                                </div>
+                                                        </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger btn-lg waves-effect md-close">Cancelar</button>
+                                                        <button type="submit" class="btn btn-primary btn-lg waves-effect md-close">Guardar</button>
+                                                    <?php
+                                                        $nuevoUser = new ControladorUsuarios();
+                                                        $nuevoUser -> nuevoUsuario();
+                                                    ?>
                                                     </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-danger btn-md waves-effect md-close">Cancelar</button>
-                                                    <button type="button" class="btn btn-primary btn-md waves-effect md-close">Guardar</button>
                                                 </div>
-                                                
+
                                             </div>
-                                        </div>
+                                        </form>
                                     </div>
                                     <div class="md-overlay"></div>
                                 </div>

@@ -29,7 +29,11 @@
     <!-- animation nifty modal window effects css -->
     <link rel="stylesheet" type="text/css" href="views\assets\css\component.css">
     <!-- sweet alert framework -->
-    <link rel="stylesheet" type="text/css" href="views\bower_components\sweetalert\css\sweetalert.css">
+    <script type="text/javascript" src="views/bower_components/sweetalert/js/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="views/bower_components/sweetalert/css/sweetalert.css">
+    <script type="text/javascript" src="views/assets/js/modalGuardado.js"></script>
+    <!-- <script src="views/bower_components/sweetalert/js/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="views/bower_components/sweetalert/css/sweetalert2.css"> -->
     <!-- themify-icons line icon -->
     <link rel="stylesheet" type="text/css" href="views\assets\icon\themify-icons\themify-icons.css">
     <!-- jquery file upload Frame work -->
@@ -159,8 +163,8 @@
     <script type="text/javascript" src="views\assets\js\modalEffects.js"></script>
     <script type="text/javascript" src="views\assets\js\classie.js"></script>
     <!-- sweet alert js -->
-    <script type="text/javascript" src="views\bower_components\sweetalert\js\sweetalert.min.js"></script>
-    <script type="text/javascript" src="views\assets\js\modal.js"></script>
+    <!-- <script type="text/javascript" src="views/bower_components/sweetalert/js/sweetalert.min.js"></script> -->
+    <!-- <script type="text/javascript" src="views/assets/js/modal.js"></script> -->
  <!-- i18next.min.js -->
     <script type="text/javascript" src="views\bower_components\i18next\js\i18next.min.js"></script>
     <script type="text/javascript" src="views\bower_components\i18next-xhr-backend\js\i18nextXHRBackend.min.js"></script>

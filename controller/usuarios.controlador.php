@@ -5,6 +5,7 @@
 
 
     class ControladorUsuarios{
+
         public function ctrIngresoUsuario(){
             
             $usuarios = new ModeloUsuarios();
@@ -35,5 +36,43 @@
 
         public function nuevoUsuario(){
             
+            if(isset($_POST["nombresUser"])){
+
+                $nombres = $_POST["nombresUser"];
+                $apellidos = $_POST["apellidosUser"];
+                $usuario = $_POST["usuarioUser"];
+                $password = $_POST["passwordUser"];
+                $ci = $_POST["ciUser"];
+                $estado = $_POST["estadoUser"];
+                $rol = $_POST["rolUser"];
+
+                if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $nombres) &&
+                    preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',$apellidos ) &&
+                    preg_match('/^[a-zA-Z0-9]+$/', $usuario) &&
+                    preg_match('/^[a-zA-Z0-9]+$/', $password) &&
+                    preg_match('/^[a-zA-Z0-9]+$/', $ci) ){
+
+                        
+                        $datos = array("nombre" => $nombres,
+                                        "apellido"=> $apellidos,
+                                        "usuario" => $usuario,
+                                        "password"=> $password,
+                                        "estado" => $estado,
+                                        "rol" => $rol,
+                                        "ci" => $ci);
+
+                       /* $respuesta = ModeloUsuarios::nuevoUsuario($datos);
+
+                        if($respuesta == "ok"){
+                            echo '<script>
+                                guardadoExitoso("el usuario");
+                            </script>'; 
+                        }*/
+                }else{
+                    echo '<script>
+                        datosNoValidos("el usuario");
+					</script>';              
+                }
+            }
         }
     }
