@@ -32,4 +32,8 @@
                 }
             }
         }
+
+        public function nuevoUsuario(){
+            
+        }
     }
