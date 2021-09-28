@@ -12,13 +12,19 @@
             if(isset($_POST["user"])){
                 if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["user"]) &&
                 preg_match('/^[a-zA-Z0-9]+$/', $_POST["password"])){
-
+                    
+                    $encriptar = crypt($_POST["password"],'$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
                     $valor = $_POST["user"];
                     $parametro = "usuario";
                     $datos=$usuarios->mostrarUsuarios($parametro,$valor);
 
-                    if($datos["usuario"] == $_POST["user"] && $datos["password"] == $_POST["password"] ){
+                    if($datos["usuario"] == $_POST["user"] && $datos["password"] == $encriptar ){
                         $_SESSION["iniciarSesion"] = "ok";
+                        $_SESSION["nombre"] = $datos["nombre"];
+                        $_SESSION["apellido"] = $datos["apellido"];
+                        $_SESSION["foto"] = $datos["foto"];
+                        $_SESSION["rol"] = $datos["rolesid_rol"];
+
                         echo '<script>
                                 window.location = "dashboard";
                             </script>';
@@ -53,8 +59,8 @@
                     preg_match('/^[a-zA-Z0-9]+$/', $ci) ){
 
                         //validar imagen
-                        if(isset($_FILES["fotoUser"]["tmp_name"])){
-
+                        $ruta = "views\assets\images\user-profile\user.png";
+                        if(strlen($_FILES["fotoUser"]["tmp_name"])!=0){
                             list($ancho, $alto) = getimagesize($_FILES["fotoUser"]["tmp_name"]);
         
                             $nuevoAncho = 500;
@@ -62,9 +68,11 @@
 
                             //directorio para la foto
                             $directorio = "views/img/usuarios/".$_POST["usuarioUser"];
-                            mkdir($directorio, 0755);
-        
-                            //metodos para cada tipo imagen
+                            if(!is_dir($directorio)){
+                                mkdir($directorio, 0777, true);
+                            }
+                           
+                            //metodo para jpg
                             if($_FILES["fotoUser"]["type"] == "image/jpeg"){
         
                                 $aleatorio = mt_rand(100,999);
@@ -74,9 +82,9 @@
                                 imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
                                 imagejpeg($destino, $ruta);
                             }
-        
+                            
+                            //metodo para png
                             if($_FILES["fotoUser"]["type"] == "image/png"){
-      
                                 $aleatorio = mt_rand(100,999);
                                 $ruta = "views/img/usuarios/".$_POST["usuarioUser"]."/".$aleatorio.".png";
                                 $origen = imagecreatefrompng($_FILES["fotoUser"]["tmp_name"]);						
@@ -88,19 +96,24 @@
                             
                         }
 
+                        $encriptar = crypt($password,'$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+
                         $datos = array("nombre" => $nombres,
                                         "apellido"=> $apellidos,
                                         "usuario" => $usuario,
-                                        "password"=> $password,
+                                        "password"=> $encriptar,
                                         "estado" => $estado,
                                         "rolesid_rol" => $rol,
-                                        "ci" => $ci);
-                       $respuesta = ModeloUsuarios::nuevoUsuario($datos);
+                                        "ci" => $ci,
+                                        "foto"=> $ruta);
+                      $respuesta = ModeloUsuarios::nuevoUsuario($datos);
 
                         if($respuesta == "ok"){
                             echo '<script>
-                                guardadoExitoso("el usuario");
+                                guardadoExitoso("el usuario");  
                             </script>'; 
+                        }else{
+                            echo "error";
                         }
                 }else{
                     echo '<script>
@@ -110,5 +123,10 @@
             }
         }
 
+        static public function listarUsuarios($item, $valor){
+            $tabla = "usuarios";
+            $respuesta = ModeloUsuarios::mostrarUsuarios($item, $valor);
+            return $respuesta;
+        }
         
     }

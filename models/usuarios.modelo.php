@@ -22,17 +22,16 @@
 
             $stmt = Conexion::conectar()->prepare("SELECT * FROM usuarios");
             $stmt -> execute();
+            print_r($stmt->errorInfo());
             return $stmt -> fetchAll();
-            $stmt->close();
-             $stmt = null;
+            
         }
         
     }
        
     static public function nuevoUsuario($datos){
-
-        
-		$stmt = Conexion::conectar()->prepare("INSERT INTO usuarios(nombre, apellido,ci, usuario, password,estado,rolesid_rol) VALUES (:nombre, :apellido,:ci, :usuario, :password,:estado,:rolesid_rol)");
+   
+		$stmt = Conexion::conectar()->prepare("INSERT INTO usuarios(nombre, apellido,ci, usuario, password,estado,rolesid_rol,foto) VALUES (:nombre, :apellido,:ci, :usuario, :password,:estado,:rolesid_rol,:foto)");
 
 		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
         $stmt->bindParam(":apellido", $datos["apellido"], PDO::PARAM_STR);
@@ -41,8 +40,10 @@
 		$stmt->bindParam(":estado", $datos["estado"], PDO::PARAM_STR);
 		$stmt->bindParam(":rolesid_rol", $datos["rolesid_rol"], PDO::PARAM_STR);
         $stmt->bindParam(":ci", $datos["ci"], PDO::PARAM_STR);
+        $stmt->bindParam(":foto", $datos["foto"], PDO::PARAM_STR);
 
 		if($stmt->execute()){ 
+            
 			return "ok";	
 		}else{
             //print_r($stmt->errorInfo());

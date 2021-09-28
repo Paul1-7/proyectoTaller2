@@ -81,7 +81,7 @@
                                                         <div class="col-sm-1 col-lg-4" style="padding-left:0%;">
                                                                 <div class="input-group input-group-inverse">
                                                                     <input class="form-control input-md" type="text" name="passwordUser" placeholder="Ingresar contraseña" require>
-                                                                    <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
+                                                                    <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-ui-password"></i></span>
                                                                     
                                                                 </div>
                                                         </div>
@@ -92,7 +92,7 @@
                                                         <div class="col-sm-1 col-lg-4">
                                                                 <div class="input-group input-group-inverse">
                                                                     <input class="form-control input-md" type="text" name="ciUser" placeholder="Ingresar C.I." require>
-                                                                    <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
+                                                                    <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-ui-v-card"></i></span>
                                                                     
                                                                 </div>
                                                         </div>       
@@ -142,8 +142,8 @@
                                                                 </div>
                                                         </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger btn-lg waves-effect md-close">Cancelar</button>
-                                                        <button type="submit" class="btn btn-primary btn-lg waves-effect md-close">Guardar</button>
+                                                        <button type="button" style="margin-left: 191.875px;" class="btn btn-danger btn-lg waves-effect md-close">Cancelar</button>
+                                                        <button type="submit" style="margin-right: 191.875px;" class="btn btn-primary btn-lg waves-effect md-close">Guardar</button>
                                                     <?php
                                                         $nuevoUser = new ControladorUsuarios();
                                                         $nuevoUser -> nuevoUsuario();
@@ -176,6 +176,16 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+
+                                            <?php
+                                                $item = null;
+                                                $valor = null;
+                                        
+                                                $usuarios = ControladorUsuarios::listarUsuarios($item, $valor);
+
+                                                var_dump($usuarios);
+                                            ?>
+
                                             <tr>
                                                 <td>1</td>
                                                 <td><img src="views\assets\images\user-card\img-round1.jpg" alt="foto de perfil" width="40px"></td>

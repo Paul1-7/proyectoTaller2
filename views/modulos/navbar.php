@@ -21,8 +21,8 @@
                             <li class="user-profile header-notification">
                                 <div class="dropdown-primary dropdown">
                                     <div class="dropdown-toggle" data-toggle="dropdown">
-                                        <img src="views\assets\images\avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
-                                        <span>John Doe</span>
+                                        <img src="<?php echo $_SESSION["foto"];?>" class="img-radius" alt="User-Profile-Image">
+                                        <span><?php echo  $_SESSION["nombre"].' '. $_SESSION["apellido"]; ?></span>
                                         <i class="feather icon-chevron-down"></i>
                                     </div>
                                     <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
