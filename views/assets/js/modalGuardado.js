@@ -1,3 +1,4 @@
+
 function datosNoValidos(valor){
     swal(
         "No se logró registrar "+valor,
@@ -6,7 +7,11 @@ function datosNoValidos(valor){
 }
 
 function guardadoExitoso(valor){
-    swal(
-        "Se registro "+valor+" exitosamente",
-        "success");
+    swal({
+        type: "success",
+        title: "¡"+valor+" ha sido guardado correctamente!",
+        showConfirmButton: true,
+        confirmButtonText: "Cerrar"
+    });
+        
 }

@@ -102,9 +102,9 @@
                                                         <div class="col-sm-1 col-lg-4">
                                                                 <div class="input-group input-group-inverse">
                                                                     <select name="rolUser" class="form-control form-control-inverse">
-                                                                        <option value="opt1">Seleciona un rol </option>
-                                                                        <option value="opt2">Type 2</option>
-                                                                        <option value="opt3">Type 3</option>
+                                                                        <option value="-1">Seleciona un rol </option>
+                                                                        <option value="1">Type 2</option>
+                                                                        <option value="2">Type 3</option>
                                                                         <option value="opt4">Type 4</option>
                                                                         <option value="opt5">Type 5</option>
                                                                         <option value="opt6">Type 6</option>
@@ -131,14 +131,14 @@
                                                         
                                                         <div class="col-sm-1 col-lg-6">
                                                                 <div class="input-group input-group-inverse">
-                                                                    <input type="file" class="form-control" >
+                                                                    <input type="file"  name="fotoUser" class="form-control fotoUser" >
                                                                 </div>
                                                         </div>  
                                                             
                                                     </div>
                                                     <div class="col-sm-1 col-lg-6">
                                                                 <div class="input-group input-group-inverse ">
-                                                                    <img class="imag-thumbnail rounded-circle " style="border: 2px solid #404e67;" width="100px" src="views\assets\images\user-profile\user.png" alt="foto de perfil">
+                                                                    <img class="imag-thumbnail rounded-circle previsualizar " style="border: 2px solid #404e67;" width="100px" height="100px" src="views\assets\images\user-profile\user.png" alt="foto de perfil">
                                                                 </div>
                                                         </div>
                                                     <div class="modal-footer">

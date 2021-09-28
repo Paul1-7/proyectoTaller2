@@ -172,7 +172,7 @@
     <script type="text/javascript" src="views\bower_components\jquery-i18next\js\jquery-i18next.min.js"></script>
     <!-- Custom js -->
     <script type="text/javascript" src="views\assets\js\script.js"></script>
-    
+    <script type="text/javascript" src="views\assets\js\usuarios.js"></script>
     <!-- jquery file upload js -->
     <script src="views\assets\pages\jquery.filer\js\jquery.filer.min.js"></script>
     <script src="views\assets\pages\filer\custom-filer.js" type="text/javascript"></script>

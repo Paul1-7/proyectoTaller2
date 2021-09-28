@@ -14,8 +14,8 @@
                 preg_match('/^[a-zA-Z0-9]+$/', $_POST["password"])){
 
                     $valor = $_POST["user"];
-
-                    $datos=$usuarios->mostrarUsuarios($valor);
+                    $parametro = "usuario";
+                    $datos=$usuarios->mostrarUsuarios($parametro,$valor);
 
                     if($datos["usuario"] == $_POST["user"] && $datos["password"] == $_POST["password"] ){
                         $_SESSION["iniciarSesion"] = "ok";
@@ -52,22 +52,56 @@
                     preg_match('/^[a-zA-Z0-9]+$/', $password) &&
                     preg_match('/^[a-zA-Z0-9]+$/', $ci) ){
 
-                        
+                        //validar imagen
+                        if(isset($_FILES["fotoUser"]["tmp_name"])){
+
+                            list($ancho, $alto) = getimagesize($_FILES["fotoUser"]["tmp_name"]);
+        
+                            $nuevoAncho = 500;
+                            $nuevoAlto = 500;
+
+                            //directorio para la foto
+                            $directorio = "views/img/usuarios/".$_POST["usuarioUser"];
+                            mkdir($directorio, 0755);
+        
+                            //metodos para cada tipo imagen
+                            if($_FILES["fotoUser"]["type"] == "image/jpeg"){
+        
+                                $aleatorio = mt_rand(100,999);
+                                $ruta = "views/img/usuarios/".$_POST["usuarioUser"]."/".$aleatorio.".jpg";
+                                $origen = imagecreatefromjpeg($_FILES["fotoUser"]["tmp_name"]);						
+                                $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+                                imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+                                imagejpeg($destino, $ruta);
+                            }
+        
+                            if($_FILES["fotoUser"]["type"] == "image/png"){
+      
+                                $aleatorio = mt_rand(100,999);
+                                $ruta = "views/img/usuarios/".$_POST["usuarioUser"]."/".$aleatorio.".png";
+                                $origen = imagecreatefrompng($_FILES["fotoUser"]["tmp_name"]);						
+                                $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+                                imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+                                imagepng($destino, $ruta);
+        
+                            }
+                            
+                        }
+
                         $datos = array("nombre" => $nombres,
                                         "apellido"=> $apellidos,
                                         "usuario" => $usuario,
                                         "password"=> $password,
                                         "estado" => $estado,
-                                        "rol" => $rol,
+                                        "rolesid_rol" => $rol,
                                         "ci" => $ci);
-
-                       /* $respuesta = ModeloUsuarios::nuevoUsuario($datos);
+                       $respuesta = ModeloUsuarios::nuevoUsuario($datos);
 
                         if($respuesta == "ok"){
                             echo '<script>
                                 guardadoExitoso("el usuario");
                             </script>'; 
-                        }*/
+                        }
                 }else{
                     echo '<script>
                         datosNoValidos("el usuario");
@@ -75,4 +109,6 @@
                 }
             }
         }
+
+        
     }
