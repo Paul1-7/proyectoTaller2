@@ -124,9 +124,9 @@
         }
 
         static public function listarUsuarios($item, $valor){
-            $tabla = "usuarios";
             $respuesta = ModeloUsuarios::mostrarUsuarios($item, $valor);
             return $respuesta;
         }
+        
         
     }

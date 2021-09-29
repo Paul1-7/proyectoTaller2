@@ -22,7 +22,7 @@
 
             $stmt = Conexion::conectar()->prepare("SELECT * FROM usuarios");
             $stmt -> execute();
-            print_r($stmt->errorInfo());
+            //print_r($stmt->errorInfo());
             return $stmt -> fetchAll();
             
         }
