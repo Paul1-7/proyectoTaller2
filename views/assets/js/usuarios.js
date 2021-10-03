@@ -3,27 +3,11 @@
 $(".fotoUser").change(function(){
     var imagen = this.files[0];
     if(imagen["type"] != "image/jpeg" && imagen["type"] != "image/png"){
-
-        $(".nuevaFoto").val("");
-
-         swal({
-            title: "Error al subir la imagen",
-            text: "¡La imagen debe estar en formato JPG o PNG!",
-            type: "error",
-            confirmButtonText: "¡Cerrar!"
-          });
-
+		fotoFormatoIncorrecto();
+        $(".fotoUser").val("");
     }else if(imagen["size"] > 2000000){
-
-        $(".nuevaFoto").val("");
-
-         swal({
-            title: "Error al subir la imagen",
-            text: "¡La imagen no debe pesar más de 2MB!",
-            type: "error",
-            confirmButtonText: "¡Cerrar!"
-          });
-
+		fotoPesoExcedido();
+        $(".fotoUser").val("");	
     }else{
 
         var datosImagen = new FileReader;
@@ -38,40 +22,41 @@ $(".fotoUser").change(function(){
     }
 });
 
-//modificar usuario
-//$(document).on("click", ".btnEditarUser", function(){
-$(".btnEditarUser").click(function(){
+//nuevo usuario
+$(document).on("click", ".btnNuevoUser", function(){
+	$(".previsualizar").attr("src", "views/img/usuarios/user.png");
+});
+
+// modificar usuario
+$(document).on("click", ".btnEditarUser", function(){
+
 	var idUsuario = $(this).attr("idUsuario");
-	console.log("idUsuario",idUsuario);
+	console.log(idUsuario);
 	var datos = new FormData();
 	datos.append("idUsuario", idUsuario);
 
 	$.ajax({
-
 		url:"ajax/usuarios.ajax.php",
 		method: "POST",
 		data: datos,
 		cache: false,
 		contentType: false,
 		processData: false,
-		dataType: "json",
-	 	success: function(respuesta){
-			console.log("respuesta",respuesta);
-			/*$("#editarNombre").val(respuesta["nombre"]);
-			$("#editarUsuario").val(respuesta["usuario"]);
-			$("#editarPerfil").html(respuesta["perfil"]);
-			$("#editarPerfil").val(respuesta["perfil"]);
-			$("#fotoActual").val(respuesta["foto"]);
+		success: function(respuesta){
 
-			$("#passwordActual").val(respuesta["password"]);
-
-			if(respuesta["foto"] != ""){
-
-				$(".previsualizar").attr("src", respuesta["foto"]);
-
-			}*/
-
-		}
+            json = JSON.parse(respuesta);
+			$("#nombresUserEdit").val(json.nombre);
+			$("#apellidosUserEdit").val(json.apellido);
+			$("#usuarioUserEdit").val(json.usuario);
+			$("#ciUserEdit").val(json.ci);
+			$(".previsualizar").attr("src", json.foto);
+			$("#rolUserEdit").val(json.rolesid_rol);
+			$("#estadoUserEdit").val(json.estado);
+			$("#passwordUserEditActual").val(json.password);    
+		},
+        error: function(result){
+            console.log("FALLO",result);
+        }
 
 	});
 

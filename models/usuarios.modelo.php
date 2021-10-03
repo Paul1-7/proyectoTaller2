@@ -1,17 +1,8 @@
 <?php
     require_once "conexion.php";
+    
     class ModeloUsuarios{
-    /*class ModeloUsuarios extends Conectar{
-        public function mostrarUsuarios($usuario){
-            $conectar= parent::conexion();
-            parent::set_names();
-            $sql="SELECT * FROM usuarios WHERE usuario = ?";
-            $sql=$conectar->prepare($sql);
-            $sql->bindValue(1,$usuario);
-            $sql->execute();
-            return $resultado=$sql->fetch();
-        }
-*/
+
     static public function mostrarUsuarios( $item, $valor){
         if($item != null){
             $stmt = Conexion::conectar()->prepare("SELECT * FROM usuarios WHERE $item = :$item");
@@ -55,19 +46,31 @@
 
 	}
 
-       /* static public function nuevoUsuario($datos){
-            $conectar= parent::conexion();
-            parent::set_names();
-            $sql="INSERT INTO usuarios (nombre,apellido,usuario,password,estado,rol,ci) VALUES (?,?,?,?,?,?,?);";
-            $sql=$conectar->prepare($sql);
-            $sql->bindValue(1,$datos);
-            if($sql->execute()){
-                return "ok";
-            }else
-                return "error";
-            
+    static public function modificarUsuario($datos){
+	
+		$stmt = Conexion::conectar()->prepare("UPDATE usuarios SET nombre = :nombre, apellido =:apellido, ci =:ci,  password = :password, estado = :estado, rolesid_rol = :rolesid_rol, foto = :foto WHERE usuario = :usuario");
 
-        }*/
+
+        $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
+        $stmt->bindParam(":apellido", $datos["apellido"], PDO::PARAM_STR);
+		$stmt->bindParam(":usuario", $datos["usuario"], PDO::PARAM_STR);
+		$stmt->bindParam(":password", $datos["password"], PDO::PARAM_STR);
+		$stmt->bindParam(":estado", $datos["estado"], PDO::PARAM_STR);
+		$stmt->bindParam(":rolesid_rol", $datos["rolesid_rol"], PDO::PARAM_STR);
+        $stmt->bindParam(":ci", $datos["ci"], PDO::PARAM_STR);
+        $stmt->bindParam(":foto", $datos["foto"], PDO::PARAM_STR);
+
+		if($stmt -> execute()){
+			return "ok";
+		}else{
+			return "error";	
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
 
     }
 ?>

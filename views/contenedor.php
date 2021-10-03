@@ -31,14 +31,23 @@
     <!-- sweet alert framework -->
     <script type="text/javascript" src="views/bower_components/sweetalert/js/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="views/bower_components/sweetalert/css/sweetalert.css">
-    <script type="text/javascript" src="views/assets/js/modalGuardado.js"></script>
+    <script type="text/javascript" src="views\assets\js\personalizado\mensajesModal.js"></script>
     <!-- <script src="views/bower_components/sweetalert/js/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="views/bower_components/sweetalert/css/sweetalert2.css"> -->
+    <!-- Data Table Css -->
+    <link rel="stylesheet" type="text/css" href="views\bower_components\datatables.net-bs4\css\dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="views\assets\pages\data-table\css\buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="views\bower_components\datatables.net-responsive-bs4\css\responsive.bootstrap4.min.css">
     <!-- themify-icons line icon -->
     <link rel="stylesheet" type="text/css" href="views\assets\icon\themify-icons\themify-icons.css">
     <!-- jquery file upload Frame work -->
     <link href="views/assets/pages/jquery.filer/css/jquery.filer.css" type="text/css" rel="stylesheet">
     <link href="views/assets/pages/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css" type="text/css" rel="stylesheet">
+    <!-- Required Jquery -->
+    <script type="text/javascript" src="views\bower_components\jquery\js\jquery.min.js"></script>
+    <script type="text/javascript" src="views\bower_components\jquery-ui\js\jquery-ui.min.js"></script>
+    <script type="text/javascript" src="views\bower_components\popper.js\js\popper.min.js"></script>
+    <script type="text/javascript" src="views\bower_components\bootstrap\js\bootstrap.min.js"></script>
     
 </head>
 
@@ -135,11 +144,7 @@
 
     
     <!-- <script data-cfasync="false" src="..\..\..\cdn-cgi\scripts\5c5dd728\cloudflare-static\email-decode.min.js"></script><script type="text/javascript" src="views\bower_components\jquery\js\jquery.min.js"></script> -->
-    <!-- Required Jquery -->
-    <script type="text/javascript" src="views\bower_components\jquery\js\jquery.min.js"></script>
-    <script type="text/javascript" src="views\bower_components\jquery-ui\js\jquery-ui.min.js"></script>
-    <script type="text/javascript" src="views\bower_components\popper.js\js\popper.min.js"></script>
-    <script type="text/javascript" src="views\bower_components\bootstrap\js\bootstrap.min.js"></script>
+    
     <!-- jquery slimscroll js -->
     <script type="text/javascript" src="views\bower_components\jquery-slimscroll\js\jquery.slimscroll.js"></script>
     <!-- modernizr js -->
@@ -153,7 +158,7 @@
     <script src="views/assets/pages/widget/amchart/serial.js"></script>
     <script src="views/assets/pages/widget/amchart/light.js"></script>
     <script src="views\assets\js\jquery.mCustomScrollbar.concat.min.js"></script>
-    <script type="text/javascript" src="views/assets/js/SmoothScroll.js"></script>
+    <!-- <script type="text/javascript" src="views/assets/js/SmoothScroll.js"></script> -->
     <script src="views/assets/js/pcoded.min.js"></script>
     <!-- custom js -->
     <script type="text/javascript" src="views\assets\js\vartical-layout.min.js"></script>
@@ -170,13 +175,26 @@
     <script type="text/javascript" src="views\bower_components\i18next-xhr-backend\js\i18nextXHRBackend.min.js"></script>
     <script type="text/javascript" src="views\bower_components\i18next-browser-languagedetector\js\i18nextBrowserLanguageDetector.min.js"></script>
     <script type="text/javascript" src="views\bower_components\jquery-i18next\js\jquery-i18next.min.js"></script>
+    <!-- data-table js -->
+    <script src="views\bower_components\datatables.net\js\jquery.dataTables.min.js"></script>
+    <script src="views\bower_components\datatables.net-buttons\js\dataTables.buttons.min.js"></script>
+    <script src="views\assets\pages\data-table\js\jszip.min.js"></script>
+    <script src="views\assets\pages\data-table\js\pdfmake.min.js"></script>
+    <script src="views\assets\pages\data-table\js\vfs_fonts.js"></script>
+    <script src="views\bower_components\datatables.net-buttons\js\buttons.print.min.js"></script>
+    <script src="views\bower_components\datatables.net-buttons\js\buttons.html5.min.js"></script>
+    <script src="views\bower_components\datatables.net-bs4\js\dataTables.bootstrap4.min.js"></script>
+    <script src="views\bower_components\datatables.net-responsive\js\dataTables.responsive.min.js"></script>
+    <script src="views\bower_components\datatables.net-responsive-bs4\js\responsive.bootstrap4.min.js"></script>
     <!-- Custom js -->
     <script type="text/javascript" src="views\assets\js\script.js"></script>
     <script type="text/javascript" src="views\assets\js\usuarios.js"></script>
+    <script type="text/javascript" src="views\assets\js\personalizado\plantilla.js"></script>
+    
     <!-- jquery file upload js -->
-    <script src="views\assets\pages\jquery.filer\js\jquery.filer.min.js"></script>
+    <!-- <script src="views\assets\pages\jquery.filer\js\jquery.filer.min.js"></script>
     <script src="views\assets\pages\filer\custom-filer.js" type="text/javascript"></script>
-    <script src="views\assets\pages\filer\jquery.fileuploads.init.js" type="text/javascript"></script>
+    <script src="views\assets\pages\filer\jquery.fileuploads.init.js" type="text/javascript"></script> -->
     
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <!-- <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script> -->

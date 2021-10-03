@@ -37,7 +37,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <div class="animation-model">
-                                    <button type="button" class="btn btn-inverse btn-outline-default waves-effect md-trigger"  data-modal="modalRegistrarUsuario" >
+                                    <button type="button" class="btn btn-inverse btn-outline-default waves-effect md-trigger btnNuevoUser" data-modal="modalRegistrarUsuario" >
                                         <i class="icofont icofont-user-alt-3"></i> Nuevo usuario
                                     </button>
                                     <!-- modal -->
@@ -163,7 +163,7 @@
                             <div class="card-block">
                                 
                                 <div class="dt-responsive table-responsive">
-                                    <table id="simpletable" class="table table-striped table-bordered nowrap">
+                                    <table id="simpletable" class="table table-striped table-bordered nowrap tablas">
                                         <thead>
                                             <tr>
                                                 <th>N°</th>
@@ -234,7 +234,7 @@
                                                                     <label class="col-sm-8 col-lg-2 col-form-label">Nombres:</label>
                                                                     <div class="col-sm-12 col-lg-10">
                                                                         <div class="input-group input-group-inverse">
-                                                                            <input class="form-control input-md" type="text" name="nombresUserEdit" placeholder="Ingresar nombres" require>
+                                                                            <input class="form-control input-md" type="text" id="nombresUserEdit" name="nombresUserEdit" value="" placeholder="Ingresar nombres" require>
                                                                             <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
                                                                             
                                                                         </div>
@@ -244,7 +244,7 @@
                                                                     <label class="col-sm-8 col-lg-2 col-form-label">Apellidos:</label>
                                                                     <div class="col-sm-12 col-lg-10">
                                                                         <div class="input-group input-group-inverse">
-                                                                            <input class="form-control input-md" type="text" name="apellidosUserEdit" placeholder="Ingresar apellidos" require>
+                                                                            <input class="form-control input-md" type="text" id="apellidosUserEdit" name="apellidosUserEdit" placeholder="Ingresar apellidos" require>
                                                                             <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
                                                                             
                                                                         </div>
@@ -254,7 +254,7 @@
                                                                     <label class="col-sm-8 col-lg-2 col-form-label">Usuario:</label>
                                                                     <div class="col-sm-1 col-lg-4">
                                                                             <div class="input-group input-group-inverse">
-                                                                                <input class="form-control input-md" type="text" name="usuarioUserEdit" placeholder="Ingresar usuario" require>
+                                                                                <input class="form-control input-md" type="text" id="usuarioUserEdit" name="usuarioUserEdit" placeholder="Ingresar usuario" require >
                                                                                 <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
                                                                                 
                                                                             </div>
@@ -264,6 +264,7 @@
                                                                     <div class="col-sm-1 col-lg-4" style="padding-left:0%;">
                                                                             <div class="input-group input-group-inverse">
                                                                                 <input class="form-control input-md" type="text" name="passwordUserEdit" placeholder="nueva contraseña" require>
+                                                                                <input class="form-control input-md" type="hidden" value="" id="passwordUserEditActual" name="passwordUserEditActual">
                                                                                 <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-ui-password"></i></span>
                                                                                 
                                                                             </div>
@@ -274,7 +275,7 @@
                                                                     <label class="col-sm-8 col-lg-2 col-form-label">Carnet de identidad:</label>
                                                                     <div class="col-sm-1 col-lg-4">
                                                                             <div class="input-group input-group-inverse">
-                                                                                <input class="form-control input-md" type="text" name="ciUserEdit" value="" placeholder="Ingresar C.I." require>
+                                                                                <input class="form-control input-md" type="text" id="ciUserEdit" name="ciUserEdit" value="" placeholder="Ingresar C.I." require>
                                                                                 <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-ui-v-card"></i></span>
                                                                                 
                                                                             </div>
@@ -284,7 +285,7 @@
                                                                     <label class="col-sm-8 col-lg-2 col-form-label">Rol:</label>
                                                                     <div class="col-sm-1 col-lg-4">
                                                                             <div class="input-group input-group-inverse">
-                                                                                <select name="rolUserEdit" class="form-control form-control-inverse">
+                                                                                <select id="rolUserEdit" name="rolUserEdit" class="form-control form-control-inverse">
                                                                                     <option value="-1">Seleciona un rol </option>
                                                                                         <?php
                                                                                             $item = null;
@@ -304,7 +305,7 @@
                                                                     <label class="col-sm-8 col-lg-2 col-form-label" style="padding-left:0%; padding-right:0px">Estado:</label>
                                                                     <div class="col-sm-1 col-lg-4" style="padding-left:0%;">
                                                                             <div class="input-group input-group-inverse">
-                                                                                <select name="estadoUserEdit" class="form-control form-control-inverse">
+                                                                                <select id="estadoUserEdit" name="estadoUserEdit" class="form-control form-control-inverse">
                                                                                     <option value="-1">Selecciona un estado</option>
                                                                                     <option value="1">Habilitado</option>
                                                                                     <option value="0">Deshabilitado</option>
@@ -319,6 +320,7 @@
                                                                     <div class="col-sm-1 col-lg-6">
                                                                             <div class="input-group input-group-inverse">
                                                                                 <input type="file"  name="fotoUserEdit" class="form-control fotoUser" >
+                                                                                <input type="hidden"  name="fotoUserActual" class="form-control fotoUser" >
                                                                             </div>
                                                                     </div>  
                                                                         
@@ -332,9 +334,10 @@
                                                                     <button type="button" style="margin-left: 191.875px;" class="btn btn-danger btn-lg waves-effect md-close ">Cancelar</button>
                                                                     <button type="submit" style="margin-right: 191.875px;" class="btn btn-primary btn-lg waves-effect md-close">Guardar</button>
                                                                 <?php
-                                                                    // $nuevoUser = new ControladorUsuarios();
-                                                                    // $nuevoUser -> nuevoUsuario();
+                                                                    $modificarUser = new ControladorUsuarios();
+                                                                    $modificarUser -> modificarUsuario();
                                                                 ?> 
+                                                                <!-- <script>window.location = "usuarios";</script> -->
                                                                 </div>
                                                             </div>
 

@@ -1,7 +1,8 @@
 <?php
+require_once "..\controller\usuarios.controlador.php";
+require_once "..\models\usuarios.modelo.php";
 
-require_once "../controladores/usuarios.controlador.php";
-require_once "../modelos/usuarios.modelo.php";
+
 
 class AjaxUsuarios{
 
@@ -12,7 +13,7 @@ class AjaxUsuarios{
 
 		$item = "id_user";
 		$valor = $this->idUsuario;
-
+		
 		$respuesta = ControladorUsuarios::listarUsuarios($item, $valor);
         
 		echo json_encode($respuesta);
@@ -21,11 +22,10 @@ class AjaxUsuarios{
 }
 
 //editar usuario
-echo isset($_POST["idUsuario"]);
 if(isset($_POST["idUsuario"])){
-
-    $editar = new AjaxUsuarios();
-    $editar -> idUsuario = $_POST["idUsuario"];
-    $editar -> ajaxEditarUsuario();
-
+	$editar = new AjaxUsuarios();
+	$editar -> idUsuario = $_POST["idUsuario"];
+	$editar -> ajaxEditarUsuario();
+	
 }
+

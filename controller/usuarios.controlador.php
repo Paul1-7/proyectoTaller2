@@ -1,12 +1,10 @@
 <?php
 
-    require_once("models/conexion.php");
-    require_once("models/usuarios.modelo.php");
-
+  
 
     class ControladorUsuarios{
 
-        public function ctrIngresoUsuario(){
+        static public function ctrIngresoUsuario(){
             
             $usuarios = new ModeloUsuarios();
             if(isset($_POST["user"])){
@@ -14,6 +12,7 @@
                 preg_match('/^[a-zA-Z0-9]+$/', $_POST["password"])){
                     
                     $encriptar = crypt($_POST["password"],'$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+                    
                     $valor = $_POST["user"];
                     $parametro = "usuario";
                     $datos=$usuarios->mostrarUsuarios($parametro,$valor);
@@ -40,7 +39,7 @@
             }
         }
 
-        public function nuevoUsuario(){
+        static public function nuevoUsuario(){
             
             if(isset($_POST["nombresUser"])){
 
@@ -59,7 +58,7 @@
                     preg_match('/^[a-zA-Z0-9]+$/', $ci) ){
 
                         //validar imagen
-                        $ruta = "views\assets\images\user-profile\user.png";
+                        $ruta = "views\img\usuarios\user.png";
                         if(strlen($_FILES["fotoUser"]["tmp_name"])!=0){
                             list($ancho, $alto) = getimagesize($_FILES["fotoUser"]["tmp_name"]);
         
@@ -67,33 +66,27 @@
                             $nuevoAlto = 500;
 
                             //directorio para la foto
-                            $directorio = "views/img/usuarios/".$_POST["usuarioUser"];
+                            $directorio = "views/img/usuarios/";
                             if(!is_dir($directorio)){
                                 mkdir($directorio, 0777, true);
                             }
                            
                             //metodo para jpg
-                            if($_FILES["fotoUser"]["type"] == "image/jpeg"){
-        
-                                $aleatorio = mt_rand(100,999);
-                                $ruta = "views/img/usuarios/".$_POST["usuarioUser"]."/".$aleatorio.".jpg";
-                                $origen = imagecreatefromjpeg($_FILES["fotoUser"]["tmp_name"]);						
-                                $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
-                                imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
-                                imagejpeg($destino, $ruta);
+                            $aleatorio = mt_rand(100,999);
+                            if($_FILES["fotoUser"]["type"] == "image/jpeg"){                      
+                                $ruta = "views/img/usuarios/".$_POST["usuarioUser"]."".$aleatorio.".jpg";
+                                $origen = imagecreatefromjpeg($_FILES["fotoUser"]["tmp_name"]);
                             }
                             
                             //metodo para png
                             if($_FILES["fotoUser"]["type"] == "image/png"){
-                                $aleatorio = mt_rand(100,999);
-                                $ruta = "views/img/usuarios/".$_POST["usuarioUser"]."/".$aleatorio.".png";
-                                $origen = imagecreatefrompng($_FILES["fotoUser"]["tmp_name"]);						
-                                $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
-                                imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
-                                imagepng($destino, $ruta);
-        
+                                $ruta = "views/img/usuarios/".$_POST["usuarioUser"]."".$aleatorio.".png";
+                                $origen = imagecreatefrompng($_FILES["fotoUser"]["tmp_name"]);
                             }
-                            
+                            						
+                            $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+                            imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+                            imagepng($destino, $ruta);
                         }
 
                         $encriptar = crypt($password,'$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
@@ -112,12 +105,10 @@
                             echo '<script>
                                 guardadoExitoso("el usuario");  
                             </script>'; 
-                        }else{
-                            echo "error";
                         }
                 }else{
                     echo '<script>
-                        datosNoValidos("el usuario");
+                        datosNoValidos("el usuario","registrar");
 					</script>';              
                 }
             }
@@ -128,5 +119,113 @@
             return $respuesta;
         }
         
+        static public function modificarUsuario(){
+
+            if(isset($_POST["nombresUserEdit"])){
+
+                $nombres = $_POST["nombresUserEdit"];
+                $apellidos = $_POST["apellidosUserEdit"];
+                $usuario = $_POST["usuarioUserEdit"];
+                $password = $_POST["passwordUserEdit"];
+                $ci = $_POST["ciUserEdit"];
+                $estado = $_POST["estadoUserEdit"];
+                $rol = $_POST["rolUserEdit"];
+                
+                if( preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $nombres) &&
+                    preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',$apellidos ) &&
+                    preg_match('/^[a-zA-Z0-9]+$/', $usuario) &&
+                    preg_match('/^[a-zA-Z0-9]+$/', $ci)){
+    
+                    /*=============================================
+                    VALIDAR IMAGEN
+                    =============================================*/
+                    
+                    $ruta = $_POST["fotoUserActual"];
+    
+                    if(strlen($_FILES["fotoUserEdit"]["tmp_name"])!=0){
+                        list($ancho, $alto) = getimagesize($_FILES["fotoUserEdit"]["tmp_name"]);
         
+                            $nuevoAncho = 500;
+                            $nuevoAlto = 500;
+
+                            //borra foto
+                            /*if(!empty($_POST["fotoUserActual"]))
+                                unlink($_POST["fotoUserActual"]);
+*/
+                            //directorio para la foto
+                            $directorio = "views/img/usuarios/";
+                    
+                            if(!is_dir($directorio)){
+                                mkdir($directorio, 0777, true);
+                            }
+                           
+                            //metodo para jpg
+                            $aleatorio = mt_rand(100,999);
+                            if($_FILES["fotoUserEdit"]["type"] == "image/jpeg"){                      
+                                $ruta = "views/img/usuarios/".$_POST["usuarioUserEdit"]."".$aleatorio.".jpg";
+                                $origen = imagecreatefromjpeg($_FILES["fotoUserEdit"]["tmp_name"]);
+                            }
+                            
+                            //metodo para png
+                            if($_FILES["fotoUserEdit"]["type"] == "image/png"){
+                                $ruta = "views/img/usuarios/".$_POST["usuarioUser"]."".$aleatorio.".png";
+                                $origen = imagecreatefrompng($_FILES["fotoUserEdit"]["tmp_name"]);
+                            }
+                            						
+                            $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+                            imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+                            imagepng($destino, $ruta);
+                        
+    
+                    }
+    
+                   
+                    if($password != ""){
+    
+                        if(preg_match('/^[a-zA-Z0-9]+$/', $password)){
+                            $encriptar = crypt($password, '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+                        }else{
+    
+                            echo'<script>
+                                    datosNoValidos("el usuario","modificar");
+                                  </script>';
+    
+                        }
+    
+                    }else{
+    
+                        $encriptar = $_POST["passwordUserEditActual"];
+    
+                    }
+    
+                    
+                    $datos = array("nombre" => $nombres,
+                                   "apellido"=> $apellidos,
+                                   "usuario" => $usuario,
+                                   "password"=> $encriptar,
+                                   "estado" => $estado,
+                                   "rolesid_rol" => $rol,
+                                   "ci" => $ci,
+                                   "foto"=> $ruta);
+                                   
+                    $respuesta = ModeloUsuarios::modificarUsuario($datos);
+                    echo'<script>
+                            window.location = "usuarios";
+                        </script>';
+                    if($respuesta == "ok"){
+    
+                        
+                        echo '<script>guardadoExitoso("el usuario");</script>';
+                    }
+                }else{
+    
+                    echo'<script>
+                         datosNoValidos("el usuario","modificar");
+                      </script>';
+    
+                }
+    
+            }
+    
+        }
     }
