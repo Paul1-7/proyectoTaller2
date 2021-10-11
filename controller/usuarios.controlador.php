@@ -130,6 +130,7 @@
                 $ci = $_POST["ciUserEdit"];
                 $estado = $_POST["estadoUserEdit"];
                 $rol = $_POST["rolUserEdit"];
+                $id = $_POST["idUserActual"];
                 
                 if( preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $nombres) &&
                     preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',$apellidos ) &&
@@ -141,17 +142,17 @@
                     =============================================*/
                     
                     $ruta = $_POST["fotoUserActual"];
-    
+                    
                     if(strlen($_FILES["fotoUserEdit"]["tmp_name"])!=0){
                         list($ancho, $alto) = getimagesize($_FILES["fotoUserEdit"]["tmp_name"]);
-        
+                            
                             $nuevoAncho = 500;
                             $nuevoAlto = 500;
 
                             //borra foto
-                            /*if(!empty($_POST["fotoUserActual"]))
-                                unlink($_POST["fotoUserActual"]);
-*/
+                            if(!empty($_POST["fotoUserActual"] && $_POST["fotoUserActual"]!="views\img\usuarios\user.png"))
+                                $tes =unlink($_POST["fotoUserActual"]);
+
                             //directorio para la foto
                             $directorio = "views/img/usuarios/";
                     
@@ -199,7 +200,8 @@
                     }
     
                     
-                    $datos = array("nombre" => $nombres,
+                    $datos = array("id_user"=>$id,
+                                   "nombre" => $nombres,
                                    "apellido"=> $apellidos,
                                    "usuario" => $usuario,
                                    "password"=> $encriptar,
@@ -209,23 +211,22 @@
                                    "foto"=> $ruta);
                                    
                     $respuesta = ModeloUsuarios::modificarUsuario($datos);
-                    echo'<script>
-                            window.location = "usuarios";
-                        </script>';
+                   
                     if($respuesta == "ok"){
-    
                         
-                        echo '<script>guardadoExitoso("el usuario");</script>';
+                        
+                        echo '<script>
+                        window.location = "usuarios";
+                        window.setTimeout(guardadoExitoso("el usuario"), 2000);
+                        </script>';
                     }
                 }else{
     
                     echo'<script>
                          datosNoValidos("el usuario","modificar");
                       </script>';
-    
                 }
-    
             }
-    
+            
         }
     }

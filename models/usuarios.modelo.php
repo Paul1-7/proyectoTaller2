@@ -48,9 +48,9 @@
 
     static public function modificarUsuario($datos){
 	
-		$stmt = Conexion::conectar()->prepare("UPDATE usuarios SET nombre = :nombre, apellido =:apellido, ci =:ci,  password = :password, estado = :estado, rolesid_rol = :rolesid_rol, foto = :foto WHERE usuario = :usuario");
+		$stmt = Conexion::conectar()->prepare("UPDATE usuarios SET nombre = :nombre, apellido =:apellido, ci =:ci,  password = :password, estado = :estado, rolesid_rol = :rolesid_rol, foto = :foto, usuario = :usuario WHERE id_user = :id_user");
 
-
+        $stmt->bindParam(":id_user", $datos["id_user"], PDO::PARAM_STR);
         $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
         $stmt->bindParam(":apellido", $datos["apellido"], PDO::PARAM_STR);
 		$stmt->bindParam(":usuario", $datos["usuario"], PDO::PARAM_STR);

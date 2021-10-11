@@ -13,10 +13,6 @@ function guardadoExitoso(valor){
         title: "¡"+valor+" ha sido guardado correctamente!",
         showConfirmButton: true,
         confirmButtonText: "Cerrar"
-    }, function (values){
-        console.log(values);
-        if(values)
-            window.location = "usuarios";
     });      
 }
 

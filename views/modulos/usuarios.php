@@ -320,7 +320,7 @@
                                                                     <div class="col-sm-1 col-lg-6">
                                                                             <div class="input-group input-group-inverse">
                                                                                 <input type="file"  name="fotoUserEdit" class="form-control fotoUser" >
-                                                                                <input type="hidden"  name="fotoUserActual" class="form-control fotoUser" >
+                                                                                <input type="hidden"  name="fotoUserActual" id="fotoUserActual" value="" class="form-control fotoUser" >
                                                                             </div>
                                                                     </div>  
                                                                         
@@ -331,6 +331,7 @@
                                                                             </div>
                                                                     </div>
                                                                 <div class="modal-footer">
+                                                                    <input type="hidden"  name="idUserActual" id="idUserActual" value="" class="form-control fotoUser" >
                                                                     <button type="button" style="margin-left: 191.875px;" class="btn btn-danger btn-lg waves-effect md-close ">Cancelar</button>
                                                                     <button type="submit" style="margin-right: 191.875px;" class="btn btn-primary btn-lg waves-effect md-close">Guardar</button>
                                                                 <?php

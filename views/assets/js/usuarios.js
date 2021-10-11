@@ -50,9 +50,11 @@ $(document).on("click", ".btnEditarUser", function(){
 			$("#usuarioUserEdit").val(json.usuario);
 			$("#ciUserEdit").val(json.ci);
 			$(".previsualizar").attr("src", json.foto);
+			$("#fotoUserActual").val(json.foto);
 			$("#rolUserEdit").val(json.rolesid_rol);
 			$("#estadoUserEdit").val(json.estado);
-			$("#passwordUserEditActual").val(json.password);    
+			$("#passwordUserEditActual").val(json.password);
+			$("#idUserActual").val(json.id_user);      
 		},
         error: function(result){
             console.log("FALLO",result);
