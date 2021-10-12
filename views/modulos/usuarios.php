@@ -51,9 +51,9 @@
                                                         <label class="col-sm-8 col-lg-2 col-form-label">Nombres:</label>
                                                         <div class="col-sm-12 col-lg-10">
                                                             <div class="input-group input-group-inverse">
-                                                                <input class="form-control input-md" type="text" name="nombresUser" placeholder="Ingresar nombres" require>
+                                                                <input class="form-control input-md" type="text" name="nombresUser" placeholder="Ingresar nombres" required>
                                                                 <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
-                                                                
+                                                               
                                                             </div>
                                                         </div>      
                                                     </div>
@@ -71,7 +71,7 @@
                                                         <label class="col-sm-8 col-lg-2 col-form-label">Usuario:</label>
                                                         <div class="col-sm-1 col-lg-4">
                                                                 <div class="input-group input-group-inverse">
-                                                                    <input class="form-control input-md" type="text" name="usuarioUser" placeholder="Ingresar usuario" require>
+                                                                    <input class="form-control input-md" type="text" name="usuarioUser" id="usuarioUser" placeholder="Ingresar usuario" require>
                                                                     <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
                                                                     
                                                                 </div>
@@ -141,7 +141,7 @@
                                                     </div>
                                                     <div class="col-sm-1 col-lg-6">
                                                                 <div class="input-group input-group-inverse ">
-                                                                    <img class="imag-thumbnail rounded-circle previsualizar " style="border: 2px solid #404e67;" width="100px" height="100px" src="views\assets\images\user-profile\user.png" alt="foto de perfil">
+                                                                    <img class="imag-thumbnail rounded-circle previsualizar " style="border: 2px solid #404e67;" width="100px" height="100px" src="views\img\usuarios\user.png" alt="foto de perfil">
                                                                 </div>
                                                         </div>
                                                     <div class="modal-footer">
@@ -163,10 +163,10 @@
                             <div class="card-block">
                                 
                                 <div class="dt-responsive table-responsive">
-                                    <table id="simpletable" class="table table-striped table-bordered nowrap tablas">
+                                    <table id="simpletable" class="table table-striped table-bordered nowrap tablas enum">
                                         <thead>
                                             <tr>
-                                                <th>N°</th>
+                                                <th></th>
                                                 <th>Foto</th>
                                                 <th>Nombres</th>
                                                 <th>Apellidos</th>
@@ -189,7 +189,7 @@
                                                     foreach ($usuarios as $key => $value){
             
                                                         echo ' <tr>
-                                                                <td>1</td>
+                                                                <td></td>
                                                                 <td><img src="'.$value["foto"].'" class="img-thumbnail" width="45px"></td>
                                                                 <td>'.$value["nombre"].'</td>
                                                                 <td>'.$value["apellido"].'</td>
@@ -327,7 +327,7 @@
                                                                 </div>
                                                                 <div class="col-sm-1 col-lg-6">
                                                                             <div class="input-group input-group-inverse ">
-                                                                                <img class="imag-thumbnail rounded-circle previsualizar " style="border: 2px solid #404e67;" width="100px" height="100px" src="views\assets\images\user-profile\user.png" alt="foto de perfil">
+                                                                                <img class="imag-thumbnail rounded-circle previsualizar " style="border: 2px solid #404e67;" width="100px" height="100px" src="views\img\usuarios\user.png" alt="foto de perfil">
                                                                             </div>
                                                                     </div>
                                                                 <div class="modal-footer">

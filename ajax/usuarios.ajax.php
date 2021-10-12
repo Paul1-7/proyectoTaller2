@@ -19,6 +19,18 @@ class AjaxUsuarios{
 		echo json_encode($respuesta);
 
 	}
+
+	//validar ci y usuario
+	public $validarUsuario;
+	public function ajaxValidarUsuario(){
+
+		$item = "usuario";
+		$valor = $this->validarUsuario;
+		$respuesta = ControladorUsuarios::listarUsuarios($item, $valor);
+
+		echo json_encode($respuesta);
+
+	}
 }
 
 //editar usuario
@@ -29,3 +41,10 @@ if(isset($_POST["idUsuario"])){
 	
 }
 
+//validar usuarios
+if(isset( $_POST["validarUsuario"])){
+	$valUsuario = new AjaxUsuarios();
+	$valUsuario -> validarUsuario = $_POST["validarUsuario"];
+	$valUsuario -> ajaxValidarUsuario();
+
+}

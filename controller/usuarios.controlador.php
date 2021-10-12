@@ -18,15 +18,41 @@
                     $datos=$usuarios->mostrarUsuarios($parametro,$valor);
 
                     if($datos["usuario"] == $_POST["user"] && $datos["password"] == $encriptar ){
-                        $_SESSION["iniciarSesion"] = "ok";
-                        $_SESSION["nombre"] = $datos["nombre"];
-                        $_SESSION["apellido"] = $datos["apellido"];
-                        $_SESSION["foto"] = $datos["foto"];
-                        $_SESSION["rol"] = $datos["rolesid_rol"];
+                        if($datos["estado"]!=0){
+                            $_SESSION["iniciarSesion"] = "ok";
+                            $_SESSION["nombre"] = $datos["nombre"];
+                            $_SESSION["apellido"] = $datos["apellido"];
+                            $_SESSION["foto"] = $datos["foto"];
+                            $_SESSION["rol"] = $datos["rolesid_rol"];
 
-                        echo '<script>
-                                window.location = "dashboard";
-                            </script>';
+                            //fecha del ultimo login
+                            date_default_timezone_set('America/La_Paz');
+
+                            $fecha = date('Y-m-d');
+                            $hora = date('H:i:s');
+
+                            $fechaActual = $fecha.' '.$hora;
+
+                            $item1 = "ultimo_login";
+                            $valor1 = $fechaActual;
+
+                            $item2 = "id_user";
+                            $valor2 = $datos["id_user"];
+
+                            $ultimoLogin = ModeloUsuarios::actualizarUltimoLogin($item1, $valor1, $item2, $valor2);
+
+                            if($ultimoLogin == "ok"){
+                                echo '<script>
+                                    window.location = "dashboard";
+                                </script>';
+                            }
+                            
+                        }else{
+                            echo '<div class="alert alert-danger ">  
+                                <p> El usuario no se encuentra habilitado para acceder al sistema </p>
+                            </div>';
+                        }
+                        
                     }
                     else{
                         echo '<div class="alert alert-danger ">  
@@ -229,4 +255,6 @@
             }
             
         }
+
+        
     }

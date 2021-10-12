@@ -148,8 +148,9 @@
     <!-- jquery slimscroll js -->
     <script type="text/javascript" src="views\bower_components\jquery-slimscroll\js\jquery.slimscroll.js"></script>
     <!-- modernizr js -->
-    <script type="text/javascript" src="views\bower_components\modernizr\js\css-scrollbars.js"></script>
     <script type="text/javascript" src="views\bower_components\modernizr\js\modernizr.js"></script>
+    <script type="text/javascript" src="views\bower_components\modernizr\js\css-scrollbars.js"></script>
+    
 
     <!-- Chart js -->
     <script type="text/javascript" src="views\bower_components\chart.js\js\Chart.js"></script>
@@ -160,10 +161,7 @@
     <script src="views\assets\js\jquery.mCustomScrollbar.concat.min.js"></script>
     <!-- <script type="text/javascript" src="views/assets/js/SmoothScroll.js"></script> -->
     <script src="views/assets/js/pcoded.min.js"></script>
-    <!-- custom js -->
-    <script type="text/javascript" src="views\assets\js\vartical-layout.min.js"></script>
-    <script type="text/javascript" src="views\assets\pages\dashboard\custom-dashboard.js"></script>
-    <script type="text/javascript" src="views\assets\js\script.min.js"></script>
+    
     <!-- modalEffects js nifty modal window effects -->
     <script type="text/javascript" src="views\assets\js\modalEffects.js"></script>
     <script type="text/javascript" src="views\assets\js\classie.js"></script>
@@ -186,9 +184,13 @@
     <script src="views\bower_components\datatables.net-bs4\js\dataTables.bootstrap4.min.js"></script>
     <script src="views\bower_components\datatables.net-responsive\js\dataTables.responsive.min.js"></script>
     <script src="views\bower_components\datatables.net-responsive-bs4\js\responsive.bootstrap4.min.js"></script>
+    <!-- custom js -->
+    <script type="text/javascript" src="views\assets\js\vartical-layout.min.js"></script>
+    <script type="text/javascript" src="views\assets\pages\dashboard\custom-dashboard.js"></script>
+    <script type="text/javascript" src="views\assets\js\script.min.js"></script>
     <!-- Custom js -->
     <script type="text/javascript" src="views\assets\js\script.js"></script>
-    <script type="text/javascript" src="views\assets\js\usuarios.js"></script>
+    <script type="text/javascript" src="views\assets\js\personalizado\usuarios.js"></script>
     <script type="text/javascript" src="views\assets\js\personalizado\plantilla.js"></script>
     
     <!-- jquery file upload js -->

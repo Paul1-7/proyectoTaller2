@@ -1,4 +1,3 @@
-
 //subir foto y previsualizar  usuario
 $(".fotoUser").change(function(){
     var imagen = this.files[0];
@@ -62,4 +61,36 @@ $(document).on("click", ".btnEditarUser", function(){
 
 	});
 
+})
+
+//validar usuario
+$("#usuarioUser").change(function(){
+
+	$(".messages").remove();
+
+	var usuario = $(this).val();
+	var datos = new FormData();
+	datos.append("validarUsuario", usuario);
+
+	 $.ajax({
+	    url:"ajax/usuarios.ajax.php",
+	    method:"POST",
+	    data: datos,
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	   	dataType: "json",
+	    success:function(respuesta){  	
+	    	if(respuesta){
+				//document.getElementsByClassName("")
+	    		$("#usuarioUser").parent().after('<div class="messages" style="margin-top:-25px"><p class="text-danger error">Este usuario ya existe en la base de datos</p></div>');
+	    		$("#usuarioUser").val("");
+				console.log(respuesta);
+				console.log(typeof(respuesta));
+	    	}
+	    },
+		error: function(result){
+            console.log("FALLO",result);
+        }
+	})
 })

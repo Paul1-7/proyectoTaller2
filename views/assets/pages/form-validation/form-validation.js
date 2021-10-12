@@ -37,7 +37,7 @@
               // and it needs to be equal to the other password
               equality: {
                   attribute: "password",
-                  message: "^The passwords does not match"
+                  message: "^Las contraseñas no coinciden"
               }
           },
           name: {
