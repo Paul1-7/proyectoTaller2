@@ -10,7 +10,6 @@ class AjaxUsuarios{
     public $idUsuario;
 
 	public function ajaxEditarUsuario(){
-
 		$item = "id_user";
 		$valor = $this->idUsuario;
 		
@@ -20,7 +19,7 @@ class AjaxUsuarios{
 
 	}
 
-	//validar ci y usuario
+	//validar usuario
 	public $validarUsuario;
 	public function ajaxValidarUsuario(){
 

@@ -170,7 +170,7 @@
                                                 <th>Foto</th>
                                                 <th>Nombres</th>
                                                 <th>Apellidos</th>
-                                                <th>Carnet de identidad</th>
+                                                <th>Carnet de <br> identidad</th>
                                                 <th>Usuario</th>
                                                 <th>Rol</th>
                                                 <th>Estado</th>
