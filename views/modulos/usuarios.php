@@ -215,7 +215,7 @@
                                                                 echo '<td>'.$value["ultimo_login"].'</td>
                                                                     <td>
                                                                         
-                                                                            <button type="button" class="btn btn-inverse btn-icon  btn-outline-default waves-effect md-trigger btnEditarUser" idUsuario="'.$value["id_user"].'" data-modal="modalModificarUsuario"  >
+                                                                            <button type="button" class="btn btn-primary btn-icon  btn-outline-default waves-effect md-trigger btnEditarUser" idUsuario="'.$value["id_user"].'" data-modal="modalModificarUsuario"  >
                                                                                 <i class="icofont icofont-pen-alt-4"></i>
                                                                             </button>
                                                                     </td>

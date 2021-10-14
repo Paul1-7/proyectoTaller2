@@ -127,10 +127,10 @@
                                                                 echo '
                                                                     <td style="width:100px">
                                                                         
-                                                                            <button type="button" class="btn btn-inverse btn-icon  btn-outline-default waves-effect md-trigger btnEditarCat" idCat="'.$value["id_cat"].'" data-modal="modalModificarCategoria"  >
+                                                                            <button type="button" class="btn btn-primary btn-icon  btn-outline-default waves-effect md-trigger btnEditarCat" idCat="'.$value["id_cat"].'" data-modal="modalModificarCategoria"  >
                                                                                 <i class="icofont icofont-pen-alt-4"></i>
                                                                             </button>
-                                                                            <button type="button" class="btn btn-inverse btn-icon   btnEliminarCat" idCat="'.$value["id_cat"].'" >
+                                                                            <button type="button" class="btn btn-danger btn-icon   btnEliminarCat" idCat="'.$value["id_cat"].'" >
                                                                                 <i class="icofont-ui-delete"></i>
                                                                             </button>
                                                                     </td>

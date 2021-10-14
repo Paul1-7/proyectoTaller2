@@ -43,17 +43,17 @@ function fotoPesoExcedido(){
 }
 
 //borrar
-function confirmacionBorrado(mensaje,ruta){
+function confirmacionBorrado(mensaje,ruta,modulo){
   
     swal({
         title: mensaje,
         text: "¡Si no lo está puede cancelar la acción!",
         type: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         cancelButtonText: 'Cancelar',
-        confirmButtonText: 'Si, borrar categoría!'
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Si, borrar '+modulo+'!'
     }).then(function(result){
 		if(result.value){
 			window.location = ruta;

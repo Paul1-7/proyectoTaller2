@@ -1,14 +1,14 @@
 // modificar usuario
-nombreCat ="";
-$(document).on("click", ".btnEditarCat", function(){
+nombreMarca ="";
+$(document).on("click", ".btnEditarMarca", function(){
 
-	var idUsuario = $(this).attr("idCat");
-	console.log(idUsuario);
+	var idMarca = $(this).attr("idMarca");
+	console.log(idMarca);
 	var datos = new FormData();
-	datos.append("idCat", idUsuario);
+	datos.append("idMarca", idMarca);
 
 	$.ajax({
-		url:"ajax/categorias.ajax.php",
+		url:"ajax/marcas.ajax.php",
 		method: "POST",
 		data: datos,
 		cache: false,
@@ -16,11 +16,10 @@ $(document).on("click", ".btnEditarCat", function(){
 		processData: false,
 		success: function(respuesta){
             json = JSON.parse(respuesta);
-			$("#nombreCatEdit").val(json.nombre_cat);
-			$("#descCatEdit").val(json.desc_cat);
-            $("#estadoCatEdit").val(json.estado_cat);
-			nombreCat=json.nombre_cat;
-			$("#idCatActual").val(json.id_cat);
+			$("#nombreMarcaEdit").val(json.nombre_marca);
+            $("#estadoMarcaEdit").val(json.estado_marca);
+			nombreMarca=json.nombre_marca;
+			$("#idMarcaActual").val(json.id_marca);
              
 		},
         error: function(result){
@@ -51,7 +50,7 @@ $(".valNombreCat").change(function(){
 	   	dataType: "json",
 	    success:function(respuesta){  	
 	    	if(respuesta){
-				if(nombreCat != respuesta["nombre_cat"]){
+				if(nombreMarca != respuesta["nombre_cat"]){
 					$(".valNombreCat").parent().after('<div class="messages" style="margin-top:-25px"><p class="text-danger error">Este nombre ya existe en la base de datos</p></div>');
 					$(".valNombreCat").val("");
 				}
@@ -62,12 +61,12 @@ $(".valNombreCat").change(function(){
 })
 
 
-$(".tablas").on("click", ".btnEliminarCat", function(){
+$(".tablas").on("click", ".btnEliminarMarca", function(){
 
-    var idCat = $(this).attr("idCat");
-	var mensaje = '¿Está seguro de borrar la categoría?';
-	var ruta = "index.php?ruta=categorias&idCat="+idCat;
-	var modulo = "categoria"
+    var idMarca = $(this).attr("idMarca");
+	var mensaje = '¿Está seguro de borrar la marca?';
+	var ruta = "index.php?ruta=marcas&idMarca="+idMarca;
+    var modulo = "marca"
     confirmacionBorrado(mensaje,ruta,modulo);
 
 })

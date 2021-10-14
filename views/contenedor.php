@@ -192,6 +192,7 @@
     <script type="text/javascript" src="views\assets\js\script.js"></script>
     <script type="text/javascript" src="views\assets\js\personalizado\usuarios.js"></script>
     <script type="text/javascript" src="views\assets\js\personalizado\categorias.js"></script>
+    <script type="text/javascript" src="views\assets\js\personalizado\marcas.js"></script>
     <script type="text/javascript" src="views\assets\js\personalizado\plantilla.js"></script>
     
     <!-- jquery file upload js -->
