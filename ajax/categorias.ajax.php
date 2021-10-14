@@ -20,16 +20,16 @@ class AjaxCategorias{
 	}
 
 	//validar usuario
-	/*public $validarUsuario;
-	public function ajaxValidarUsuario(){
+	public $validarNombre;
+	public function ajaxValidarNombre(){
 
-		$item = "usuario";
-		$valor = $this->validarUsuario;
-		$respuesta = ControladorUsuarios::listarUsuarios($item, $valor);
+		$item = "nombre_cat";
+		$valor = $this->validarNombre;
+		$respuesta = ControladorCategorias::listarCategorias($item, $valor);
 
 		echo json_encode($respuesta);
 
-	}*/
+	}
 }
 
 //editar usuario
@@ -41,9 +41,8 @@ if(isset($_POST["idCat"])){
 }
 
 //validar usuarios
-if(isset( $_POST["validarUsuario"])){
-	$valUsuario = new AjaxUsuarios();
-	$valUsuario -> validarUsuario = $_POST["validarUsuario"];
-	$valUsuario -> ajaxValidarUsuario();
-
+if(isset( $_POST["validarNombre"])){
+	$valNombre = new AjaxCategorias();
+	$valNombre -> validarNombre = $_POST["validarNombre"];
+	$valNombre -> ajaxValidarNombre();
 }

@@ -25,12 +25,12 @@
 
                         if($respuesta == "ok"){
                             echo '<script>
-                                guardadoExitoso("la categoria");  
+                                guardadoExitoso("¡La categoria ha sido guardada correctamente!","categorias");  
                             </script>'; 
                         }
                 }else{
                     echo '<script>
-                        datosNoValidos("la categoria","registrar");
+                        datosNoValidos("No se logró registrar la categoria");
 					</script>';              
                 }
             }
@@ -70,20 +70,21 @@
                     if($respuesta == "ok"){
 
                         echo '<script>
-                            window.setTimeout(guardadoExitoso("la categoria"), 2000);
+                            guardadoExitoso("¡La categoria ha sido guardada correctamente!","categorias");
+                            
                         </script>';
                     }
                 }else{
     
                     echo'<script>
-                         datosNoValidos("la categoria","modificar");
+                         datosNoValidos("No se logró modificar la categoria");
                       </script>';
                 }
             }
             
         }
     
-        static public function ctrBorrarCategoria(){
+        static public function borrarCategoria(){
 
             if(isset($_GET["idCat"])){
     
@@ -95,20 +96,11 @@
                 if($respuesta == "ok"){
     
                     echo'<script>
-    
-                        swal({
-                              type: "success",
-                              title: "La categoría ha sido borrada correctamente",
-                              showConfirmButton: true,
-                              confirmButtonText: "Cerrar"
-                              }).then(function(result){
-                                        if (result.value) {
-    
-                                        window.location = "categorias";
-    
-                                        }
-                                    })
-    
+                            borradoExitoso("¡La categoria se borro correctamente!","categorias")
+                        </script>';
+                }else{
+                    echo'<script>
+                            borradoSinExito("¡No se logro borrar la categoria seleccionada!","categorias")
                         </script>';
                 }
             }

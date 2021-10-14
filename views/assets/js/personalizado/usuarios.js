@@ -27,6 +27,7 @@ $(document).on("click", ".btnNuevoUser", function(){
 });
 
 // modificar usuario
+usuarioUser = "";
 $(document).on("click", ".btnEditarUser", function(){
 
 	var idUsuario = $(this).attr("idUsuario");
@@ -53,7 +54,8 @@ $(document).on("click", ".btnEditarUser", function(){
 			$("#rolUserEdit").val(json.rolesid_rol);
 			$("#estadoUserEdit").val(json.estado);
 			$("#passwordUserEditActual").val(json.password);
-			$("#idUserActual").val(json.id_user);      
+			$("#idUserActual").val(json.id_user);
+			usuarioUser =  json.usuario;     
 		},
         error: function(result){
             console.log("FALLO",result);
@@ -64,7 +66,7 @@ $(document).on("click", ".btnEditarUser", function(){
 })
 
 //validar usuario
-$("#usuarioUser").change(function(){
+$(".valUser").change(function(){
 
 	$(".messages").remove();
 
@@ -82,11 +84,10 @@ $("#usuarioUser").change(function(){
 	   	dataType: "json",
 	    success:function(respuesta){  	
 	    	if(respuesta){
-				//document.getElementsByClassName("")
-	    		$("#usuarioUser").parent().after('<div class="messages" style="margin-top:-25px"><p class="text-danger error">Este usuario ya existe en la base de datos</p></div>');
-	    		$("#usuarioUser").val("");
-				console.log(respuesta);
-				console.log(typeof(respuesta));
+				if(usuarioUser != respuesta["usuario"]){
+					$(".valUser").parent().after('<div class="messages" style="margin-top:-25px"><p class="text-danger error">Este usuario ya existe en la base de datos</p></div>');
+					$(".valUser").val("");
+				}
 	    	}
 	    },
 		error: function(result){

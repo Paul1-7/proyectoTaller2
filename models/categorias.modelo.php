@@ -57,7 +57,7 @@
 
             $stmt = Conexion::conectar()->prepare("DELETE FROM categorias WHERE id_cat = :id_cat");
 
-            $stmt -> bindParam(":id", $datos, PDO::PARAM_INT);
+            $stmt -> bindParam(":id_cat", $datos, PDO::PARAM_INT);
 
             if($stmt -> execute()){
 

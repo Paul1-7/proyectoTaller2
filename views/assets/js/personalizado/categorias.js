@@ -1,4 +1,5 @@
 // modificar usuario
+nombreCat ="";
 $(document).on("click", ".btnEditarCat", function(){
 
 	var idUsuario = $(this).attr("idCat");
@@ -18,6 +19,7 @@ $(document).on("click", ".btnEditarCat", function(){
 			$("#nombreCatEdit").val(json.nombre_cat);
 			$("#descCatEdit").val(json.desc_cat);
             $("#estadoCatEdit").val(json.estado_cat);
+			nombreCat=json.nombre_cat;
 			$("#idCatActual").val(json.id_cat);
              
 		},
@@ -31,18 +33,16 @@ $(document).on("click", ".btnEditarCat", function(){
 
 
 
-//validar usuario
-/*
-$("#usuarioUser").change(function(){
-
+//validar nombre
+$(".valNombreCat").change(function(){
 	$(".messages").remove();
 
 	var usuario = $(this).val();
 	var datos = new FormData();
-	datos.append("validarUsuario", usuario);
+	datos.append("validarNombre", usuario);
 
 	 $.ajax({
-	    url:"ajax/usuarios.ajax.php",
+	    url:"ajax/categorias.ajax.php",
 	    method:"POST",
 	    data: datos,
 	    cache: false,
@@ -51,36 +51,22 @@ $("#usuarioUser").change(function(){
 	   	dataType: "json",
 	    success:function(respuesta){  	
 	    	if(respuesta){
-				//document.getElementsByClassName("")
-	    		$("#usuarioUser").parent().after('<div class="messages" style="margin-top:-25px"><p class="text-danger error">Este usuario ya existe en la base de datos</p></div>');
-	    		$("#usuarioUser").val("");
-				console.log(respuesta);
-				console.log(typeof(respuesta));
+				if(nombreCat != respuesta["nombre_cat"]){
+					$(".valNombreCat").parent().after('<div class="messages" style="margin-top:-25px"><p class="text-danger error">Este nombre ya existe en la base de datos</p></div>');
+					$(".valNombreCat").val("");
+				}
+				
 	    	}
-	    },
-		error: function(result){
-            console.log("FALLO",result);
-        }
+	    }
 	})
 })
-*/
+
 
 $(".tablas").on("click", ".btnEliminarCat", function(){
 
     var idCat = $(this).attr("idCat");
-
-    //confirmacionBorrado("la categoria");
-    swal({
-        title: '¿Está seguro de borrar la categoría?',
-        text: "¡Si no lo está puede cancelar la acción!",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'Cancelar',
-        confirmButtonText: 'Si, borrar categoría!'
-    })
-
-    window.location = "index.php?ruta=categorias&idCat="+idCat;
+	var mensaje = '¿Está seguro de borrar la categoría?';
+	var ruta = "index.php?ruta=categorias&idCat="+idCat;
+    confirmacionBorrado(mensaje,ruta)
 
 })

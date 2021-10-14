@@ -1,19 +1,25 @@
 
 
-function datosNoValidos(valor,metodo){
+function datosNoValidos(mensaje){
     swal(
-        "No se logró "+metodo+" "+valor,
+        mensaje,
         "los caracteres especiales no estan permitidos ni los espacios en blancos, intentelo de nuevo",
         "warning");
 }
 
-function guardadoExitoso(valor){
+function guardadoExitoso(mensaje,ubicacion){
     swal({
         type: "success",
-        title: "¡"+valor+" ha sido guardado correctamente!",
+        title: mensaje,
         showConfirmButton: true,
         confirmButtonText: "Cerrar"
-    });      
+    }).then(function(result){
+        if(result.value){
+            window.location = ubicacion;
+            console.log("entroo");
+        }
+        
+    });
 }
 
 
@@ -37,17 +43,40 @@ function fotoPesoExcedido(){
 }
 
 //borrar
-function confirmacionBorrado(valor){
+function confirmacionBorrado(mensaje,ruta){
+  
     swal({
-        title: "¿Estas seguro de borrar "+valor+" ?",
-        text: "Si no lo esta puede cancelar la accion",
-        type: "warning",
+        title: mensaje,
+        text: "¡Si no lo está puede cancelar la acción!",
+        type: 'warning',
         showCancelButton: true,
-        confirmButtonClass: "btn-danger",
-        confirmButtonText: "Si, Borralo!",
-        closeOnConfirm: false
-    },
-    function(){
-        swal("Borrado!",valor+" se borro correctamente", "success");
-    });
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Si, borrar categoría!'
+    }).then(function(result){
+		if(result.value){
+			window.location = ruta;
+		}
+	})
+}
+
+function borradoExitoso(mensaje,ubicacion){
+    swal({
+        type: "success",
+        title: mensaje,
+        showConfirmButton: true,
+        confirmButtonText: "Cerrar"
+        }).then(function(result){
+            if (result.value) {
+            window.location = ubicacion;
+            }
+        })
+}
+
+function borradoSinExito(mensaje){
+    swal(
+        mensaje,
+        "intentelo de nuevo",
+        "warning");
 }

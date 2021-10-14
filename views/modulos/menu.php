@@ -132,8 +132,8 @@
         </li>
         <script>
             //señala en el menu donde se ubica
-            var ruta = window.location.pathname.split("/")
-            document.getElementById(ruta[ruta.length-1]).className = " active";
+            var opcionMenu = window.location.pathname.split("/")
+           document.getElementById(opcionMenu[opcionMenu.length-1]).className = " active";
         </script>
     </ul>
 

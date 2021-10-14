@@ -129,12 +129,12 @@
 
                         if($respuesta == "ok"){
                             echo '<script>
-                                guardadoExitoso("el usuario");  
+                                guardadoExitoso("¡El usuario ha sido guardado correctamente!","usuarios");  
                             </script>'; 
                         }
                 }else{
                     echo '<script>
-                        datosNoValidos("el usuario","registrar");
+                        datosNoValidos("No se logró registrar el usuario");
 					</script>';              
                 }
             }
@@ -214,9 +214,8 @@
                         }else{
     
                             echo'<script>
-                                    datosNoValidos("el usuario","modificar");
-                                  </script>';
-    
+                                    datosNoValidos("No se logró modificar el usuario");
+                                </script>';
                         }
     
                     }else{
@@ -241,14 +240,14 @@
                         
                         
                         echo '<script>
-                        window.location = "usuarios";
-                        window.setTimeout(guardadoExitoso("el usuario"), 2000);
+                            
+                        guardadoExitoso("¡El usuario ha sido guardado correctamente!","usuarios");
                         </script>';
                     }
                 }else{
     
                     echo'<script>
-                         datosNoValidos("el usuario","modificar");
+                        datosNoValidos("No se logró moficar el usuario");
                       </script>';
                 }
             }

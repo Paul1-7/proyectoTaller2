@@ -29,7 +29,7 @@
     <!-- animation nifty modal window effects css -->
     <link rel="stylesheet" type="text/css" href="views\assets\css\component.css">
     <!-- sweet alert framework -->
-    <script type="text/javascript" src="views/bower_components/sweetalert/js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="views/bower_components/sweetalert/js/sweetalert2.min.js"></script>
     <link rel="stylesheet" type="text/css" href="views/bower_components/sweetalert/css/sweetalert.css">
     <script type="text/javascript" src="views\assets\js\personalizado\mensajesModal.js"></script>
     <!-- <script src="views/bower_components/sweetalert/js/sweetalert2.min.js"></script>
