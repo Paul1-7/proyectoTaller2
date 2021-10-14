@@ -35,3 +35,19 @@ function fotoPesoExcedido(){
         confirmButtonText: "¡Cerrar!"
       });
 }
+
+//borrar
+function confirmacionBorrado(valor){
+    swal({
+        title: "¿Estas seguro de borrar "+valor+" ?",
+        text: "Si no lo esta puede cancelar la accion",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonClass: "btn-danger",
+        confirmButtonText: "Si, Borralo!",
+        closeOnConfirm: false
+    },
+    function(){
+        swal("Borrado!",valor+" se borro correctamente", "success");
+    });
+}

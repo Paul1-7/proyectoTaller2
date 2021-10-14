@@ -40,10 +40,6 @@
             //print_r($stmt->errorInfo());
 			return "error";
 		}
-        $stmt->close();
-        $stmt = null;
-
-
 	}
 
     static public function modificarUsuario($datos){
@@ -65,11 +61,6 @@
 		}else{
 			return "error";	
 		}
-
-		$stmt -> close();
-
-		$stmt = null;
-
 	}
 
     static public function actualizarUltimoLogin($item1, $valor1, $item2, $valor2){
@@ -84,9 +75,6 @@
 		}else{
 			return "error";	
 		}
-
-		$stmt -> close();
-		$stmt = null;
 	}
     }
 ?>
