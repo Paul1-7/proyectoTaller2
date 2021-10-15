@@ -33,7 +33,7 @@ $(document).on("click", ".btnEditarMarca", function(){
 
 
 //validar nombre
-$(".valNombreCat").change(function(){
+$(".valNombreMarca").change(function(){
 	$(".messages").remove();
 
 	var usuario = $(this).val();
@@ -41,7 +41,7 @@ $(".valNombreCat").change(function(){
 	datos.append("validarNombre", usuario);
 
 	 $.ajax({
-	    url:"ajax/categorias.ajax.php",
+	    url:"ajax/marcas.ajax.php",
 	    method:"POST",
 	    data: datos,
 	    cache: false,
@@ -50,11 +50,11 @@ $(".valNombreCat").change(function(){
 	   	dataType: "json",
 	    success:function(respuesta){  	
 	    	if(respuesta){
-				if(nombreMarca != respuesta["nombre_cat"]){
-					$(".valNombreCat").parent().after('<div class="messages" style="margin-top:-25px"><p class="text-danger error">Este nombre ya existe en la base de datos</p></div>');
-					$(".valNombreCat").val("");
+				if(nombreMarca != respuesta["nombre_marca"]){
+					$(".valNombreMarca").parent().after('<div class="messages" style="margin-top:-25px"><p class="text-danger error">Este nombre ya existe en la base de datos</p></div>');
+					$(".valNombreMarca").val("");
 				}
-				
+				console.log(nombreMarca);
 	    	}
 	    }
 	})

@@ -21,7 +21,7 @@ class AjaxMarcas{
 	public $validarNombre;
 	public function ajaxValidarNombre(){
 
-		$item = "nombre_cat";
+		$item = "nombre_marca";
 		$valor = $this->validarNombre;
 		$respuesta = ControladorMarcas::listarMarcas($item, $valor);
 

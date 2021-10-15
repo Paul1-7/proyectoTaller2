@@ -43,25 +43,25 @@
         </li>
         <li class="" id="compras">
             <a href="compras">
-                <span class="pcoded-micon"><i class="feather icon-shopping-cart"></i></span>
+                <span class="pcoded-micon"><i class="feather icofont-grocery"></i></span>
                 <span class="pcoded-mtext">Compras</span>
             </a>
         </li>
         <li class="" id="marcas">
             <a href="marcas">
-                <span class="pcoded-micon"><i class="feather icon-list"></i></span>
+                <span class="pcoded-micon"><i class="feather icofont-label"></i></span>
                 <span class="pcoded-mtext">Marcas</span>
             </a>
         </li>
         <li class="" id="pedidos">
             <a href="pedidos">
-                <span class="pcoded-micon"><i class="feather icon-bookmark"></i></span>
+                <span class="pcoded-micon"><i class="feather icofont-paperclip"></i></span>
                 <span class="pcoded-mtext">Pedidos</span>
             </a>
         </li>
         <li class="pcoded-hasmenu">
             <a href="javascript:void(0)">
-                <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
+                <span class="pcoded-micon"><i class="feather icofont-price"></i></span>
                 <span class="pcoded-mtext">Productos</span>
             </a>
             <ul class="pcoded-submenu">
@@ -108,7 +108,7 @@
         </li>
         <li class="" id="reservas">
             <a href="reservas">
-                <span class="pcoded-micon"><i class="feather icon-briefcase"></i></span>
+                <span class="pcoded-micon"><i class="feather icofont-prescription"></i></span>
                 <span class="pcoded-mtext">Reservas</span>
             </a>
         </li>

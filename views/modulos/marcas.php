@@ -48,7 +48,7 @@
                                                         <label class="col-sm-8 col-lg-2 col-form-label">Nombre:</label>
                                                         <div class="col-sm-12 col-lg-10">
                                                             <div class="input-group input-group-inverse">
-                                                                <input class="form-control input-md valNombreMarca" type="text" name="nombreMarca"  placeholder="Ingresar nombre de la marca" required autofocus>
+                                                                <input class="form-control input-md valNombreMarca" type="text" name="nombreMarca"  placeholder="Ingresar nombre de la marca" required >
                                                                 <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont-2x icofont-label"></i></span>
                                                             </div>
                                                         </div>      
