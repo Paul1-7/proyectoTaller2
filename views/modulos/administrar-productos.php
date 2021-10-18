@@ -71,7 +71,7 @@
                                                                 <select name="tipoUniProd" class="form-control form-control-inverse">
                                                                         <option value="-1">Selecciona una unidad </option>
                                                                         <option value="1">Unidad </option>
-                                                                        <option value="2">Libra </option>
+                                                                        <option value="2">kilo </option>
                                                                         <option value="3">Caja </option>
                                                                         <option value="4">Paquete</option>
                                                                 </select>
@@ -191,20 +191,67 @@
                                         <thead>
                                             <tr>
                                                 <th></th>
-                                                <th>Foto</th>
-                                                <th>Nombres</th>
-                                                <th>Apellidos</th>
-                                                <th>Carnet de <br> identidad</th>
-                                                <th>Usuario</th>
-                                                <th>Rol</th>
+                                                <th>Imagen</th>
+                                                <th>Nombre</th>
+                                                <th>Marca</th>
+                                                <th>Categoria</th>
+                                                <th>Precio de <br> compra</th>
+                                                <th>Precio de <br>venta</th>
+                                                <th>Stock</th>
+                                                <th>Tipo de <br>unidad</th>
+                                                <th>Fecha</th>
                                                 <th>Estado</th>
-                                                <th>Ultimo login</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <div class="animation-model">
-                                                
+                                                <?php
+                                                    $item = null;
+                                                    $valor = null;
+                                            
+                                                    $Productos = ControladorProductos::listarProductos($item, $valor);
+
+                                                    foreach ($Productos as $key => $value){
+            
+                                                        echo ' <tr>
+                                                                <td></td>
+                                                                <td><img src="'.$value["imagen_prod"].'" class="img-thumbnail" width="45px"></td>
+                                                                <td>'.$value["nombre_prod"].'</td>
+                                                                <td>'.$value["nombre_marca"].'</td>
+                                                                <td>'.$value["nombre_cat"].'</td>
+                                                                <td>'.$value["precio_compra"].'</td>
+                                                                <td>'.$value["precio_venta"].'</td>
+                                                                <td>'.$value["stock_prod"].'</td>';
+
+                                                                if($value["tipo_uni_prod"]== 1)
+                                                                    echo '<td>Unidades</td>';
+                                                                else if($value["tipo_uni_prod"]== 2)
+                                                                    echo '<td>Kilos</td>';
+                                                                else if($value["tipo_uni_prod"]== 3)
+                                                                    echo '<td>Cajas</td>';
+                                                                else if($value["tipo_uni_prod"]== 4)
+                                                                    echo '<td>Paquetes</td>';    
+                                                                
+                                                                echo '<td>'.$value["fecha_prod"].'</td>';
+                                                                if($value["estado_prod"] != 0)
+                                                                    echo '<td><label class="badge badge-md badge-success" >Activo</label></td>';
+                                                                else
+                                                                    echo '<td><label class="badge badge-md badge-warning" >Inactivo</label></td>';
+                                                                
+                                                                echo '
+                                                                    <td>
+                                                                        
+                                                                            <button type="button" class="btn btn-primary btn-icon  btn-outline-default waves-effect md-trigger btnEditarProd" idProd="'.$value["id_prod"].'" data-modal="modalModificarUsuario"  >
+                                                                                <i class="icofont icofont-pen-alt-4"></i>
+                                                                            </button>
+                                                                            <button type="button" class="btn btn-danger btn-icon  btn-outline-default waves-effect md-trigger btnEditarProd" idprod="'.$value["id_prod"].'" data-modal="modalModificarUsuario"  >
+                                                                                <i class="icofont-ui-delete"></i>
+                                                                            </button>
+                                                                    </td>
+                                                            </tr>';
+                                                    }
+                                                ?>
                                                 <!-- formulario para editar -->
                                                 <!-- modal -->
                                                 <div class="md-modal md-effect-1" id="modalModificarUsuario">

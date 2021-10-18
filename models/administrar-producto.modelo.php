@@ -3,16 +3,15 @@
     
     class ModeloProductos{
 
-    static public function mostrarProductos( $item, $valor,$item2, $valor2){
-        if($valor != "" || $valor2 !=""){
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM productos WHERE $item = :$item AND $item2 =:$item2");
+    static public function mostrarProductos( $item, $valor){
+        if($valor != ""){
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM productos WHERE $item = :$item");
             $stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
-            $stmt -> bindParam(":".$item2, $valor2, PDO::PARAM_STR);
             $stmt -> execute();
             return $stmt -> fetch();
         }else{
 
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM productos");
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM view_productos");
             $stmt -> execute();
             //print_r($stmt->errorInfo());
             return $stmt -> fetchAll();

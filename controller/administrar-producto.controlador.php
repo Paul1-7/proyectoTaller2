@@ -84,12 +84,12 @@
                 }
             }
         }
-/*
-        static public function listarUsuarios($item, $valor){
-            $respuesta = ModeloUsuarios::mostrarUsuarios($item, $valor);
+
+        static public function listarProductos($item, $valor){
+            $respuesta = ModeloProductos::mostrarProductos($item, $valor);
             return $respuesta;
         }
-     */
+     
        
        static public function modificarUsuario(){
 
