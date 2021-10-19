@@ -338,7 +338,7 @@
                                                                     $modificarUser = new ControladorUsuarios();
                                                                     $modificarUser -> modificarUsuario();
                                                                 ?> 
-                                                                <!-- <script>window.location = "usuarios";</script> -->
+                                                                
                                                                 </div>
                                                             </div>
 

@@ -30,13 +30,13 @@ $(document).on("click", ".btnNuevoProd", function(){
 usuarioProd = "";
 $(document).on("click", ".btnEditarProd", function(){
 
-	var idUsuario = $(this).attr("idUsuario");
-	console.log(idUsuario);
+	var idProd = $(this).attr("idProd");
+	console.log(idProd);
 	var datos = new FormData();
-	datos.append("idUsuario", idUsuario);
+	datos.append("idProd", idProd);
 
 	$.ajax({
-		url:"ajax/usuarios.ajax.php",
+		url:"ajax/productos.ajax.php",
 		method: "POST",
 		data: datos,
 		cache: false,
@@ -45,17 +45,18 @@ $(document).on("click", ".btnEditarProd", function(){
 		success: function(respuesta){
 
             json = JSON.parse(respuesta);
-			$("#nombresProd").val(json.nombre);
-			$("#apellidosProd").val(json.apellido);
-			$("#usuarioProd").val(json.usuario);
-			$("#ciProd").val(json.ci);
-			$(".previsualizar").attr("src", json.foto);
-			$("#fotoProd").val(json.foto);
-			$("#rolProd").val(json.rolesid_rol);
-			$("#estadoProd").val(json.estado);
-			$("#passwordProd").val(json.password);
-			$("#idProd").val(json.id_Prod);
-			usuarioProd =  json.usuario;     
+			$("#nombreProdEdit").val(json.nombre_prod);
+			$("#stockProdEdit").val(json.stock_prod);
+			$("#tipoUniProdEdit").val(json.tipo_uni_prod);
+			$("#catProdEdit").val(json.categoriasid_cat);
+			$("#marcaProdEdit").val(json.marcasid_marca);
+			$(".previsualizarProd").attr("src", json.imagen_prod);
+			$("#precioVentaProdEdit").val(json.precio_venta);
+			$("#precioCompraProdEdit").val(json.precio_compra);
+			$("#estadoProdEdit").val(json.estado_prod);
+			$("#fotoProdActual").val(json.imagen_prod);
+			$("#idProdActual").val(json.id_prod);
+			    
 		},
         error: function(result){
             console.log("FALLO",result);

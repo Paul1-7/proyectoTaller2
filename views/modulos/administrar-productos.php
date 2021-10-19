@@ -138,9 +138,6 @@
                                                     </div> 
                                                    
                                                     <div class="row">
-                                                        
-                                                        
-
                                                         <label class="col-sm-8 col-lg-2 col-form-label  ml-md-auto" style="padding-left:0%; padding-right:0px">Estado:</label>
                                                         <div class="col-sm-1 col-lg-4" style="padding-left:0%;">
                                                                 <div class="input-group input-group-inverse">
@@ -242,10 +239,10 @@
                                                                 echo '
                                                                     <td>
                                                                         
-                                                                            <button type="button" class="btn btn-primary btn-icon  btn-outline-default waves-effect md-trigger btnEditarProd" idProd="'.$value["id_prod"].'" data-modal="modalModificarUsuario"  >
+                                                                            <button type="button" class="btn btn-primary btn-icon  btn-outline-default waves-effect md-trigger btnEditarProd" idProd="'.$value["id_prod"].'" data-modal="modalModificarProducto"  >
                                                                                 <i class="icofont icofont-pen-alt-4"></i>
                                                                             </button>
-                                                                            <button type="button" class="btn btn-danger btn-icon  btn-outline-default waves-effect md-trigger btnEditarProd" idprod="'.$value["id_prod"].'" data-modal="modalModificarUsuario"  >
+                                                                            <button type="button" class="btn btn-danger btn-icon   btnEliminarCat" idProd="'.$value["id_prod"].'" >
                                                                                 <i class="icofont-ui-delete"></i>
                                                                             </button>
                                                                     </td>
@@ -254,88 +251,106 @@
                                                 ?>
                                                 <!-- formulario para editar -->
                                                 <!-- modal -->
-                                                <div class="md-modal md-effect-1" id="modalModificarUsuario">
+                                                <div class="md-modal md-effect-1" id="modalModificarProducto">
                                                     <form role="form" method="POST" enctype="multipart/form-data">
                                                         <div class="md-content" >
 
-                                                            <h3 style="background-color:#404e67 !important;">Modificar usuario</h3>
+                                                            <h3 style="background-color:#404e67 !important;">Modificar producto</h3>
                                                             <div >
                                                                 <div class="row">
-                                                                    <label class="col-sm-8 col-lg-2 col-form-label">Nombres:</label>
-                                                                    <div class="col-sm-12 col-lg-10">
+                                                                    <label class="col-sm-8 col-lg-2 col-form-label">Nombre:</label>
+                                                                    <div class="col-sm-12 col-lg-10" style="padding-left: 0%;">
                                                                         <div class="input-group input-group-inverse">
-                                                                            <input class="form-control input-md" type="text" id="nombresUserEdit" name="nombresUserEdit" value="" placeholder="Ingresar nombres" require>
-                                                                            <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
-                                                                            
+                                                                            <input class="form-control input-md valNombreProd" type="text" name="nombreProdEdit" id="nombreProdEdit"  value=""  placeholder="Ingresar nombre del producto" required>
+                                                                            <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont-2x icofont-files-stack"></i></span>
                                                                         </div>
                                                                     </div>      
                                                                 </div>
                                                                 <div class="row">
-                                                                    <label class="col-sm-8 col-lg-2 col-form-label">Apellidos:</label>
-                                                                    <div class="col-sm-12 col-lg-10">
-                                                                        <div class="input-group input-group-inverse">
-                                                                            <input class="form-control input-md" type="text" id="apellidosUserEdit" name="apellidosUserEdit" placeholder="Ingresar apellidos" require>
-                                                                            <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
-                                                                            
-                                                                        </div>
-                                                                    </div>      
-                                                                </div>
-                                                                <div class="row">
-                                                                    <label class="col-sm-8 col-lg-2 col-form-label">Usuario:</label>
-                                                                    <div class="col-sm-1 col-lg-4">
+                                                                    <label class="col-sm-8 col-lg-2 col-form-label">Stock:</label>
+                                                                    <div class="col-sm-1 col-lg-4" style="padding-left: 0%;">
                                                                             <div class="input-group input-group-inverse">
-                                                                                <input class="form-control input-md valUser" type="text" id="usuarioUserEdit" name="usuarioUserEdit" placeholder="Ingresar usuario" require >
-                                                                                <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
+                                                                                <input class="form-control input-md " type="number" name="stockProdEdit" id="stockProdEdit"  value="" placeholder="Ingresar stock" require>
+                                                                                <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont-2x icofont-ui-calculator"></i></span>
+                                                                            </div>
+                                                                    </div>
+
+                                                                    <label class="col-sm-8 col-lg-2 col-form-label" style="padding-left:0%; padding-right:0px; padding-top:0; ">presentación <br> del producto:</label>
+                                                                    <div class="col-sm-1 col-lg-4" style="padding-left:0%;">
+                                                                            <select name="tipoUniProdEdit" id="tipoUniProdEdit" class="form-control form-control-inverse">
+                                                                                    <option value="-1">Selecciona una unidad </option>
+                                                                                    <option value="1">Unidad </option>
+                                                                                    <option value="2">kilo </option>
+                                                                                    <option value="3">Caja </option>
+                                                                                    <option value="4">Paquete</option>
+                                                                            </select>
+                                                                    </div>
+                                                                        
+                                                                </div> 
+                                                                <div class="row">
+                                                                    <label class="col-sm-8 col-lg-2 col-form-label">Categoria:</label>
+                                                                    <div class="col-sm-1 col-lg-4" style="padding-left: 0%;">
+                                                                            <div class="input-group input-group-inverse">
+                                                                                <select id="catProdEdit" name="catProdEdit"  class="form-control form-control-inverse">
+                                                                                    <option value="-1">Seleciona una categoria </option>
+                                                                                        <?php
+                                                                                            $item = null;
+                                                                                            $valor = null;
+                                                                                    
+                                                                                            $Categorias = ControladorCategorias::listarCategorias($item, $valor);
+
+                                                                                            foreach ($Categorias as $key => $value){
+                                                                                                echo '<option value="'.$value["id_cat"].'">'.$value["nombre_cat"].'</option>';
+                                                                                            }
+                                                                                        ?>
+                                                                                </select>
+                                                                            </div>
+                                                                    </div>
+
+                                                                    <label class="col-sm-8 col-lg-2 col-form-label" style="padding-left:0%; padding-right:0px">Marca:</label>
+                                                                    <div class="col-sm-1 col-lg-4" style="padding-left:0%;">
+                                                                            <div class="input-group input-group-inverse">
+                                                                                <select id="marcaProdEdit" name="marcaProdEdit" class="form-control form-control-inverse">
+                                                                                    <option value="-1">Seleciona una marca </option>
+                                                                                        <?php
+                                                                                            $item = null;
+                                                                                            $valor = null;
+                                                                                            $Marcas = ControladorMarcas::listarMarcas($item, $valor);
+
+                                                                                            foreach ($Marcas as $key => $value){
+                                                                                                echo '<option value="'.$value["id_marca"].'">'.$value["nombre_marca"].'</option>';
+                                                                                            }
+                                                                                        ?>
+                                                                                </select>
+                                                                            </div>
+                                                                    </div>        
+                                                                </div> 
+                                                                <div class="row">
+                                                                    <label class="col-sm-8 col-lg-2 col-form-label" style="padding-top: 0px;">precio de venta:</label>
+                                                                    <div class="col-sm-1 col-lg-4" style="padding-left: 0%;">
+                                                                            <div class="input-group input-group-inverse">
+                                                                                <input class="form-control input-md valUser" type="text" name="precioVentaProdEdit" id="precioVentaProdEdit" value="" placeholder="0.00" require>
+                                                                                <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont-2x icofont-money-bag"></i></span>
                                                                                 
                                                                             </div>
                                                                     </div>
 
-                                                                    <label class="col-sm-8 col-lg-2 col-form-label" style="padding-left:0%; padding-right:0px">Contraseña:</label>
+                                                                    <label class="col-sm-8 col-lg-2 col-form-label" style="padding-left:0%; padding-right:0px; padding-top:0px">precio de compra:</label>
                                                                     <div class="col-sm-1 col-lg-4" style="padding-left:0%;">
                                                                             <div class="input-group input-group-inverse">
-                                                                                <input class="form-control input-md" type="text" name="passwordUserEdit" placeholder="nueva contraseña" require>
-                                                                                <input class="form-control input-md" type="hidden" value="" id="passwordUserEditActual" name="passwordUserEditActual">
-                                                                                <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-ui-password"></i></span>
+                                                                                <input class="form-control input-md" type="text" name="precioCompraProdEdit" id="precioCompraProdEdit" value="" placeholder="0.00" require>
+                                                                                <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont-2x icofont-money-bag"></i></span>
                                                                                 
                                                                             </div>
                                                                     </div>
                                                                         
                                                                 </div> 
+                                                            
                                                                 <div class="row">
-                                                                    <label class="col-sm-8 col-lg-2 col-form-label">Carnet de identidad:</label>
-                                                                    <div class="col-sm-1 col-lg-4">
-                                                                            <div class="input-group input-group-inverse">
-                                                                                <input class="form-control input-md" type="text" id="ciUserEdit" name="ciUserEdit" value="" placeholder="Ingresar C.I." require>
-                                                                                <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-ui-v-card"></i></span>
-                                                                                
-                                                                            </div>
-                                                                    </div>       
-                                                                </div>
-                                                                <div class="row">
-                                                                    <label class="col-sm-8 col-lg-2 col-form-label">Rol:</label>
-                                                                    <div class="col-sm-1 col-lg-4">
-                                                                            <div class="input-group input-group-inverse">
-                                                                                <select id="rolUserEdit" name="rolUserEdit" class="form-control form-control-inverse">
-                                                                                    <option value="-1">Seleciona un rol </option>
-                                                                                        <?php
-                                                                                            $item = null;
-                                                                                            $valor = null;
-                                                                                    
-                                                                                            //$Marcas = ControladorMarcas::listarMarcas($item, $valor);
-
-                                                                                           /* foreach ($Marcas as $key => $value){
-                                                                                                echo '<option value="'.$value["id_rol"].'">'.$value["nombre_rol"].'</option>';
-                                                                                            }*/
-                                                                                        ?>
-                                                                                    
-                                                                                </select>
-                                                                            </div>
-                                                                    </div>
-
-                                                                    <label class="col-sm-8 col-lg-2 col-form-label" style="padding-left:0%; padding-right:0px">Estado:</label>
+                                                                    <label class="col-sm-8 col-lg-2 col-form-label  ml-md-auto" style="padding-left:0%; padding-right:0px">Estado:</label>
                                                                     <div class="col-sm-1 col-lg-4" style="padding-left:0%;">
                                                                             <div class="input-group input-group-inverse">
-                                                                                <select id="estadoUserEdit" name="estadoUserEdit" class="form-control form-control-inverse">
+                                                                                <select name="estadoProdEdit" id="estadoProdEdit" class="form-control form-control-inverse">
                                                                                     <option value="-1">Selecciona un estado</option>
                                                                                     <option value="1">Habilitado</option>
                                                                                     <option value="0">Deshabilitado</option>
@@ -344,31 +359,30 @@
                                                                     </div>
                                                                         
                                                                 </div> 
-                                                                <label class="col-sm-8 col-lg-2 col-form-label" style="margin-left: 0px; padding-left: 0px;">Subir foto:</label>
+                                                                <label class="col-auto col-form-label" style="margin-left: 0px; padding-left: 0px;">Subir foto de producto:</label>
                                                                 <div class="row">
                                                                     
-                                                                    <div class="col-sm-1 col-lg-6">
+                                                                    <div class="col-auto">
                                                                             <div class="input-group input-group-inverse">
-                                                                                <input type="file"  name="fotoUserEdit" class="form-control fotoUser" >
-                                                                                <input type="hidden"  name="fotoUserActual" id="fotoUserActual" value="" class="form-control fotoUser" >
+                                                                                <input type="file"  name="fotoProdEdit" id="fotoProdEdit" class="form-control fotoProd" >
+                                                                                <input type="hidden"  name="fotoProdActual" id="fotoProdActual" value="" class="form-control fotoUser" >
                                                                             </div>
                                                                     </div>  
                                                                         
                                                                 </div>
                                                                 <div class="col-sm-1 col-lg-6">
                                                                             <div class="input-group input-group-inverse ">
-                                                                                <img class="imag-thumbnail rounded-circle previsualizar " style="border: 2px solid #404e67;" width="100px" height="100px" src="views\img\usuarios\user.png" alt="foto de perfil">
+                                                                                <img class="imag-thumbnail rounded-circle  previsualizarProd" style="border: 2px solid #404e67;" width="100px" height="100px" src="views\img\productos\producto_default.jpg" alt="foto de producto">
                                                                             </div>
                                                                     </div>
                                                                 <div class="modal-footer">
-                                                                    <input type="hidden"  name="idUserActual" id="idUserActual" value="" class="form-control fotoUser" >
-                                                                    <button type="button" style="margin-left: 191.875px;" class="btn btn-danger btn-lg waves-effect md-close ">Cancelar</button>
+                                                                    <input type="hidden"  name="idProdActual" id="idProdActual" value="" class="form-control fotoUser" >
+                                                                    <button type="button" style="margin-left: 191.875px;" class="btn btn-danger btn-lg waves-effect md-close">Cancelar</button>
                                                                     <button type="submit" style="margin-right: 191.875px;" class="btn btn-primary btn-lg waves-effect md-close">Guardar</button>
                                                                 <?php
-                                                                    $modificarUser = new ControladorUsuarios();
-                                                                    $modificarUser -> modificarUsuario();
-                                                                ?> 
-                                                                <!-- <script>window.location = "usuarios";</script> -->
+                                                                $modificarProducto = new ControladorProductos();
+                                                                $modificarProducto -> modificarProducto();
+                                                                ?>
                                                                 </div>
                                                             </div>
 

@@ -43,19 +43,21 @@
 		}
 	}
 
-    static public function modificarUsuario($datos){
+    static public function modificarProducto($datos){
 	
-		$stmt = Conexion::conectar()->prepare("UPDATE productos SET nombre = :nombre, apellido =:apellido, ci =:ci,  password = :password, estado = :estado, rolesid_rol = :rolesid_rol, foto = :foto, usuario = :usuario WHERE id_user = :id_user");
+		$stmt = Conexion::conectar()->prepare("UPDATE productos SET nombre_prod =:nombre_prod,stock_prod = :stock_prod,precio_compra =:precio_compra,precio_venta = :precio_venta,
+		estado_prod =:estado_prod,categoriasid_cat=:categoriasid_cat,marcasid_marca=:marcasid_marca,tipo_uni_prod=:tipo_uni_prod,imagen_prod=:imagen_prod WHERE id_prod = :id_prod");
 
-        $stmt->bindParam(":id_user", $datos["id_user"], PDO::PARAM_STR);
-        $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
-        $stmt->bindParam(":apellido", $datos["apellido"], PDO::PARAM_STR);
-		$stmt->bindParam(":usuario", $datos["usuario"], PDO::PARAM_STR);
-		$stmt->bindParam(":password", $datos["password"], PDO::PARAM_STR);
-		$stmt->bindParam(":estado", $datos["estado"], PDO::PARAM_STR);
-		$stmt->bindParam(":rolesid_rol", $datos["rolesid_rol"], PDO::PARAM_STR);
-        $stmt->bindParam(":ci", $datos["ci"], PDO::PARAM_STR);
-        $stmt->bindParam(":foto", $datos["foto"], PDO::PARAM_STR);
+        $stmt->bindParam(":id_prod", $datos["id_prod"], PDO::PARAM_STR);
+        $stmt->bindParam(":nombre_prod", $datos["nombre_prod"], PDO::PARAM_STR);
+        $stmt->bindParam(":stock_prod", $datos["stock_prod"], PDO::PARAM_STR);
+		$stmt->bindParam(":precio_compra", $datos["precio_compra"], PDO::PARAM_STR);
+		$stmt->bindParam(":precio_venta", $datos["precio_venta"], PDO::PARAM_STR);
+		$stmt->bindParam(":estado_prod", $datos["estado_prod"], PDO::PARAM_STR);
+		$stmt->bindParam(":categoriasid_cat", $datos["categoriasid_cat"], PDO::PARAM_STR);
+        $stmt->bindParam(":marcasid_marca", $datos["marcasid_marca"], PDO::PARAM_STR);
+        $stmt->bindParam(":tipo_uni_prod", $datos["tipo_uni_prod"], PDO::PARAM_STR);
+        $stmt->bindParam(":imagen_prod", $datos["imagen_prod"], PDO::PARAM_STR);
 
 		if($stmt -> execute()){
 			return "ok";
@@ -64,18 +66,6 @@
 		}
 	}
 
-    static public function actualizarUltimoLogin($item1, $valor1, $item2, $valor2){
-
-		$stmt = Conexion::conectar()->prepare("UPDATE productos SET $item1 = :$item1 WHERE $item2 = :$item2");
-
-		$stmt -> bindParam(":".$item1, $valor1, PDO::PARAM_STR);
-		$stmt -> bindParam(":".$item2, $valor2, PDO::PARAM_STR);
-
-		if($stmt -> execute()){
-			return "ok";	
-		}else{
-			return "error";	
-		}
-	}
+   
     }
 ?>
