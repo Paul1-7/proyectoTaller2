@@ -102,7 +102,7 @@
                 $_GET["ruta"]== "compras" ||
                 $_GET["ruta"]== "marcas" ||
                 $_GET["ruta"]== "pedidos" ||
-                $_GET["ruta"]== "administrar-productos" ||
+                $_GET["ruta"]== "productos" ||
                 $_GET["ruta"]== "stock-minimo" ||
                 $_GET["ruta"]== "proveedores" ||
                 $_GET["ruta"]== "reportes-venta" ||

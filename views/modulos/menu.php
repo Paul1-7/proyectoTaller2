@@ -59,23 +59,11 @@
                 <span class="pcoded-mtext">Pedidos</span>
             </a>
         </li>
-        <li class="pcoded-hasmenu">
-            <a href="javascript:void(0)">
+        <li class="" id="productos">
+            <a href="productos">
                 <span class="pcoded-micon"><i class="feather icofont-price"></i></span>
                 <span class="pcoded-mtext">Productos</span>
             </a>
-            <ul class="pcoded-submenu">
-                <li class=" " id="administrar-productos">
-                    <a href="administrar-productos">
-                        <span class="pcoded-mtext">Administrar Productos</span>
-                    </a>
-                </li>
-                <li class=" " id="stock-minimo">
-                    <a href="stock-minimo">
-                        <span class="pcoded-mtext">Stock minimo</span>
-                    </a>
-                </li>
-            </ul>
         </li>
         <li class="" id="proveedores">
             <a href="proveedores">

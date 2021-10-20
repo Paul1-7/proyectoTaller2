@@ -242,7 +242,7 @@
                                                                             <button type="button" class="btn btn-primary btn-icon  btn-outline-default waves-effect md-trigger btnEditarProd" idProd="'.$value["id_prod"].'" data-modal="modalModificarProducto"  >
                                                                                 <i class="icofont icofont-pen-alt-4"></i>
                                                                             </button>
-                                                                            <button type="button" class="btn btn-danger btn-icon   btnEliminarCat" idProd="'.$value["id_prod"].'" >
+                                                                            <button type="button" class="btn btn-danger btn-icon   btnEliminarProd" idProd="'.$value["id_prod"].'"  imagen_prod="'.$value["imagen_prod"].'" >
                                                                                 <i class="icofont-ui-delete"></i>
                                                                             </button>
                                                                     </td>
@@ -408,3 +408,7 @@
         </div>
     </div>
 </div>
+<?php
+$borrarProducto = new ControladorProductos();
+$borrarProducto -> borrarProducto();
+?>

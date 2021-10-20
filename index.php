@@ -2,7 +2,7 @@
 
 //controladores
 require_once "controller/contenedor.controlador.php";
-require_once "controller/administrar-producto.controlador.php";
+require_once "controller/productos.controlador.php";
 require_once "controller/categorias.controlador.php";
 require_once "controller/clientes.controlador.php";
 require_once "controller/compras.controlador.php";
@@ -22,7 +22,7 @@ require_once "controller/ventas.controlador.php";
 
 //modelos
 require_once "models/categorias.modelo.php";
-require_once "models/administrar-producto.modelo.php";
+require_once "models/productos.modelo.php";
 require_once "models/clientes.modelo.php";
 require_once "models/compras.modelo.php";
 require_once "models/datos-negocio.modelo.php";

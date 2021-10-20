@@ -23,11 +23,11 @@ $(".fotoProd").change(function(){
 
 //nuevo usuario
 $(document).on("click", ".btnNuevoProd", function(){
-	$(".previsualizar").attr("src", "views/img/usuarios/uProd.png");
+	$(".previsualizarProd").attr("src", "views/img/usuarios/uProd.png");
 });
 
 // modificar usuario
-usuarioProd = "";
+nombreProd = "";
 $(document).on("click", ".btnEditarProd", function(){
 
 	var idProd = $(this).attr("idProd");
@@ -56,7 +56,7 @@ $(document).on("click", ".btnEditarProd", function(){
 			$("#estadoProdEdit").val(json.estado_prod);
 			$("#fotoProdActual").val(json.imagen_prod);
 			$("#idProdActual").val(json.id_prod);
-			    
+			nombreProd=json.nombre_prod;
 		},
         error: function(result){
             console.log("FALLO",result);
@@ -67,16 +67,16 @@ $(document).on("click", ".btnEditarProd", function(){
 })
 
 //validar usuario
-$(".valProd").change(function(){
+$(".valNombreProd").change(function(){
 
 	$(".messages").remove();
 
-	var usuario = $(this).val();
+	var nombre = $(this).val();
 	var datos = new FormData();
-	datos.append("validarUsuario", usuario);
+	datos.append("valNombreProd", nombre);
 
 	 $.ajax({
-	    url:"ajax/usuarios.ajax.php",
+	    url:"ajax/productos.ajax.php",
 	    method:"POST",
 	    data: datos,
 	    cache: false,
@@ -85,9 +85,9 @@ $(".valProd").change(function(){
 	   	dataType: "json",
 	    success:function(respuesta){  	
 	    	if(respuesta){
-				if(usuarioProd != respuesta["usuario"]){
-					$(".valProd").parent().after('<div class="messages" style="margin-top:-25px"><p class="text-danger error">Este usuario ya existe en la base de datos</p></div>');
-					$(".valProd").val("");
+				if(nombreProd != respuesta["nombre_prod"]){
+					$(".valNombreProd").parent().after('<div class="messages" style="margin-top:-25px"><p class="text-danger error">Este producto ya existe en la base de datos</p></div>');
+					$(".valNombreProd").val("");
 				}
 	    	}
 	    },
@@ -95,4 +95,17 @@ $(".valProd").change(function(){
             console.log("FALLO",result);
         }
 	})
+})
+
+//borrar prod
+$(".tablas").on("click", ".btnEliminarProd", function(){
+
+    var idProd = $(this).attr("idProd");
+	var imagen_prod = $(this).attr("imagen_prod");
+
+	var mensaje = '¿Está seguro de borrar el producto?';
+	var ruta = "index.php?ruta=productos&idProd="+idProd+"&imagen_prod="+imagen_prod;
+	var modulo = "productos"
+    confirmacionBorrado(mensaje,ruta,modulo);
+
 })

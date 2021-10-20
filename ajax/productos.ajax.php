@@ -20,11 +20,11 @@ class AjaxProductos{
 	}
 
 	//validar nombre prod
-	public $validarUsuario;
-	public function ajaxValidarUsuario(){
+	public $validarNombreProd;
+	public function ajaxValidarNombreProd(){
 
 		$item = "nombre_prod";
-		$valor = $this->validarUsuario;
+		$valor = $this->validarNombreProd;
 		$respuesta = ControladorProductos::listarProductos($item, $valor);
 
 		echo json_encode($respuesta);
@@ -41,9 +41,9 @@ if(isset($_POST["idProd"])){
 }
 
 //validar usuarios
-if(isset( $_POST["validarUsuario"])){
+if(isset( $_POST["valNombreProd"])){
 	$valUsuario = new AjaxProductos();
-	$valUsuario -> validarUsuario = $_POST["validarUsuario"];
-	$valUsuario -> ajaxValidarUsuario();
+	$valUsuario -> validarNombreProd = $_POST["valNombreProd"];
+	$valUsuario -> ajaxValidarNombreProd();
 
 }

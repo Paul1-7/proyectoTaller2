@@ -73,12 +73,15 @@
 
                         if($respuesta == "ok"){
                             echo '<script>
-                                guardadoExitoso("¡El producto ha sido guardado correctamente!","administrar-productos");  
+                                mensaje = "¡El producto ha sido guardado correctamente!"
+                                modulo = "productos"
+                                guardadoExitoso(mensaje,modulo);  
                             </script>'; 
                         }
                 }else{
                     echo '<script>
-                        datosNoValidos("No se logró registrar el producto");
+                        mensaje = "No se logró registrar el producto"
+                        datosNoValidos(mensaje);
 					</script>';              
                 }
             }
@@ -128,7 +131,7 @@
                             
 
                             //borra foto
-                            if(!empty($_POST["fotoProdActual"] && $_POST["fotoProdActual"]!="views\img\productos\producto_default.jpg"))
+                            if(!empty($_POST["fotoProdActual"] ) && $_POST["fotoProdActual"]!="views\img\productos\producto_default.jpg")
                                unlink($_POST["fotoProdActual"]);
 
 
@@ -183,19 +186,51 @@
                         
                         
                         echo '<script>
-                            
-                        guardadoExitoso("¡El producto ha sido guardado correctamente!","administrar-productos");
+                        mensaje = "¡El producto ha sido guardado correctamente!"
+                        modulo = "productos"    
+                        guardadoExitoso(mensaje,modulo);
                         </script>';
                     }
                 }else{
     
                     echo'<script>
-                        datosNoValidos("No se logró modificar el producto");
+                        mensaje = "No se logró modificar el producto"
+                        datosNoValidos(mensaje);
                       </script>';
                 }
             }
             
         }
 
+        static public function borrarProducto(){
+
+            if(isset($_GET["idProd"])){
+    
+                
+                $id = $_GET["idProd"];
+                $imagen = $_GET["imagen_prod"];
+
+                $respuesta = ModeloProductos::borrarProducto($id);
+    
+                if($respuesta == "ok"){
+
+                    if(!empty($imagen ) && $imagen!="views\img\productos\producto_default.jpg")
+                               unlink($imagen);
+
+                    echo'<script>
+                            mensaje = "¡El producto se borro correctamente!"
+                            modulo = "productos"
+                            borradoExitoso(mensaje,modulo)
+                        </script>';
+                }else{
+                    echo'<script>
+                            mensaje = "¡No se logro borrar el producto seleccionado"
+                            modulo = "productos"
+                            borradoSinExito(mensaje,modulo)
+                        </script>';
+                }
+            }
+            
+        }
         
     }
