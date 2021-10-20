@@ -53,7 +53,7 @@ function confirmacionBorrado(mensaje,ruta,modulo){
         cancelButtonColor: '#d33',
         cancelButtonText: 'Cancelar',
         confirmButtonColor: '#3085d6',
-        confirmButtonText: 'Si, borrar '+modulo+'!'
+        confirmButtonText: 'Si, borrar '+modulo.substr(0,modulo.length-1)+'!'
     }).then(function(result){
 		if(result.value){
 			window.location = ruta;
