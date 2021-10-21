@@ -32,23 +32,25 @@
             $stmt->bindParam(":direccion_cl", $datos["direccion_cl"], PDO::PARAM_STR);
             $stmt->bindParam(":estado_cl", $datos["estado_cl"], PDO::PARAM_STR);
             if($stmt->execute()){ 
-                
                 return "ok";	
             }else{
-                //print_r($stmt->errorInfo());
                 return "error";
             }
         }
 
-        static public function modificarCategoria($datos){
+        static public function modificarCliente($datos){
         
-            $stmt = Conexion::conectar()->prepare("UPDATE categorias SET nombre_cat = :nombre_cat, desc_cat =:desc_cat, estado_cat =:estado_cat WHERE id_cat = :id_cat");
+            $stmt = Conexion::conectar()->prepare("UPDATE clientes SET nombres_cl = :nombres_cl, apellidos_cl =:apellidos_cl,ci_cl =:ci_cl,
+            tel_cl=:tel_cl,direccion_cl=:direccion_cl,estado_cl=:estado_cl WHERE id_cliente = :id_cliente");
 
-            $stmt->bindParam(":id_cat", $datos["id_cat"], PDO::PARAM_STR);
-            $stmt->bindParam(":nombre_cat", $datos["nombre_cat"], PDO::PARAM_STR);
-            $stmt->bindParam(":desc_cat", $datos["desc_cat"], PDO::PARAM_STR);
-            $stmt->bindParam(":estado_cat", $datos["estado_cat"], PDO::PARAM_STR);
-            
+            $stmt->bindParam(":id_cliente", $datos["id_cliente"], PDO::PARAM_STR);
+            $stmt->bindParam(":nombres_cl", $datos["nombres_cl"], PDO::PARAM_STR);
+            $stmt->bindParam(":apellidos_cl", $datos["apellidos_cl"], PDO::PARAM_STR);
+            $stmt->bindParam(":ci_cl", $datos["ci_cl"], PDO::PARAM_STR);
+            $stmt->bindParam(":tel_cl", $datos["tel_cl"], PDO::PARAM_STR);
+            $stmt->bindParam(":direccion_cl", $datos["direccion_cl"], PDO::PARAM_STR);
+            $stmt->bindParam(":estado_cl", $datos["estado_cl"], PDO::PARAM_STR);
+
             if($stmt -> execute()){
                 return "ok";
             }else{
@@ -57,11 +59,11 @@
         }
 
     
-        static public function borrarCategoria( $datos){
+        static public function borrarCliente( $id){
 
-            $stmt = Conexion::conectar()->prepare("DELETE FROM categorias WHERE id_cat = :id_cat");
+            $stmt = Conexion::conectar()->prepare("DELETE FROM clientes WHERE id_cliente = :id_cliente");
 
-            $stmt -> bindParam(":id_cat", $datos, PDO::PARAM_INT);
+            $stmt -> bindParam(":id_cliente", $id, PDO::PARAM_INT);
 
             if($stmt -> execute()){
 

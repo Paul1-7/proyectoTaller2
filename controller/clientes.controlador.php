@@ -54,60 +54,72 @@
         }
         
         
-        static public function modificarCategoria(){
-            if(isset($_POST["nombreCatEdit"])){
+        static public function modificarCliente(){
+            if(isset($_POST["nombreCl"])){
 
-                $nombre =$_POST["nombreCatEdit"];
-                $desc = $_POST["descCatEdit"];
-                $id = $_POST["idCatActual"];
+                $nombre =$_POST["nombreCl"];
+                $apellido =$_POST["apellidoCl"];
+                $ci =$_POST["ciCl"];
+                $tel =$_POST["telCl"];
+                $direccion =$_POST["direccionCl"];
+                $id = $_POST["idClActual"];
 
-                if(isset($_POST["estadoClEdit"]) && $_POST["estadoClEdit"]==1)
-                    $estado = $_POST["estadoClEdit"];
+                if(isset($_POST["estadoCl"]))
+                    $estado = $_POST["estadoCl"];
                 else
                     $estado = 0;
 
                 if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $nombre) &&
-                    preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',$desc) &&
+                    preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',$apellido) &&
+                    preg_match('/^[a-zA-Z0-9]+$/',$ci) &&
+                    preg_match('/^[0-9+ ]+$/',$tel) &&
+                    preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ. ]+$/',$direccion) &&
                     preg_match('/^[0-1]+$/',$estado)){
 
-                        $datos = array( "id_cat" =>$id,
-                                        "nombre_cat" => $nombre,
-                                        "desc_cat"=> $desc,
-                                        "estado_cat" => $estado,
-                                        ); 
+                        $datos = array( "id_cliente" =>$id,
+                                        "nombres_cl" => $nombre,
+                                        "apellidos_cl"=> $apellido,
+                                        "ci_cl"=> $ci,
+                                        "tel_cl"=> $tel,
+                                        "direccion_cl"=> $direccion,
+                                        "estado_cl" => $estado);
 
-                    $respuesta = ModeloCategorias::modificarCategoria($datos);
+                    $respuesta = ModeloClientes::modificarCliente($datos);
                    
                     if($respuesta == "ok"){
 
                         echo '<script>
-                            guardadoExitoso("¡La categoria ha sido guardada correctamente!","categorias");
+                            var mensaje = "¡El cliente ha sido guardado correctamente!";
+                            var modulo = "clientes";
+                            guardadoExitoso(mensaje,modulo);
                             
                         </script>';
                     }
                 }else{
-    
                     echo'<script>
-                         datosNoValidos("No se logró modificar la categoria");
+                        var mensaje = "No se logró modificar el cliente"
+                         datosNoValidos(mensaje);
                       </script>';
                 }
             }
             
         }
     
-        static public function borrarCategoria(){
+        static public function borrarCliente(){
 
-            if(isset($_GET["idCat"])){
+            if(isset($_GET["idCl"])){
     
                 
-                $datos = $_GET["idCat"];
+                $id = $_GET["idCl"];
     
-                $respuesta = ModeloCategorias::borrarCategoria($datos);
+                $respuesta = ModeloClientes::borrarCliente($id);
     
                 if($respuesta == "ok"){
     
                     echo'<script>
-                            borradoExitoso("¡La categoria se borro correctamente!","categorias")
+                            var mensaje = "¡El cliente se borro correctamente!"
+                            var modulo = "clientes"
+                            borradoExitoso(mensaje,modulo)
                         </script>';
                 }else{
                     echo'<script>
