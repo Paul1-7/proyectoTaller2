@@ -36,16 +36,16 @@ $(document).on("click", ".btnModificarCl", function(){
 
 
 
-//validar nombre
-$(".valNombreCat").change(function(){
+//validar ci
+$(".valCiCl").change(function(){
 	$(".messages").remove();
 
-	var usuario = $(this).val();
+	var ci = $(this).val();
 	var datos = new FormData();
-	datos.append("validarNombre", usuario);
+	datos.append("validarCi", ci);
 
 	 $.ajax({
-	    url:"ajax/categorias.ajax.php",
+	    url:"ajax/clientes.ajax.php",
 	    method:"POST",
 	    data: datos,
 	    cache: false,
@@ -54,9 +54,9 @@ $(".valNombreCat").change(function(){
 	   	dataType: "json",
 	    success:function(respuesta){  	
 	    	if(respuesta){
-				if(ciCliente != respuesta["nombre_cat"]){
-					$(".valNombreCat").parent().after('<div class="messages" style="margin-top:-25px"><p class="text-danger error">Este nombre ya existe en la base de datos</p></div>');
-					$(".valNombreCat").val("");
+				if(ciCliente != respuesta["ci_cl"]){
+					$(".valCiCl").parent().after('<div class="messages" style="margin-top:-25px"><p class="text-danger error">Este carnet de identidad ya existe en la base de datos</p></div>');
+					$(".valCiCl").val("");
 				}
 				
 	    	}

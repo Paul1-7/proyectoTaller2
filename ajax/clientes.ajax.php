@@ -17,13 +17,13 @@ class AjaxClientes{
 
 	}
 
-	//validar usuario
-	public $validarNombre;
-	public function ajaxValidarNombre(){
+	//validar ci
+	public $validarCi;
+	public function ajaxValidarCi(){
 
-		$item = "nombre_cat";
-		$valor = $this->validarNombre;
-		$respuesta = ControladorCategorias::listarCategorias($item, $valor);
+		$item = "ci_cl";
+		$valor = $this->validarCi;
+		$respuesta = ControladorClientes::listarClientes($item, $valor);
 
 		echo json_encode($respuesta);
 
@@ -39,8 +39,8 @@ if(isset($_POST["idCl"])){
 }
 
 //validar usuarios
-if(isset( $_POST["validarNombre"])){
+if(isset( $_POST["validarCi"])){
 	$valNombre = new AjaxClientes();
-	$valNombre -> validarNombre = $_POST["validarNombre"];
-	$valNombre -> ajaxValidarNombre();
+	$valNombre -> validarCi = $_POST["validarCi"];
+	$valNombre -> ajaxValidarCi();
 }
