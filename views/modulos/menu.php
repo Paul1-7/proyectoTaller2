@@ -1,6 +1,24 @@
 <nav class="pcoded-navbar">
 <div class="pcoded-inner-navbar main-menu">
+    <div class="" >
+        <img src="<?php echo $_SESSION["foto"];?>" class="imag-thumbnail rounded-circle " style="background-color:white; margin:1em auto 1em auto; display:block; " width="100px" alt="User-Profile-Image">
+    </div>
+    <div >
+        <div class="pcoded-mtext" style="color:rgb(220,220,220); margin:1em auto 0px auto;  text-align:center;  font-weight:600; font-size:16px"><?php echo  $_SESSION["nombre"].' '. $_SESSION["apellido"]; ?></div>
+        <div class="pcoded-mtext" style="color:rgb(220,220,220); margin:1em auto 0px auto;  text-align:center;   font-size:14px">
+        <?php 
+        
+            $item = "id_rol";
+            $valor = $_SESSION["rol"];
     
+            $rol = ControladorRoles::listarRoles($item, $valor);
+
+            printf($rol["nombre_rol"]) ;
+            /*foreach ($rol as $key => $value){
+                echo $value["nombre_rol"];
+            }*/
+        ?></div>
+    </div>
     <div class="pcoded-navigatio-lavel">Menu</div>
     <ul class="pcoded-item pcoded-left-item" item-border="false" subitem-border="true" item-border-style="none">
         
