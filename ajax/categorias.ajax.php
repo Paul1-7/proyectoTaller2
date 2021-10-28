@@ -9,7 +9,7 @@ class AjaxCategorias{
     //editar usuario
     public $idCat;
 
-	public function ajaxEditarCategoria(){
+	public function ajaxModificarCategoria(){
 		$item = "id_cat";
 		$valor = $this->idCat;
 		
@@ -28,7 +28,6 @@ class AjaxCategorias{
 		$respuesta = ControladorCategorias::listarCategorias($item, $valor);
 
 		echo json_encode($respuesta);
-
 	}
 }
 
@@ -36,7 +35,7 @@ class AjaxCategorias{
 if(isset($_POST["idCat"])){
 	$editar = new AjaxCategorias();
 	$editar -> idCat = $_POST["idCat"];
-	$editar -> ajaxEditarCategoria();
+	$editar -> ajaxModificarCategoria();
 	
 }
 

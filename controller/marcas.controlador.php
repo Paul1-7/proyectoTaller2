@@ -107,19 +107,30 @@
             if(isset($_GET["idMarca"])){
     
                 
-                $datos = $_GET["idMarca"];
+                $id = $_GET["idMarca"];
     
-                $respuesta = ModeloMarcas::borrarMarca($datos);
-    
-                if($respuesta == "ok"){
-    
+
+                //verifica su integridad referencial
+                $valBorrado = ModeloProductos::mostrarProductos("marcasid_marca",$id);
+                if($valBorrado!=false){
                     echo'<script>
-                            borradoExitoso("¡La marca se borro correctamente!","marcas")
-                        </script>';
-                }else{
-                    echo'<script>
-                            borradoSinExito("¡No se logro borrar la marca seleccionada!","marcas")
-                        </script>';
+                                var mensaje = "¡La marca no se puede borrar porque otros registros la utilizan!"
+                                borradoErrorIntegridad(mensaje)
+                            </script>';
+                }
+                else{
+                    $respuesta = ModeloMarcas::borrarMarca($id);
+        
+                    if($respuesta == "ok"){
+        
+                        echo'<script>
+                                borradoExitoso("¡La marca se borro correctamente!","marcas")
+                            </script>';
+                    }else{
+                        echo'<script>
+                                borradoSinExito("¡No se logro borrar la marca seleccionada!","marcas")
+                            </script>';
+                    }
                 }
             }
             

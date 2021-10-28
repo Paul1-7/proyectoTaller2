@@ -80,3 +80,10 @@ function borradoSinExito(mensaje){
         "intentelo de nuevo",
         "warning");
 }
+
+function borradoErrorIntegridad(mensaje){
+    swal(
+        mensaje,
+        "Puede cambiar el estado del registro para que no aparezcan en las listas",
+        "warning");
+}

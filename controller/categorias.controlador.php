@@ -32,13 +32,16 @@
                             $respuesta = ModeloCategorias::nuevaCategoria($datos);
                             if($respuesta == "ok"){
                                 echo '<script>
-                                    guardadoExitoso("¡La categoria ha sido guardada correctamente!","categorias");  
+                                    var mensaje = "¡La categoria ha sido guardada correctamente!"
+                                    var modulo =   "categorias"
+                                    guardadoExitoso(mensaje,modulo);  
                                 </script>'; 
                             }
                         }
                 }else{
                     echo '<script>
-                        datosNoValidos("No se logró registrar la categoria");
+                        var mensaje = "No se logró registrar la categoria"
+                        datosNoValidos(mensaje);
 					</script>';              
                 }
             }
@@ -115,19 +118,32 @@
             if(isset($_GET["idCat"])){
     
                 
-                $datos = $_GET["idCat"];
-    
-                $respuesta = ModeloCategorias::borrarCategoria($datos);
-    
-                if($respuesta == "ok"){
-    
+                $id = $_GET["idCat"];
+                
+                //verifica su integridad referencial
+                $valBorrado = ModeloProductos::mostrarProductos("categoriasid_cat",$id);
+                if($valBorrado!=false){
                     echo'<script>
-                            borradoExitoso("¡La categoria se borro correctamente!","categorias")
-                        </script>';
-                }else{
-                    echo'<script>
-                            borradoSinExito("¡No se logro borrar la categoria seleccionada!","categorias")
-                        </script>';
+                                var mensaje = "¡La categoria no se puede borrar porque otros registros la utilizan!"
+                                borradoErrorIntegridad(mensaje)
+                            </script>';
+                }
+                else{
+                    $respuesta = ModeloCategorias::borrarCategoria($id);
+        
+                    if($respuesta == "ok"){
+        
+                        echo'<script>
+                                var mensaje = "¡La categoria se borro correctamente!"
+                                var modulo = "categorias"
+                                borradoExitoso(mensaje,modulo)
+                            </script>';
+                    }else{
+                        echo'<script>
+                                var mensaje = "¡No se logro borrar la categoria seleccionada!"
+                                borradoSinExito(mensaje)
+                            </script>';
+                    }
                 }
             }
             
