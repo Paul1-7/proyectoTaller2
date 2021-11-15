@@ -24,6 +24,7 @@
                             $_SESSION["apellido"] = $datos["apellido"];
                             $_SESSION["foto"] = $datos["foto"];
                             $_SESSION["rol"] = $datos["rolesid_rol"];
+                            $_SESSION["id_user"] = $datos["id_user"];
 
                             //fecha del ultimo login
                             date_default_timezone_set('America/La_Paz');

@@ -142,10 +142,6 @@
             include "modulos/login.php";      
     ?>
     
-
-    
-    <!-- <script data-cfasync="false" src="..\..\..\cdn-cgi\scripts\5c5dd728\cloudflare-static\email-decode.min.js"></script><script type="text/javascript" src="views\bower_components\jquery\js\jquery.min.js"></script> -->
-    
     <!-- jquery slimscroll js -->
     <script type="text/javascript" src="views\bower_components\jquery-slimscroll\js\jquery.slimscroll.js"></script>
     <!-- modernizr js -->
@@ -196,15 +192,9 @@
     <script type="text/javascript" src="views\assets\js\personalizado\marcas.js"></script>
     <script type="text/javascript" src="views\assets\js\personalizado\productos.js"></script>
     <script type="text/javascript" src="views\assets\js\personalizado\clientes.js"></script>
-    <script type="text/javascript" src="views\assets\js\personalizado\plantilla.js"></script>
+    <script type="text/javascript" src="views\assets\js\personalizado\ventas.js"></script>
+    <script type="text/javascript" src="views\assets\js\personalizado\dataTable.js"></script>
     
-    <!-- jquery file upload js -->
-    <!-- <script src="views\assets\pages\jquery.filer\js\jquery.filer.min.js"></script>
-    <script src="views\assets\pages\filer\custom-filer.js" type="text/javascript"></script>
-    <script src="views\assets\pages\filer\jquery.fileuploads.init.js" type="text/javascript"></script> -->
-    
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script> -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}

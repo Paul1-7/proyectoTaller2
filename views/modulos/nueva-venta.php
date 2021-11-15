@@ -40,64 +40,55 @@
                                             <h4 class="text-center">Datos de la venta</h4>
                                         </div>
                                         <div class="card-block">
-                                            <form role="form" method="post">
+                                            <form role="form" method="post" class="formulario-venta">
                                                 <div class="row">
-                                                    <label class="col-sm-8 col-lg-3 col-form-label">Vendedor:</label>
-                                                    <div class="col-sm-12 col-lg-9">
+                                                    <label class="col-sm-8 col-lg-2 col-form-label">Vendedor:</label>
+                                                    <div class="col-sm-12 col-lg-8">
                                                         <div class=" row">
                                                             <div class="col-lg-1"></div>
                                                             <div class="input-group input-group-inverse col-lg-11">
                                                                 <input class="form-control input-md" type="text" name="nombresUser" value="<?php echo  $_SESSION["nombre"].' '. $_SESSION["apellido"]; ?>" readonly>
                                                                 <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
+                                                                <input type="hidden" name="idVendedor" value="<?php echo  $_SESSION["id_user"]?>">
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <label class="col-sm-8 col-lg-3 col-form-label">Fecha:</label>
-                                                    <div class="col-sm-12 col-lg-9">
+                                                    <label class="col-sm-8 col-lg-2 col-form-label">Fecha:</label>
+                                                    <div class="col-sm-12 col-lg-8">
                                                         <div class=" row">
                                                             <div class="col-lg-1"></div>
                                                             <div class="input-group input-group-inverse col-lg-11">
-                                                                <input class="form-control input-md" type="text" name="nombresUser" value="fecha actual" readonly>
+                                                                <?php 
+                                                                 date_default_timezone_set('America/La_Paz');
+
+                                                                 $fecha = date('Y-m-d');
+                                                                 $hora = date('H:i');
+                                                                    echo '<input class="form-control input-md" type="text" name="nombresUser" value="'.$fecha.'   '.$hora.'" readonly>';
+                                                                ?>
                                                                 <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont-clock-time"></i></span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <label class="col-sm-8 col-lg-3 col-form-label">Cliente:</label>
-                                                    <div class="col-sm-12 col-lg-9">
-                                                        <div class="input-group input-group-inverse">
-                                                            <button type="button" class="btn btn-danger " style="height:40px; width: 40px; padding: 0px;" >
-                                                                <i class="icofont-close icofont-2x" style="margin-left: auto; margin-right: auto;"></i>
-                                                            </button>
-                                                            <input class="form-control input-md" type="text" name="nombresUser" value="seleccione un cliente" readonly>
-                                                            <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
+                                                    <label class="col-sm-8 col-lg-2 col-form-label">Cliente:</label>
+                                                    <div class="col-sm-12 col-lg-8">
+                                                        <div class="row">
+                                                            <div class="col-lg-1"></div>
+                                                            <div class="input-group input-group-inverse venta-cliente col-lg-11">
+                                                                <input class="form-control input-md" type="text" id="ventaCliente" name="ventaCliente" value="seleccione un cliente" readonly>
+                                                                <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
+                                                            </div>
                                                         </div>
+                                                        
                                                     </div>
                                                 </div>
                                                 <hr>
                                                 <!-- entrada de productos -->
-                                                <div class="row">
-                                                    <div class="col-1 input-group input-group-inverse">
-                                                        <button type="button" class="btn btn-danger " style="height:40px; width: 45px; padding: 0px;" >
-                                                            <i class="icofont-close icofont-2x" style="margin-left: auto; margin-right: auto;"></i>
-                                                        </button>
-                                                        <!-- <input class="form-control input-md" style="margin-left: 0.5em;" type="text" name="nombresUser" value="producto" readonly>
-                                                        <input class="form-control input-sm" style="margin-left: 0.5em; width: 0.5em;" type="number" min="1" name="nombresUser" value="">
-                                                        <input class="form-control input-md" style="margin-left: 0.5em;" type="text" name="nombresUser" value="subtotal" readonly> -->
-                                                    </div>
-                                                    <div class="col-lg-6 input-group input-group-inverse" style="padding: 0px 0px 0px 5px;">
-                                                        <input class="form-control input-lg" type="text" name="nombresUser" value="producto" readonly>
-                                                    </div>
-                                                    <div class="col-lg-2 input-group input-group-inverse" style="padding: 0px 0px 0px 5px;">
-                                                        <input class="form-control input-md" type="number" name="nombresUser" value="" min="1" >
-                                                    </div>
-                                                    <div class="col-lg-2 input-group input-group-inverse" style="padding: 0px 0px 0px 5px;">
-                                                        <input class="form-control input-md" type="text" name="nombresUser" value="precio" readonly>                                                      
-                                                    </div>              
-                                                   
+                                                <div class="row venta-productos">
+                                                    
                                                 </div>
                                                 <!-- entrada para impuestos y total -->
                                                 <div class="row ">
@@ -126,7 +117,7 @@
                                                 </div> 
                                                 <div class="row">
                                                     <div class="col-lg-6">
-                                                        <button type="button" style="margin-left: 191.875px;" class="btn btn-danger btn-md">Cancelar</button>
+                                                        <a class="btn btn-danger btn-md" style="margin-left: 191.875px;" href="ventas">Cancelar</a>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <button type="submit" style="margin-right: 191.875px;" class="btn btn-primary btn-md ">Guardar</button>
@@ -170,7 +161,7 @@
                                                                             echo '
                                                                                 <td style="width:100px">
                                                                                     
-                                                                                        <button type="button" class="btn btn-primary "  >
+                                                                                        <button type="button" class="btn btn-primary agregar-cliente" idCliente="'.$value["id_cliente"].'" >
                                                                                             Agregar
                                                                                         </button>
                                                                                         
@@ -197,6 +188,7 @@
                                                                 <th>Imagen</th>
                                                                 <th>Producto</th>
                                                                 <th>Stock</th>
+                                                                <th>Precio(Bs.)</th>
                                                                 <th>Acción</th>
                                                             </tr>
                                                         </thead>
@@ -213,12 +205,13 @@
                                                                             <td></td>
                                                                             <td><img src="'.$value["imagen_prod"].'" alt="img del producto" class="img-thumbnail" width="35px"></td>
                                                                             <td>'.$value["nombre_prod"].'</td>
-                                                                            <td>'.$value["stock_prod"].'</td>';
+                                                                            <td>'.$value["stock_prod"].'</td>
+                                                                            <td>'.$value["precio_venta"].'</td>';
         
                                                                             echo '
                                                                                 <td style="width:100px">
                                                                                     
-                                                                                        <button type="button" class="btn btn-primary "  >
+                                                                                        <button type="button" class="btn btn-primary agregar-producto recuperar-boton" idProducto="'.$value["id_prod"].'" >
                                                                                             Agregar
                                                                                         </button>
                                                                                         

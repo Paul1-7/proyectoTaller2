@@ -87,3 +87,22 @@ function borradoErrorIntegridad(mensaje){
         "Puede cambiar el estado del registro para que no aparezcan en las listas",
         "warning");
 }
+
+
+//venta
+function msgNoStock(){
+    swal({
+        title: "No hay stock disponible",
+        type: "error",
+        confirmButtonText: "¡Cerrar!"
+      });
+}
+
+function msgCantidadSuperaStock(stock){
+    swal({
+        title: "La cantidad supera el Stock",
+        text: "¡Sólo hay "+stock+" unidades!",
+        type: "error",
+        confirmButtonText: "¡Cerrar!"
+      });
+}
