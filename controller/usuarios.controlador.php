@@ -233,7 +233,7 @@
                         $encriptar = $_POST["passwordUserEditActual"];
     
                     }
-         
+                    
                     $datos = array("id_user"=>$id,
                                    "nombre" => $nombres,
                                    "apellido"=> $apellidos,

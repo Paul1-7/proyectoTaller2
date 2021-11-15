@@ -10,12 +10,10 @@
                 $stmt -> execute();
                 return $stmt -> fetch();
             }else{
-
                 $stmt = Conexion::conectar()->prepare("SELECT * FROM categorias");
                 $stmt -> execute();
                 //print_r($stmt->errorInfo());
-                return $stmt -> fetchAll();
-                
+                return $stmt -> fetchAll();    
             }
             
         }

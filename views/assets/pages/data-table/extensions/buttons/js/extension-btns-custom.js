@@ -166,6 +166,7 @@ $(document).ready(function() {
             }
         }]
     });
+    
     $('#class-btn').DataTable({
         dom: 'Bfrtip',
         buttons: [{
