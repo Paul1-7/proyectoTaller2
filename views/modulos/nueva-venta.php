@@ -47,7 +47,7 @@
                                                         <div class=" row">
                                                             <div class="col-lg-1"></div>
                                                             <div class="input-group input-group-inverse col-lg-11">
-                                                                <input class="form-control input-md" type="text" name="nombresUser" value="<?php echo  $_SESSION["nombre"].' '. $_SESSION["apellido"]; ?>" readonly>
+                                                                <input class="form-control input-md" type="text" value="<?php echo  $_SESSION["nombre"].' '. $_SESSION["apellido"]; ?>" readonly>
                                                                 <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
                                                                 <input type="hidden" name="idVendedor" value="<?php echo  $_SESSION["id_user"]?>">
                                                             </div>
@@ -65,7 +65,7 @@
 
                                                                  $fecha = date('Y-m-d');
                                                                  $hora = date('H:i');
-                                                                    echo '<input class="form-control input-md" type="text" name="nombresUser" value="'.$fecha.'   '.$hora.'" readonly>';
+                                                                    echo '<input class="form-control input-md" type="text" name="fechaVenta" id="fechaVenta" value="'.$fecha.'   '.$hora.'" readonly>';
                                                                 ?>
                                                                 <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont-clock-time"></i></span>
                                                             </div>
@@ -78,8 +78,9 @@
                                                         <div class="row">
                                                             <div class="col-lg-1"></div>
                                                             <div class="input-group input-group-inverse venta-cliente col-lg-11">
-                                                                <input class="form-control input-md" type="text" id="ventaCliente" name="ventaCliente" value="seleccione un cliente" readonly>
+                                                                <input class="form-control input-md" type="text" id="ventaCliente"  value="seleccione un cliente" idCliente="" readonly>
                                                                 <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
+                                                                <input type="hidden" name="idCliente" id="idCliente" value="">
                                                             </div>
                                                         </div>
                                                         
@@ -88,7 +89,7 @@
                                                 <hr>
                                                 <!-- entrada de productos -->
                                                 <div class="row venta-productos">
-                                                    
+                                                    <input type="hidden" id="listaProd" name="listaProd" value="">
                                                 </div>
                                                 <!-- entrada para impuestos y total -->
                                                 <div class="row">
@@ -96,7 +97,7 @@
                                                             
                                                         <div class="col-lg-6">
                                                             <div class="border-checkbox-group border-checkbox-group-default col-md-8 ml-auto">
-                                                                <input class="border-checkbox" type="checkbox" id="checkbox0">
+                                                                <input class="border-checkbox" type="checkbox" name="aplicarIva" id="aplicarIva" checked>
                                                                 <label class="border-checkbox-label" for="checkbox0">Aplicar IVA</label>
                                                             </div>
                                                         </div>
@@ -123,16 +124,13 @@
                                                                         </td>
                                                                         <td style="padding: 0%;">
                                                                             <div class="input-group input-group-inverse">
-                                                                                <input type="text" class="form-control form-control-sm" style="margin: 0px;"id="nuevoTotalVenta" name="nuevoTotalVenta" placeholder="0 Bs." readonly >
-                                                                                <input type="hidden" name="totalVenta" id="totalVenta">
+                                                                                <input type="text" class="form-control form-control-sm" style="margin: 0px;"id="nuevoTotalVenta"  value="0.00 Bs." readonly >
                                                                             </div>
                                                                             <div class="input-group input-group-inverse">
-                                                                                <input type="text" class="form-control form-control-sm" style="margin: 0px;" id="totalImpuesto" name="totalImpuesto" value=""  placeholder="0 Bs." readonly >
-                                                                                <!-- <input type="hidden" name="totalImpuesto" id="totalImpuesto"> -->
+                                                                                <input type="text" class="form-control form-control-sm" style="margin: 0px;" id="totalImpuesto" value="0.00 Bs." readonly >
                                                                             </div>
                                                                             <div class="input-group input-group-inverse">
-                                                                                <input type="text" class="form-control form-control-sm" style="margin: 0px;" id="totalConIVA" name="totalConIVA" placeholder="0 Bs." readonly>
-                                                                                <input type="hidden" name="totalVenta" id="totalVenta">
+                                                                                <input type="text" class="form-control form-control-sm" style="margin: 0px;" id="totalConIVA" value="0.00 Bs." readonly>
                                                                             </div>
                                                                         </td>
                                                                     </tr>
@@ -146,7 +144,7 @@
                                                         <a class="btn btn-danger btn-md" style="margin-left: 191.875px;" href="ventas">Cancelar</a>
                                                     </div>
                                                     <div class="col-lg-6">
-                                                        <button type="submit" style="margin-right: 191.875px;" class="btn btn-primary btn-md ">Guardar</button>
+                                                        <button type="submit" style="margin-right: 191.875px;" class="btn btn-primary btn-md guardar">Guardar</button>
                                                     </div>
                                                 </div>
                                             </form>

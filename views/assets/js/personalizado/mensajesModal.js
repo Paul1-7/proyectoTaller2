@@ -106,3 +106,12 @@ function msgCantidadSuperaStock(stock){
         confirmButtonText: "¡Cerrar!"
       });
 }
+
+function msgDatosIncompletos(msg){
+    swal({
+        title: "No se puede realizar la venta",
+        text: msg,
+        type: "error",
+        confirmButtonText: "¡Cerrar!"
+      });
+}
