@@ -91,28 +91,54 @@
                                                     
                                                 </div>
                                                 <!-- entrada para impuestos y total -->
-                                                <div class="row ">
-                                                    <div class="col-lg-4"></div>
-                                                    <div class="col-lg-8 "> 
-                                                        <table class="table">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Total</th>      
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>                                                 
-                                                                <tr>  
-                                                                    <td >
-                                                                        <div class="input-group input-group-inverse">
-                                                                            <input type="text" class="form-control input-lg" id="nuevoTotalVenta" name="nuevoTotalVenta" total="" placeholder="00000" readonly required>
-                                                                            <span class="input-group-addon">Bs.</span>
-                                                                            <input type="hidden" name="totalVenta" id="totalVenta">
-                                                                        </div>
-
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
+                                                <div class="row">
+                                                    <div class="row col">
+                                                            
+                                                        <div class="col-lg-6">
+                                                            <div class="border-checkbox-group border-checkbox-group-default col-md-8 ml-auto">
+                                                                <input class="border-checkbox" type="checkbox" id="checkbox0">
+                                                                <label class="border-checkbox-label" for="checkbox0">Aplicar IVA</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 ">                                                         
+                                                            <table class="table display compact">
+                                                                <thead>
+                                                                    <tr>
+                                                                            
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>                                                 
+                                                                    <tr>  
+                                                                        <td style="padding: 0%;" >
+                                                                            <div class="input-group input-group-inverse">
+                                                                                <label style="padding-right: 10px;">Total libre de impuestos</label>
+                                                                                
+                                                                            </div>
+                                                                            <div class="input-group input-group-inverse">
+                                                                                <label for="">IVA 13%</label>
+                                                                            </div>
+                                                                            <div class="input-group input-group-inverse">
+                                                                                <label for="">Total</label>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td style="padding: 0%;">
+                                                                            <div class="input-group input-group-inverse">
+                                                                                <input type="text" class="form-control form-control-sm" style="margin: 0px;"id="nuevoTotalVenta" name="nuevoTotalVenta" placeholder="0 Bs." readonly >
+                                                                                <input type="hidden" name="totalVenta" id="totalVenta">
+                                                                            </div>
+                                                                            <div class="input-group input-group-inverse">
+                                                                                <input type="text" class="form-control form-control-sm" style="margin: 0px;" id="totalImpuesto" name="totalImpuesto" value=""  placeholder="0 Bs." readonly >
+                                                                                <!-- <input type="hidden" name="totalImpuesto" id="totalImpuesto"> -->
+                                                                            </div>
+                                                                            <div class="input-group input-group-inverse">
+                                                                                <input type="text" class="form-control form-control-sm" style="margin: 0px;" id="totalConIVA" name="totalConIVA" placeholder="0 Bs." readonly>
+                                                                                <input type="hidden" name="totalVenta" id="totalVenta">
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
                                                     </div>
                                                 </div> 
                                                 <div class="row">
@@ -188,7 +214,7 @@
                                                                 <th>Imagen</th>
                                                                 <th>Producto</th>
                                                                 <th>Stock</th>
-                                                                <th>Precio(Bs.)</th>
+                                                                <th>Precio</th>
                                                                 <th>Acción</th>
                                                             </tr>
                                                         </thead>
@@ -206,7 +232,7 @@
                                                                             <td><img src="'.$value["imagen_prod"].'" alt="img del producto" class="img-thumbnail" width="35px"></td>
                                                                             <td>'.$value["nombre_prod"].'</td>
                                                                             <td>'.$value["stock_prod"].'</td>
-                                                                            <td>'.$value["precio_venta"].'</td>';
+                                                                            <td>'.$value["precio_venta"].' Bs.</td>';
         
                                                                             echo '
                                                                                 <td style="width:100px">
