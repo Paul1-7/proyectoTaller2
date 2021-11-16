@@ -148,6 +148,10 @@
                                                     </div>
                                                 </div>
                                             </form>
+                                            <?php
+                                                $nuevaVenta = new ControladorVentas();
+                                                $nuevaVenta -> nuevaVenta();
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
