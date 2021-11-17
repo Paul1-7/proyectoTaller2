@@ -95,7 +95,7 @@ $(".tabla-seleccion-productos").on("click", ".agregar-producto", function(){
 						'<input class="form-control input-lg" type="text" value="'+nombreProd+'" readonly>'+
 					'</div>'+
 					'<div class="col-lg-2 input-group input-group-inverse" style="padding: 0px 0px 0px 5px;">'+
-						'<input class="form-control input-md actualizar-cantidad" type="number"   value="1" min="1" >'+
+						'<input class="form-control input-md actualizar-cantidad" type="number" stock="'+stockProd+'"   value="1" min="1" >'+
 					'</div>'+
 					'<div class="col-lg-2 input-group input-group-inverse div-subtotal" style="padding: 0px 0px 0px 5px;">'+
 						'<input class="form-control subtotal" type="text"  id="subtotal" precioReal="'+precioProd+'" value="'+precioProd+' Bs." readonly>                                                      '+

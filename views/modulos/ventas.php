@@ -48,13 +48,11 @@
                                         <thead>
                                             <tr>
                                                 <th></th>
-                                                <th>Nombre</th>
-                                                <th>apellido</th>
-                                                <th>C.I.</th>
-                                                <th>telefono</th>
-                                                <th>direccion</th>
-                                                <th>estado</th>
-                                                <th>fecha</th>
+                                                <th style="width: 25px;">Codigo de factura</th>
+                                                <th>Cliente</th>
+                                                <th>Vendedor</th>
+                                                <th>Fecha de venta</th>
+                                                <th>total</th>
                                                 <th>acciones</th>
                                             </tr>
                                         </thead>
@@ -63,33 +61,30 @@
                                                 $item = null;
                                                 $valor = null;
                                         
-                                                $clientes = ControladorClientes::listarClientes($item, $valor);
+                                                $clientes = ControladorVentas::listarVentas($item, $valor);
 
                                                 foreach ($clientes as $key => $value){
         
                                                     echo ' <tr>
                                                             <td></td>
-                                                            <td>'.$value["nombres_cl"].'</td>
-                                                            <td>'.$value["apellidos_cl"].'</td>
-                                                            <td>'.$value["ci_cl"].'</td>
-                                                            <td>'.$value["tel_cl"].'</td>
-                                                            <td>'.$value["direccion_cl"].'</td>
-                                                            <td>'.$value["fecha_cl"].'</td>';
+                                                            <td>'.$value["id_venta"].'</td>
+                                                            <td>'.$value["cliente"].'</td>
+                                                            <td>'.$value["vendedor"].'</td>
+                                                            <td>'.$value["fecha_venta"].'</td>
+                                                            <td>'.$value["total_venta"].' Bs.</td>';
                                                             
-                                                            
-                                                            if($value["estado_cl"] != 0)
-                                                                echo '<td style="width:120px"><label class="badge badge-md badge-success" >Habilitado</label></td>';
-                                                            else
-                                                                echo '<td style="width:120px"><label class="badge badge-md badge-warning" >Deshabilitado</label></td>';
                                                             
                                                             echo '
                                                                 <td style="width:100px">
                                                                     
-                                                                        <button type="button" class="btn btn-primary btn-icon  btn-outline-default waves-effect md-trigger btnModificarCl" idCl="'.$value["id_cliente"].'" data-modal="modalModificarCliente"  >
-                                                                            <i class="icofont icofont-pen-alt-4"></i>
+                                                                        <button type="button" class="btn btn-primary btn-icon   btnEliminarCl" idVenta="'.$value["id_venta"].'" >
+                                                                            <i class="icofont-papers"></i>
                                                                         </button>
-                                                                        <button type="button" class="btn btn-danger btn-icon   btnEliminarCl" idCl="'.$value["id_cliente"].'" >
-                                                                            <i class="icofont-ui-delete"></i>
+                                                                        <button type="button" class="btn btn-success btn-icon   btnEliminarCl" idVenta="'.$value["id_venta"].'" >
+                                                                            <i class="icofont-download"></i>
+                                                                        </button>
+                                                                        <button type="button" class="btn btn-warning btn-icon   btnEliminarCl" idCl="'.$value["id_venta"].'" >
+                                                                            <i class="icofont icofont-pen-alt-4"></i>
                                                                         </button>
                                                                 </td>
                                                         </tr>';
