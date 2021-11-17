@@ -213,7 +213,7 @@ $(".formulario-venta").on("change", "#aplicarIva", function(){
 })
 
 //verifica si no faltan datos
- $(document).on('submit', 'form', function(e){
+ $(document).on('submit', '.formulario-venta', function(e){
 	 cliente = $("#idCliente").val();
 	 if(listaProductos.length==0 || cliente==-1){
      	e.preventDefault();

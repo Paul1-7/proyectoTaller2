@@ -40,7 +40,7 @@
                     </a>
                 </li>
                 <li class=" " id="dosificacion-facturas">
-                    <a href="dosificacion-facturas">
+                    <a id="dosificacion-facturas" href="dosificacion-facturas">
                         <span class="pcoded-mtext">Datos de dosificación de facturas</span>
                     </a>
                 </li>

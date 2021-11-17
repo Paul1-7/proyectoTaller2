@@ -3,7 +3,6 @@ nombreMarca ="";
 $(document).on("click", ".btnEditarMarca", function(){
 
 	var idMarca = $(this).attr("idMarca");
-	console.log(idMarca);
 	var datos = new FormData();
 	datos.append("idMarca", idMarca);
 

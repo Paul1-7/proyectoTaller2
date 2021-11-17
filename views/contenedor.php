@@ -193,8 +193,8 @@
     <script type="text/javascript" src="views\assets\js\personalizado\productos.js"></script>
     <script type="text/javascript" src="views\assets\js\personalizado\clientes.js"></script>
     <script type="text/javascript" src="views\assets\js\personalizado\ventas.js"></script>
+    <script type="text/javascript" src="views\assets\js\personalizado\dosificacion-facturas.js"></script>
     <script type="text/javascript" src="views\assets\js\personalizado\dataTable.js"></script>
-    
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}

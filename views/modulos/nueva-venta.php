@@ -147,11 +147,11 @@
                                                         <button type="submit" style="margin-right: 191.875px;" class="btn btn-primary btn-md guardar">Guardar</button>
                                                     </div>
                                                 </div>
-                                            </form>
                                             <?php
                                                 $nuevaVenta = new ControladorVentas();
                                                 $nuevaVenta -> nuevaVenta();
                                             ?>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

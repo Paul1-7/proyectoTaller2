@@ -39,42 +39,46 @@
                             <h4 class="text-center">Parametros de control</h4>
                             </div>
                             <div class="card-block">
-                                <div class="row">
-                                    <label class="col-sm-8 col-lg-2 col-form-label">Número de autorización:</label>
-                                    <div class="col-lg-5 input-group input-group-inverse">
-                                        <input class="form-control input-md" type="text" value="<?php echo  $_SESSION["nombre"].' '. $_SESSION["apellido"]; ?>" >
+                                <form role="form" method="post">
+                                    <div class="row">
+                                        <label class="col-sm-8 col-lg-2 col-form-label">Número de autorización:</label>
+                                        <div class="col-lg-5 input-group input-group-inverse">
+                                            <input class="form-control input-md" type="text" name="numAutorizacion" id="numAutorizacion" value="" >
                                             <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
-                                        <input type="hidden" name="idVendedor" value="<?php echo  $_SESSION["id_user"]?>">
+                                        </div>
+                                        <label class="col-sm-8 col-lg-2 col-form-label">Número de factura inicial:</label>
+                                        <div class="col-lg-3 input-group input-group-inverse">
+                                            <input class="form-control input-md" type="text" name="numFactInicial" id="numFactInicial" value="" >
+                                                <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
+                                        </div>
                                     </div>
-                                    <label class="col-sm-8 col-lg-2 col-form-label">Número de factura inicial:</label>
-                                    <div class="col-lg-3 input-group input-group-inverse">
-                                        <input class="form-control input-md" type="text" value="<?php echo  $_SESSION["nombre"].' '. $_SESSION["apellido"]; ?>" >
+                                    <div class="row">
+                                        <label class="col-sm-8 col-lg-2 col-form-label">Llave de dosificación:</label>
+                                        <div class="col-lg-10 input-group input-group-inverse">
+                                            <input class="form-control input-md" type="text" name="llaveDosificacion" id="llaveDosificacion" value="" >
                                             <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
-                                        <input type="hidden" name="idVendedor" value="<?php echo  $_SESSION["id_user"]?>">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-sm-8 col-lg-2 col-form-label">Llave de dosificación:</label>
-                                    <div class="col-lg-10 input-group input-group-inverse">
-                                        <input class="form-control input-md" type="text" value="<?php echo  $_SESSION["nombre"].' '. $_SESSION["apellido"]; ?>" >
-                                            <span class="input-group-addon" style="height:40px; margin-top:0; color:white; background-color:#404e67 !important;"><i class="icofont icofont-user-alt-4"></i></span>
-                                        <input type="hidden" name="idVendedor" value="<?php echo  $_SESSION["id_user"]?>">
+                                    <div class="row">
+                                        <label class="col-sm-8 col-lg-2 col-form-label">Fecha límite de emisión:</label>
+                                        <div class="col-lg-5 input-group input-group-inverse">
+                                            <input class="form-control" name="FechaLimiteEmision" id="FechaLimiteEmision" type="date">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-sm-8 col-lg-2 col-form-label">Fecha límite de emisión:</label>
-                                    <div class="col-lg-5 input-group input-group-inverse">
-                                        <input class="form-control" type="date">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-auto col-md-4 m-auto">
+                                            <a class="btn btn-danger btn-md" style="margin-right: 1em;"  href="dashboard">Cancelar</a>
+                                            <button type="submit" class="btn btn-primary btn-md guardar">Guardar</button>
+                                        </div>
+                                        
                                     </div>
-                                </div>
-                                <div class="row align-items-center">
-                                    <div class="col-lg-auto col-md-4 m-auto">
-                                        <a class="btn btn-danger btn-md" style="margin-right: 1em;"  href="dashboard">Cancelar</a>
-                                        <button type="submit" class="btn btn-primary btn-md guardar">Guardar</button>
-                                    </div>
-                                    
-                                </div>
+                                    <?php
+                                        $modificarDosificacion = new ControladorDosificacionFacturas();
+                                        $modificarDosificacion -> modificarDosificacionFacturas();
+                                    ?>
+                                </form>
                             </div>
+                           
                         </div>
                     </div>
                 </div>
