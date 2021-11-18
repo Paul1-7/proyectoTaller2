@@ -76,21 +76,25 @@
                                                             
                                                             echo '
                                                                 <td style="width:100px">
-                                                                    
-                                                                        <button type="button" class="btn btn-primary btn-icon   btnEliminarCl" idVenta="'.$value["id_venta"].'" >
-                                                                            <i class="icofont-papers"></i>
-                                                                        </button>
-                                                                        <button type="button" class="btn btn-success btn-icon   btnEliminarCl" idVenta="'.$value["id_venta"].'" >
+                                                                        <a href="index.php?ruta=detalle-venta&idVenta='.$value["id_venta"].'"  >
+                                                                            <button class="btn btn-primary btn-icon ">
+                                                                                <i class="icofont-papers""></i>
+                                                                            </button>
+                                                                        </a>
+                                                                        <button type="button" class="btn btn-success btn-icon " idVenta="'.$value["id_venta"].'" >
                                                                             <i class="icofont-download"></i>
                                                                         </button>
-                                                                        <button type="button" class="btn btn-warning btn-icon   btnEliminarCl" idCl="'.$value["id_venta"].'" >
-                                                                            <i class="icofont icofont-pen-alt-4"></i>
-                                                                        </button>
+                                                                        
+                                                                        <a href="detalle-venta"  idVenta="'.$value["id_venta"].'" >
+                                                                            <button class="btn btn-warning btn-icon ">
+                                                                                <i class="icofont icofont-pen-alt-4"></i>
+                                                                            </button>
+                                                                        </a>
                                                                 </td>
                                                         </tr>';
                                                 }
                                             ?>
-                                        </tbody>
+                                        </tbody><a href="" ></a>
                                     </table>
                                 </div>
 

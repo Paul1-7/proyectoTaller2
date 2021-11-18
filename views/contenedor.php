@@ -113,6 +113,7 @@
                 $_GET["ruta"]== "usuarios" ||
                 $_GET["ruta"]== "ventas" ||
                 $_GET["ruta"]== "nueva-venta" ||
+                $_GET["ruta"]== "detalle-venta" ||
                 $_GET["ruta"]== "salir"
                 ){
                     echo '<div id="pcoded" class="pcoded">
