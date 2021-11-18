@@ -17,7 +17,23 @@
             }
             
         }
-        
+        static public function mostrarDetalleVentas($id){
+            if($id != null){
+                $stmt = Conexion::conectar()->prepare("SELECT nombre,apellido,nombres_cl,apellidos_cl,tel_cl,direccion_cl,id_venta,
+                fecha_venta,total_venta,cantidad_det_venta,subtotal_det_venta,imagen_prod,nombre_prod,precio_venta
+                FROM productos,detalle_ventas,ventas,clientes,usuarios 
+                WHERE id_prod=productosid_prod AND  ventasid_venta=:ventasid_venta AND id_venta=:id_venta 
+                AND id_cliente=clientesid_cliente AND usuariosid_user=id_user");
+                $stmt -> bindParam(":ventasid_venta", $id, PDO::PARAM_STR);
+                $stmt -> bindParam(":id_venta", $id, PDO::PARAM_STR);
+                $stmt -> execute();
+                return $stmt -> fetchAll();
+            }else{
+                return;    
+            }
+            
+        }
+
         static public function nuevaVenta($datos){
     
             $stmt = Conexion::conectar()->prepare("INSERT INTO ventas VALUES (:id_venta, :fecha_venta,:total_venta,:usuariosid_user,:clientesid_cliente)");

@@ -150,7 +150,11 @@
             return $respuesta;
         }
         
-        
+        static public function listarDetalleVentas($id){
+            $respuesta = ModeloVentas::mostrarDetalleVentas($id);
+            return $respuesta;
+        }
+
         static public function modificarCliente(){
             if(isset($_POST["nombreEditCl"])){
 

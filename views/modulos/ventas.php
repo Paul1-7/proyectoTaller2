@@ -76,7 +76,7 @@
                                                             
                                                             echo '
                                                                 <td style="width:100px">
-                                                                        <a href="index.php?ruta=detalle-venta&idVenta='.$value["id_venta"].'"  >
+                                                                        <a href="index.php?ruta=detalle-venta&idventa='.$value["id_venta"].'"  >
                                                                             <button class="btn btn-primary btn-icon ">
                                                                                 <i class="icofont-papers""></i>
                                                                             </button>
